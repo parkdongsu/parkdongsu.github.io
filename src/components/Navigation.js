@@ -23,24 +23,28 @@ export default Navigation;
 const Nav = styled.nav`
 display: flex;
 justify-content: space-between;
-background-color: gray;
+background-color: black;
+opacity: 0.4;
 width: 100%;
 padding: 8px;
 position: fixed;
 z-index: 1;
-margin-bottom: 100px;
 `
 const Nav__logo = styled.div`
-`
-const Image = styled.img`
 width:50px;
 height:50px;
+`
+const Image = styled.img`
+width:100%;
+height:100%;
 `
 const Nav__menu = styled.ul`
 list-style: none;
 padding-left: 0px;
 display: flex;
 margin: 0 20px;
+font-family: 'Balsamiq Sans', cursive;
+font-family: 'Rubik', sans-serif;
 `
 const Li = styled.li`
 padding: 8px 12px;
