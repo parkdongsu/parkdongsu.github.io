@@ -12,7 +12,7 @@ const Home = () =>{
     const profileItems = ['NAME','AGE','E-mail','ADDRESS','CAREER']
     const profileValues = ['박동수','28','dongsu2005@naver.com','경기도 수원시','아주대학교 의료원 2018.07 ~']
     
-    const skillItems = ['Frontend',"Backend"]
+    const skillItems = ['Frontend',"Backend","Database"]
     const skillValues = {
             "Frontend":[
                 "html",
@@ -23,9 +23,12 @@ const Home = () =>{
             "Backend":[
                 "nodejs",
                 "python"
+            ],
+            "Database":[
+                "mssql",
+                "postgresql"
             ]
         }
-    // [['html',"css","javascript","react"],['nodejs',"python"]]
     
 
     useEffect(() =>{
@@ -81,23 +84,38 @@ const Home = () =>{
                 </Profile>
                 <Skill>
                     <Skill__title>Skill</Skill__title>
-                        {/* {skillItems.map((item)=>{
-                            skillValues[item].map((value)=>{
-                                return (
-                                    <Skill__details>
-                                        <Skill__items>
-                                            <Skill__item>{item}</Skill__item>
-                                        </Skill__items>
-                                        <Skill__values>{value}</Skill__values>
-                                    </Skill__details>
-                                )
-                            })
-                        })} */}
+                        {skillItems.map((item)=>{
+                            return (
+                                <Skill__details>
+                                    <Skill__items>
+                                        <Skill__item>{item}</Skill__item>
+                                    </Skill__items>
+                                    <SkillContainer>
+                                        {
+                                            skillValues[item].map((value) =>{
+                                                let imgPath = `/images/${value}.png`
+                                                return (
+                                                    <Skill__values src={imgPath}/>
+                                                )
+                                            })
+                                        }
+                                    </SkillContainer>
+                                </Skill__details>
+                            )
+                        })}
                 </Skill>
             </AboutContainer>
         </Section>
-        <Section id="Blog"></Section>
-        <Section id="Contact"></Section>
+        <Section id="Blog">
+            <BlogContainer>
+                <Blog__title>Blog</Blog__title>
+            </BlogContainer>
+        </Section>
+        <Section id="Contact">
+            <ContactContainer>
+                <Contact__title>Contact</Contact__title>
+            </ContactContainer>
+        </Section>
         </>
     )
 }
@@ -107,10 +125,10 @@ const Home = () =>{
 export default Home;
 
 const Section = styled.section`
-height: 700px;
+height: 900px;
 `
 const HomeContainer = styled.div`
-padding-top: 400px;
+padding-top: 600px;
 margin-left: 30px;
 `
 const blinkingEffect = () => {
@@ -148,7 +166,7 @@ font-family: 'Rubik', sans-serif;
 const AboutContainer = styled.div`
 display:flex;
 justify-content: space-between;
-margin-left: 20px;
+margin-left: 30px;
 `
 const Profile__title = styled.h3`
 font-size: 40px;
@@ -185,5 +203,29 @@ const Skill__items = styled.div`
 `
 const Skill__item = styled.h4`
 `
-const Skill__values = styled.div`
+const Skill__values = styled.img`
+width:50px;
+height:50px;
+margin-right: 15px;
+`
+const SkillContainer = styled.div`
+display: flex;
+`
+
+//Blog
+const BlogContainer = styled.h3`
+margin-left: 30px;
+`
+const Blog__title = styled.div`
+font-size: 40px;
+font-weight: 600;
+`
+
+//Contact
+const ContactContainer = styled.div`
+margin-left: 30px;
+`
+const Contact__title = styled.div`
+font-size: 40px;
+font-weight: 600;
 `
