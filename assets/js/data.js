@@ -12,11 +12,11 @@ window.PORTFOLIO = {
     tagline:
       "병원·헬스케어 도메인에서 인프라, 데이터 파이프라인, 웹 서비스를 설계하고 운영해 왔습니다.",
     intro: [
-      "2018년 아주대학교 의료원 의료정보학과에서 서버·DB·분석 환경 운영과 국책 과제 개발로 커리어를 시작했고, 2023년부터 파이 디지털 헬스케어에서 의료 데이터 플랫폼, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT), FHIR 변환 시스템(FHIRMate) 등의 설계·개발·운영을 맡고 있습니다.",
+      "2018년 아주대학교 의료원 의료정보학과에서 서버·DB·분석 환경 운영과 국책 과제 개발로 커리어를 시작했고, 2022년 11월부터 파이 디지털 헬스케어에서 의료 데이터 플랫폼, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT), FHIR 변환 시스템(FHIRMate) 등의 설계·개발·운영을 맡고 있습니다.",
       "온프레미스 서버실부터 AWS·GPU 서버까지 인프라를 직접 구축하고, Docker·Airflow·ELK·Grafana 같은 오픈소스를 조합해 실제 운영되는 시스템을 만드는 일을 좋아합니다."
     ],
     email: "dongsu2005@naver.com",
-    location: "경기도 수원시",
+    location: "경기도 광명시",
     github: "https://github.com/parkdongsu",
     careerStart: "2018.07"
   },
@@ -36,14 +36,14 @@ window.PORTFOLIO = {
     {
       org: "파이 디지털 헬스케어",
       role: "System Engineer / Backend Developer",
-      period: "2023.01 ~ 현재",
+      period: "2022.11 ~ 현재",
       summary:
         "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT) 및 FHIR 변환 시스템(FHIRMate) 설계·개발, GPU 서버 및 클라우드 인프라 구축"
     },
     {
       org: "아주대학교 의료원 의료정보학과",
       role: "System Engineer",
-      period: "2018.07 ~ 2022.12",
+      period: "2018.07 ~ 2022.10",
       summary:
         "서버실 인프라·DB·분석 환경 운영, 모니터링 시스템 구축, 국책 과제(연구 중심 병원, 산자부) 플랫폼 및 툴 개발"
     }
@@ -289,7 +289,7 @@ window.PORTFOLIO = {
       id: "server-ops",
       org: "ajou",
       title: "학과 서버실 인프라 구축·운영",
-      period: "2018.07 ~ 2022.12",
+      period: "2018.07 ~ 2022.10",
       category: ["Infra"],
       summary:
         "약 20대의 Windows·Ubuntu 서버와 NAS·SAN·iSCSI 스토리지, 스위치 등 서버실 전 장비의 설치·환경 세팅·운영을 담당.",
