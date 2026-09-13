@@ -11,7 +11,7 @@ assets/css/style.css      # 스타일 (라이트/다크 테마, 반응형)
 assets/js/data.js         # 프로필 · 스킬 · 경력 · 프로젝트 데이터
 assets/js/main.js         # 렌더링, 필터, 프로젝트 상세 모달, 해시 라우팅
 assets/images/            # 로고, 배경 이미지, 아이콘
-.github/workflows/deploy.yml  # GitHub Pages 배포 워크플로
+.nojekyll                 # GitHub Pages에서 Jekyll 처리 건너뛰기
 ```
 
 ## 과업(프로젝트) 추가·수정
@@ -42,8 +42,11 @@ python3 -m http.server 8080
 
 ## GitHub Pages 배포
 
-1. GitHub 저장소 **Settings → Pages → Build and deployment → Source** 를 **GitHub Actions** 로 선택합니다.
-2. `main` 브랜치에 push 하면 `.github/workflows/deploy.yml` 이 자동으로 배포합니다.
-3. 배포 주소: `https://parkdongsu.github.io/portfolio/`
+정적 파일이 저장소 루트에 있어 별도 빌드 없이 브랜치에서 바로 게시됩니다.
 
-> 저장소 이름을 `parkdongsu.github.io` 로 바꾸면 `https://parkdongsu.github.io/` 루트 주소로 서비스됩니다. 모든 경로가 상대 경로라 별도 수정 없이 동작합니다.
+- **사용자 사이트로 게시 (권장)**: 저장소 이름을 `parkdongsu.github.io` 로 바꾸면 GitHub이 `main` 브랜치를 자동으로 게시합니다.
+  주소: `https://parkdongsu.github.io/`
+- **프로젝트 사이트로 게시**: Settings → Pages → Build and deployment → Source 를 **Deploy from a branch**, Branch 를 `main` / `/ (root)` 로 선택합니다.
+  주소: `https://parkdongsu.github.io/portfolio/`
+
+모든 경로가 상대 경로라 두 방식 모두 수정 없이 동작합니다. 게시 후 `main` 에 push 하면 자동으로 반영됩니다.
