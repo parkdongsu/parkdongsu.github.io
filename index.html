@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>박동수 · Portfolio</title>
+  <meta name="description" content="박동수(Dongsu Park) 포트폴리오. 헬스케어 도메인 System Engineer / Backend Developer. 인프라, 데이터 파이프라인, LLM·FHIR 기반 의료 서비스 개발 이력." />
+  <meta property="og:title" content="박동수 · Portfolio" />
+  <meta property="og:description" content="헬스케어 도메인 System Engineer / Backend Developer 포트폴리오" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#projects">본문으로 건너뛰기</a>
+
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="#top" aria-label="홈으로">
+        <img src="assets/images/logo.png" alt="" width="32" height="32" />
+        <span>Dongsu Park</span>
+      </a>
+      <nav class="nav__menu" aria-label="주요 메뉴">
+        <a href="#about">About</a>
+        <a href="#career">Career</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav__theme" id="themeToggle" type="button" aria-label="테마 전환" title="테마 전환">
+        <span class="nav__theme-icon" aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <p class="hero__eyebrow">Healthcare IT · Infra · Backend</p>
+        <h1 class="hero__title">
+          <span id="typing" class="hero__typing"></span><span class="hero__cursor" aria-hidden="true">|</span>
+        </h1>
+        <p class="hero__name"><strong id="heroName">박동수</strong> <span id="heroNameEn">Dongsu Park</span></p>
+        <p class="hero__tagline" id="heroTagline"></p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">과업 살펴보기</a>
+          <a class="btn btn--ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section__title">About me</h2>
+        <div class="about">
+          <div class="about__intro" id="aboutIntro"></div>
+          <dl class="about__facts" id="aboutFacts"></dl>
+        </div>
+        <h3 class="section__subtitle">Skills</h3>
+        <div class="skills" id="skills"></div>
+      </div>
+    </section>
+
+    <!-- Career -->
+    <section class="section section--alt" id="career">
+      <div class="container">
+        <h2 class="section__title">Career</h2>
+        <ol class="timeline" id="careerList"></ol>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="section__title">Projects</h2>
+        <p class="section__lead">수행한 과업을 조직·분류별로 모아 두었습니다. 카드를 클릭하면 역할, 사용 기술, 주요 내용을 볼 수 있습니다.</p>
+
+        <div class="filters" role="group" aria-label="프로젝트 필터">
+          <div class="filters__row">
+            <span class="filters__label">조직</span>
+            <div class="chips" id="orgFilters"></div>
+          </div>
+          <div class="filters__row">
+            <span class="filters__label">분류</span>
+            <div class="chips" id="catFilters"></div>
+          </div>
+        </div>
+
+        <p class="projects__count" id="projectCount" aria-live="polite"></p>
+        <div class="projects" id="projectGrid"></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--alt" id="contact">
+      <div class="container contact">
+        <h2 class="section__title">Contact</h2>
+        <p class="contact__lead">협업이나 문의는 아래로 연락 주세요.</p>
+        <div class="contact__links" id="contactLinks"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© <span id="year"></span> Dongsu Park. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="맨 위로">↑</button>
+
+  <!-- Project detail modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal__close" type="button" aria-label="닫기" data-close>×</button>
+      <div class="modal__body" id="modalBody"></div>
+      <div class="modal__nav">
+        <button class="btn btn--ghost btn--sm" type="button" id="modalPrev">← 이전</button>
+        <button class="btn btn--ghost btn--sm" type="button" id="modalNext">다음 →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
