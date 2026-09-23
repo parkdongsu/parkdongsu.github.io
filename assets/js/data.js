@@ -1,6 +1,7 @@
 /* =========================================================
    Portfolio data
-   - 노션(경력기술서 / 파이 디지털 헬스케어 업무 페이지)을 기반으로 정리
+   - 노션("박동수 이력", 경력기술서, 파이 디지털 헬스케어 업무 페이지)을 기반으로 정리
+   - 필드: track(과업 구분) · team(참여 인원) · description(원문 설명) · images(스크린샷) 는 선택 항목
    - 새 과업을 추가하려면 PROJECTS 배열에 객체를 하나 더 넣으면 됩니다.
    ========================================================= */
 
@@ -21,15 +22,17 @@ window.PORTFOLIO = {
     careerStart: "2018.07"
   },
 
+  // 노션 "박동수 이력" Skills 분류 체계를 따르고, 이후 업무에서 추가된 항목을 덧붙임
   skills: [
-    { group: "Container / Orchestration", items: ["Docker", "Docker Compose", "Docker Swarm", "Kubernetes"] },
-    { group: "Infra / IaC", items: ["Ansible", "Terraform", "Nginx", "LDAP", "DNS", "NTP", "Windows / Ubuntu Server"] },
-    { group: "Cloud", items: ["AWS (EC2, S3, RDS, Lambda, CloudFront, Cognito, SES, Route53)", "GCP"] },
-    { group: "Database / Data", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Embulk", "Airflow"] },
-    { group: "Monitoring", items: ["ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
-    { group: "Web / Backend", items: ["React", "Next.js", "Node.js", "FastAPI", "Python", "R"] },
-    { group: "AI / Healthcare", items: ["vLLM", "Hugging Face", "HL7 FHIR", "OMOP CDM / ATLAS", "SNOMED CT"] },
-    { group: "CI/CD / Tools", items: ["GitHub Actions", "GitLab CI", "AWS CodeDeploy / CodePipeline", "Git"] }
+    { group: "Container", items: ["Docker", "Docker Swarm", "Docker Compose", "Kubernetes"] },
+    { group: "IaC", items: ["Ansible", "Terraform"] },
+    { group: "Database", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"] },
+    { group: "Cloud", items: ["AWS (EC2, S3, RDS, Lambda, CloudFront, Cognito, SES, Route53, ACM)", "GCP"] },
+    { group: "Web", items: ["React", "Next.js", "Node.js", "FastAPI", "Nginx"] },
+    { group: "Tool", items: ["GitHub", "GitLab", "Embulk", "Airflow", "ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
+    { group: "Language", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
+    { group: "CI/CD", items: ["GitHub Actions", "AWS CodeDeploy", "AWS CodePipeline", "GitLab CI"] },
+    { group: "Healthcare Standard", items: ["HL7 FHIR", "OMOP CDM / ATLAS", "SNOMED CT", "vLLM / Hugging Face"] }
   ],
 
   careers: [
@@ -253,11 +256,19 @@ window.PORTFOLIO = {
     {
       id: "rtrod",
       org: "ajou",
+      track: "국책 과제 수행 · 연구 중심 병원",
       title: "RTROD · 개방형 임상 중개 연구 플랫폼 개발",
       period: "2021.01 ~ 2022.06",
+      team: "2명",
       category: ["Backend", "Cloud", "Infra"],
       summary:
-        "연구 중심 병원 과제. 사용자의 R 분석 패키지를 병원 내부 서버에서 Docker로 실행하고 결과만 반출해 데이터 접근을 제한하면서 분석 결과를 공유하는 플랫폼 (참여 인원 2명).",
+        "연구 중심 병원 과제. 사용자의 R 분석 패키지를 병원 내부 서버에서 Docker로 실행하고 결과만 반출해 데이터 접근을 제한하면서 분석 결과를 공유하는 플랫폼.",
+      description:
+        "AWS Cloud 환경의 서버에 구축된 Web 환경의 시스템으로, 사용자의 R 기반 분석 패키지를 HTTPS 프로토콜로 병원 내부 서버로 보내면 분석 패키지를 Docker로 감싸 실행한 후 분석 결과만 반출해 병원 데이터 접근을 제한하며 분석 결과를 공유하는 플랫폼을 개발했습니다.",
+      images: [
+        { src: "assets/images/projects/rtrod-1.jpg", alt: "RTROD AWS 아키텍처 구성도", caption: "AWS 아키텍처 및 CI/CD 구성도" },
+        { src: "assets/images/projects/rtrod-2.jpg", alt: "RTROD 프로젝트 관리 화면", caption: "RT-ROD 프로젝트 관리 화면" }
+      ],
       role: [
         "Node.js 기반 분석·Batch Backend 서버 개발",
         "AWS Cloud 아키텍처 설계 (CloudFront, Lambda, SES, Cognito, S3, EC2, RDS, Route53, ACM)",
@@ -272,11 +283,18 @@ window.PORTFOLIO = {
     {
       id: "monitoring",
       org: "ajou",
+      track: "서버 관리 업무",
       title: "Docker Swarm 기반 서버 모니터링 시스템 구축",
       period: "2019 ~ 2022",
       category: ["Monitoring", "Infra"],
       summary:
         "ELK Stack, Beats, Grafana를 Docker Swarm 위에 구성해 서버 리소스·로그·웹 상태를 모니터링하고 Slack 알림으로 실시간 문제 파악을 가능하게 함.",
+      description:
+        "Docker Swarm 기반으로 ELK Stack, Beats, Grafana 컨테이너를 띄워 Filebeat, Metricbeat, Winlogbeat, Heartbeat로 서버 리소스, 로그, 웹페이지 상태를 관리했습니다. Alert와 Slack 연동으로 실시간 문제 파악이 가능하도록 했고, 대시보드 설정은 Grafana Provisioning으로 보관했습니다.",
+      images: [
+        { src: "assets/images/projects/monitoring-1.jpg", alt: "Grafana 서버 요약 대시보드", caption: "서버 상태 요약 대시보드 (Grafana)" },
+        { src: "assets/images/projects/monitoring-2.jpg", alt: "Grafana 서버별 상세 모니터링 화면", caption: "서버별 리소스 · 로그 모니터링 화면" }
+      ],
       role: [
         "Filebeat, Metricbeat, Winlogbeat, Heartbeat를 활용한 리소스·로그·웹페이지 상태 수집",
         "Disk 모니터링 소프트웨어 + Python으로 디스크 상태를 Elasticsearch에 적재",
@@ -288,11 +306,14 @@ window.PORTFOLIO = {
     {
       id: "server-ops",
       org: "ajou",
+      track: "서버 관리 업무",
       title: "학과 서버실 인프라 구축·운영",
       period: "2018.07 ~ 2022.10",
       category: ["Infra"],
       summary:
         "약 20대의 Windows·Ubuntu 서버와 NAS·SAN·iSCSI 스토리지, 스위치 등 서버실 전 장비의 설치·환경 세팅·운영을 담당.",
+      description:
+        "약 20대의 Windows·Ubuntu 서버, NAS·SAN·iSCSI 스토리지, 스위치 등 서버실 내 모든 장비의 설치, 환경 세팅, 관리를 담당했습니다. 서버와 서비스를 관리하기 위해 Docker Swarm을 활용한 모니터링 환경을 구성했고, IaC 도구인 Ansible, Terraform을 활용해 서버 유지보수를 진행했습니다.",
       role: [
         "신규 서버 구매·입고·세팅 및 네트워크 구성",
         "Ansible, Terraform 등 IaC 도구를 활용한 서버 유지보수 자동화",
@@ -305,11 +326,14 @@ window.PORTFOLIO = {
     {
       id: "analysis-env",
       org: "ajou",
+      track: "서버 관리 업무",
       title: "연구자용 분석 환경 구성 및 데이터톤 운영",
       period: "2018 ~ 2022",
       category: ["Infra"],
       summary:
         "학생 개발자·외부 연구원을 위한 RStudio Server, Jupyter Notebook 분석 환경을 구축·운영하고 매년 30~40명 규모 데이터톤 환경을 제공.",
+      description:
+        "학과에 근무하며 학생 개발자들의 RStudio Server, Jupyter Notebook 개발 환경을 세팅·유지보수했고, LDAP, DNS, 프록시(Nginx) 서비스를 활용해 분석 환경 접근 최적화와 관리 편의성을 확보했습니다. 외부 연구원들을 위해 Docker 컨테이너 기반 분석 환경을 제공했으며, 매년 30~40명 규모의 데이터톤을 위해 분석 컨테이너와 DB 사용 환경을 제공하고 리소스 모니터링을 담당했습니다.",
       role: [
         "RStudio Server, Jupyter Notebook 개발 환경 세팅 및 유지보수",
         "LDAP, DNS, Nginx 프록시를 활용한 접근 최적화 및 관리 편의성 확보",
@@ -322,11 +346,14 @@ window.PORTFOLIO = {
     {
       id: "ohdsi-2019",
       org: "ajou",
+      track: "서버 관리 업무",
       title: "OHDSI Korea International Symposium 2019 튜토리얼 환경 구축",
       period: "2019",
       category: ["Cloud", "Infra"],
       summary:
         "OHDSI 국제 심포지엄 튜토리얼을 위해 AWS Cloud 위에 분석 환경과 참가자용 VDI 환경을 구축.",
+      description:
+        "OHDSI(Observational Health Data Sciences and Informatics)라는 Health Data 관련 협력 기관에 참여하며, 2019년 한국에서 열린 국제 심포지엄의 튜토리얼 환경을 위해 AWS Cloud 위에 분석 환경을 구축하고 튜토리얼 사용자를 위한 VDI 환경을 구축했습니다.",
       role: [
         "AWS 기반 OMOP CDM 분석 환경 구축",
         "튜토리얼 참가자용 VDI 환경 구성 및 운영 지원"
@@ -337,11 +364,14 @@ window.PORTFOLIO = {
     {
       id: "db-admin",
       org: "ajou",
+      track: "서버 관리 업무",
       title: "온프레미스 DB 관리 및 데이터 마이그레이션",
       period: "2018 ~ 2022",
       category: ["Data / ETL"],
       summary:
         "MSSQL, PostgreSQL DB 관리와 Embulk·Airflow 기반 ETL 데이터 마이그레이션 수행.",
+      description:
+        "On-Premise 환경의 MSSQL, PostgreSQL DB 관리 역할을 수행했습니다. Procedure를 활용한 사용자 권한 관리와 백업 관리를 했고, ETL 작업을 위해 오픈소스 도구인 Embulk, Airflow를 세팅해 데이터 마이그레이션을 진행했습니다.",
       role: [
         "Procedure를 활용한 사용자 권한 관리, 백업 관리",
         "Embulk, Airflow 세팅 및 데이터 마이그레이션 수행"
@@ -352,11 +382,15 @@ window.PORTFOLIO = {
     {
       id: "crawling-tool",
       org: "ajou",
+      track: "국책 과제 수행 · 산자부",
       title: "의료 데이터 통합을 위한 Crawling 툴 개발",
       period: "2019.06",
+      team: "1명",
       category: ["Backend"],
       summary:
-        "산자부 과제. 신규 의료 용어 파악을 위해 HIRA 페이지를 크롤링하고 담당자 메일로 전송하는 프로세스를 .exe로 배포 (1인 개발).",
+        "산자부 과제. 신규 의료 용어 파악을 위해 HIRA 페이지를 크롤링하고 담당자 메일로 전송하는 프로세스를 .exe로 배포.",
+      description:
+        "신규 의료 용어 파악을 위해 HIRA 페이지를 Crawling하고 담당자의 메일로 전송하는 프로세스를 실행하는 .exe 파일을 개발했습니다.",
       role: ["HIRA 페이지 Crawling 및 메일 전송 프로세스 개발", "실행 파일(.exe) 패키징"],
       tech: ["Python"],
       highlights: []
@@ -364,11 +398,15 @@ window.PORTFOLIO = {
     {
       id: "etl-explorer",
       org: "ajou",
+      track: "국책 과제 수행 · 산자부",
       title: "비정형 문서 ETL 대상 탐색 툴 개발",
       period: "2018.04",
+      team: "1명",
       category: ["Data / ETL"],
       summary:
-        "산자부 과제. EMR DB에서 ETL에 사용할 테이블·컬럼을 찾기 위한 검색 툴을 R Shiny로 개발 (1인 개발).",
+        "산자부 과제. EMR DB에서 ETL에 사용할 테이블·컬럼을 찾기 위한 검색 툴을 R Shiny로 개발.",
+      description:
+        "EMR DB 중 ETL에 사용할 컬럼을 찾기 위한 검색 툴을 R Shiny를 활용해 개발했습니다. EMR 스키마 및 비정형 문서 데이터 관련 테이블/컬럼 파악, 다기관 비정형 문서 데이터 추출 로직 개발을 수행했습니다.",
       role: [
         "EMR 스키마 및 비정형 문서 데이터 관련 테이블/컬럼 파악",
         "다기관 비정형 문서 데이터 추출 로직 개발"

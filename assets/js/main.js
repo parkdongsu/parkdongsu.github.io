@@ -129,7 +129,8 @@
       return;
     }
     grid.innerHTML = visible.map((p, i) => `
-      <button type="button" class="card" data-id="${esc(p.id)}" style="animation-delay:${Math.min(i, 12) * 30}ms" aria-haspopup="dialog">
+      <button type="button" class="card${p.images && p.images.length ? " card--has-thumb" : ""}" data-id="${esc(p.id)}" style="animation-delay:${Math.min(i, 12) * 30}ms" aria-haspopup="dialog">
+        ${p.images && p.images.length ? `<img class="card__thumb" src="${esc(p.images[0].src)}" alt="" loading="lazy" />` : ""}
         <div class="card__meta">
           <span class="card__org">${esc(D.orgs[p.org] || p.org)}</span>
           <span class="card__period">${esc(p.period.split(" (")[0].split(" ·")[0])}</span>
@@ -167,6 +168,15 @@
     const list = (arr) => arr && arr.length ? `<ul class="detail__list">${arr.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "";
     const tags = (arr) => arr && arr.length ? `<div class="detail__tags">${arr.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}</div>` : "";
     const links = (arr) => arr && arr.length ? `<div class="detail__links">${arr.map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)} ↗</a>`).join("")}</div>` : "";
+    const gallery = (arr) => arr && arr.length ? `<div class="detail__gallery">${arr.map((im) => `
+        <figure class="detail__figure">
+          <a href="${esc(im.src)}" target="_blank" rel="noopener" title="원본 크기로 보기"><img src="${esc(im.src)}" alt="${esc(im.alt || "")}" loading="lazy" /></a>
+          ${im.caption ? `<figcaption>${esc(im.caption)}</figcaption>` : ""}
+        </figure>`).join("")}</div>` : "";
+    const facts = [
+      p.track ? `<span class="detail__fact"><b>구분</b>${esc(p.track)}</span>` : "",
+      p.team ? `<span class="detail__fact"><b>참여 인원</b>${esc(p.team)}</span>` : ""
+    ].filter(Boolean).join("");
     return `
       <div class="detail__meta">
         <span class="detail__org">${esc(D.orgs[p.org] || p.org)}</span>
@@ -175,6 +185,9 @@
       </div>
       <h2 class="detail__title" id="modalTitle">${esc(p.title)}</h2>
       <p class="detail__summary">${esc(p.summary)}</p>
+      ${facts ? `<div class="detail__facts">${facts}</div>` : ""}
+      ${p.description ? `<p class="detail__desc">${esc(p.description)}</p>` : ""}
+      ${section("화면 · 구성도", gallery(p.images))}
       ${section("역할 · 수행 내용", list(p.role))}
       ${section("주요 성과 · 포인트", list(p.highlights))}
       ${section("사용 기술", tags(p.tech))}
