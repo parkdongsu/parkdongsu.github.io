@@ -66,8 +66,7 @@
       ["Name", `${esc(p.name)} (${esc(p.nameEn)})`],
       ["Email", `<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`],
       ["Location", esc(p.location)],
-      ["Career", `${esc(p.careerStart)} ~ 현재`],
-      ["GitHub", `<a href="${esc(p.github)}" target="_blank" rel="noopener">${esc(p.github.replace(/^https?:\/\//, ""))}</a>`]
+      ["Career", `${esc(p.careerStart)} ~ 현재`]
     ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
 
     $("#skills").innerHTML = D.skills.map((g) => `
