@@ -9,7 +9,7 @@ window.PORTFOLIO = {
   profile: {
     name: "박동수",
     nameEn: "Dongsu Park",
-    roles: ["System Engineer", "Backend Developer", "DevOps Engineer", "Healthcare IT Engineer"],
+    roles: ["System Engineer", "Full-Stack Engineer", "Healthcare IT Engineer"],
     tagline:
       "병원·헬스케어 도메인에서 인프라, 데이터 파이프라인, 웹 서비스를 설계하고 운영해 왔습니다.",
     intro: [
