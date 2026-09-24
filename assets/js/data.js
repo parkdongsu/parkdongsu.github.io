@@ -374,18 +374,20 @@ window.PORTFOLIO = {
       id: "db-admin",
       org: "ajou",
       track: "서버 관리 업무",
-      title: "온프레미스 DB 관리 및 데이터 마이그레이션",
+      title: "데이터베이스 관리 및 CDM 마이그레이션",
       period: "2018 ~ 2022",
       category: ["Data / ETL"],
       summary:
-        "MSSQL, PostgreSQL DB 관리와 Embulk·Airflow 기반 ETL 데이터 마이그레이션 수행.",
+        "온프레미스 MSSQL, PostgreSQL 운영·관리와 Embulk·Airflow 기반 이기종 CDM 데이터 마이그레이션 수행.",
       description:
-        "On-Premise 환경의 MSSQL, PostgreSQL DB 관리 역할을 수행했습니다. Procedure를 활용한 사용자 권한 관리와 백업 관리를 했고, ETL 작업을 위해 오픈소스 도구인 Embulk, Airflow를 세팅해 데이터 마이그레이션을 진행했습니다.",
+        "On-Premise 환경의 MSSQL, PostgreSQL DB 관리 역할을 수행했습니다. Procedure를 활용해 사용자 권한과 백업을 관리하고 서비스 계정·접근 권한 발급, 스케줄 백업 및 복구 점검, 용량·성능 모니터링 등 일상 운영을 담당했으며, 오픈소스 도구인 Embulk, Airflow를 세팅해 MSSQL ↔ PostgreSQL 간 이기종 CDM 데이터 마이그레이션을 진행했습니다.",
       role: [
-        "Procedure를 활용한 사용자 권한 관리, 백업 관리",
-        "Embulk, Airflow 세팅 및 데이터 마이그레이션 수행"
+        "Procedure를 활용한 사용자 권한 관리 및 백업 관리 (계정·권한 발급, 스케줄 백업 및 복구 점검)",
+        "DB 서버 용량·성능 모니터링, 인덱스·통계 정비, 장애 대응 등 일상 운영",
+        "연구자 요청에 따른 스키마·계정 생성 및 데이터 반출 지원",
+        "Embulk, Airflow 세팅 및 MSSQL ↔ PostgreSQL 이기종 CDM 데이터 마이그레이션 수행 (DDL 변환, 인덱스 재생성, 이관 검증)"
       ],
-      tech: ["MSSQL", "PostgreSQL", "Embulk", "Airflow"],
+      tech: ["MSSQL", "PostgreSQL", "Embulk", "Airflow", "OMOP CDM", "Docker"],
       highlights: []
     },
     {
