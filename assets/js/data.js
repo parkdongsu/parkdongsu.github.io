@@ -82,12 +82,12 @@ window.PORTFOLIO = {
         "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
       role: [
         "EMR → 게이트웨이 → 데이터 표준화 → 전처리 → LLM → 후처리로 이어지는 데이터 파이프라인 설계",
-        "단일 컨테이너 구조에서 멀티 컨테이너(Nginx / K8s, Redis 세션 이원화, Message Queue) 구조로 확장 설계",
+        "단일 컨테이너 구조에서 멀티 컨테이너(Nginx, MSA 기반 Scaling, Redis 세션 이원화, Message Queue) 구조로 확장 설계",
         "스트레스 테스트, 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
         "2026년 고도화: Spring Boot 플랫폼 + Kafka + FastAPI 전처리 서비스 + vLLM 구조, Prometheus·Loki·Tempo·Grafana 관제 설계",
         "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 단일 Agent + Tool 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당"
       ],
-      tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Kubernetes", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
+      tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
       highlights: [
         "세브란스 3개 병원에 5종 서식, 1개 병원에 1종 서식 적용 (운영 배포)",
         "산자부 과제 제안서(서식 10종 모델 개발) 중 데이터 수집·가공·표준화 파트 작성",
