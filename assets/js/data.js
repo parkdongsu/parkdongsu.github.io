@@ -408,25 +408,7 @@ window.PORTFOLIO = {
       role: ["HIRA 페이지 Crawling 및 메일 전송 프로세스 개발", "실행 파일(.exe) 패키징"],
       tech: ["Python"],
       highlights: []
-    },
-    {
-      id: "etl-explorer",
-      org: "ajou",
-      track: "국책 과제 수행 · 산자부",
-      title: "비정형 문서 ETL 대상 탐색 툴 개발",
-      period: "2018.04",
-      team: "1명",
-      category: ["Data / ETL"],
-      summary:
-        "산자부 과제. EMR DB에서 ETL에 사용할 테이블·컬럼을 찾기 위한 검색 툴을 R Shiny로 개발.",
-      description:
-        "EMR DB 중 ETL에 사용할 컬럼을 찾기 위한 검색 툴을 R Shiny를 활용해 개발했습니다. EMR 스키마 및 비정형 문서 데이터 관련 테이블/컬럼 파악, 다기관 비정형 문서 데이터 추출 로직 개발을 수행했습니다.",
-      role: [
-        "EMR 스키마 및 비정형 문서 데이터 관련 테이블/컬럼 파악",
-        "다기관 비정형 문서 데이터 추출 로직 개발"
-      ],
-      tech: ["R", "R Shiny"],
-      highlights: []
     }
+
   ]
 };
