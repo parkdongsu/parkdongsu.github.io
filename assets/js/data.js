@@ -38,14 +38,14 @@ window.PORTFOLIO = {
   careers: [
     {
       org: "파이 디지털 헬스케어",
-      role: "System Engineer / Backend Developer",
+      role: "인공지능사업부 과장 · System Engineer / Backend Developer",
       period: "2022.11 ~ 현재",
       summary:
         "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT) 및 FHIR 변환 시스템(FHIRMate) 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
     },
     {
       org: "아주대학교 의료원 의료정보학과",
-      role: "System Engineer",
+      role: "연구원 (개발팀장) · System Engineer",
       period: "2018.07 ~ 2022.10",
       summary:
         "서버실 인프라·DB·분석 환경 운영, 모니터링 시스템 구축, OMOP CDM 이관 및 ATLAS 설치·운영, 국책 과제(연구 중심 병원, 산자부) 플랫폼 및 툴 개발"
