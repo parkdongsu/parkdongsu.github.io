@@ -84,7 +84,8 @@ window.PORTFOLIO = {
         "EMR → 게이트웨이 → 데이터 표준화 → 전처리 → LLM → 후처리로 이어지는 데이터 파이프라인 설계",
         "단일 컨테이너 구조에서 멀티 컨테이너(Nginx, MSA 기반 Scaling) 구조로 확장 설계",
         "스트레스 테스트, 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
-        "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 Kafka + AI Agent 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당 및 Prometheus·Loki·Tempo·Grafana 기반 모니터링 설계"
+        "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 Kafka + AI Agent 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당 및 Prometheus·Loki·Tempo·Grafana 기반 모니터링 설계",
+        "OCR 시스템 연동 및 건강검진 데이터 자동 생성 프로젝트 병행 진행 중"
       ],
       tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
       highlights: [
