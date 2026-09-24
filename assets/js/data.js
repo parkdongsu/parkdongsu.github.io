@@ -177,11 +177,10 @@ window.PORTFOLIO = {
       period: "2023.07 ~ 2023.10",
       category: ["Data / ETL", "Cloud"],
       summary:
-        "운영 중인 OMOP CDM의 스키마 문제를 파악하고 Cloud ATLAS 재구축·SSL 적용·시각화 요구사항 대응을 지원.",
+        "운영 중인 ATLAS의 Results 스키마 구조를 확장성을 고려해 제안하고 문제 해결을 지원하며, Cloud ATLAS 재구축과 SSL 적용을 수행.",
       role: [
-        "확장성을 고려한 CDM 스키마 구조 제안 및 일부 문제 해결 지원",
-        "Cloud ATLAS 재설치·유지보수(LDAP, DB Instance 교체) 및 SSL 인증서 적용",
-        "시각화 요구사항 정리 및 SDP·CDM 카탈로그 로그인 연동 관련 협의"
+        "확장성을 고려한 ATLAS Results 스키마 구조 제안 및 문제 해결 지원",
+        "Cloud ATLAS 재설치·유지보수(LDAP, DB Instance 교체) 및 SSL 인증서 적용"
       ],
       tech: ["OMOP CDM", "ATLAS", "Docker", "PostgreSQL", "LDAP", "SSL"],
       highlights: []
