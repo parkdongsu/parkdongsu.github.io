@@ -187,7 +187,7 @@
       ${section("화면 · 구성도", gallery(p.images))}
       ${section("역할 · 수행 내용", list(p.role))}
       ${section("주요 성과 · 포인트", list(p.highlights))}
-      ${section("사용 기술", tags(p.tech))}
+      ${section("연관 기술", tags(p.tech))}
       ${section("링크", links(p.links))}`;
   }
 
