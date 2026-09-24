@@ -90,7 +90,22 @@
   }
 
   /* ---------- Projects: filters + grid ---------- */
-  const state = { org: "all", cat: "all" };
+  const state = { org: "all", cat: "all", year: "all" };
+  const THIS_YEAR = new Date().getFullYear();
+
+  // "2019 ~ 2022", "2024.05 ~ 현재", "2023.12 ~ 2024.03 (구축) · 2025.08 ~ 현재" 등에서 해당 연도 집합 추출
+  function yearsOf(period) {
+    const out = new Set();
+    String(period).split("·").forEach((seg) => {
+      const ys = (seg.match(/\b(19|20)\d{2}\b/g) || []).map(Number);
+      if (/현재/.test(seg)) ys.push(THIS_YEAR);
+      if (!ys.length) return;
+      const lo = Math.min.apply(null, ys), hi = Math.max.apply(null, ys);
+      for (let y = lo; y <= hi; y++) out.add(y);
+    });
+    return out;
+  }
+  const projectYears = new Map(D.projects.map((p) => [p.id, yearsOf(p.period)]));
   let visible = []; // currently visible projects (for modal prev/next)
 
   function categories() {
@@ -109,12 +124,20 @@
     const cats = [["all", "전체"]].concat(categories().map(([c]) => [c, c]));
     $("#catFilters").innerHTML = cats.map(([k, label]) =>
       `<button type="button" class="chip${state.cat === k ? " is-active" : ""}" data-cat="${esc(k)}" aria-pressed="${state.cat === k}">${esc(label)}</button>`).join("");
+
+    const yearCounts = new Map();
+    projectYears.forEach((ys) => ys.forEach((y) => yearCounts.set(y, (yearCounts.get(y) || 0) + 1)));
+    const years = [["all", "전체", D.projects.length]].concat(
+      Array.from(yearCounts.entries()).sort((a, b) => b[0] - a[0]).map(([y, n]) => [String(y), String(y), n]));
+    $("#yearFilters").innerHTML = years.map(([k, label, n]) =>
+      `<button type="button" class="chip${state.year === k ? " is-active" : ""}" data-year="${esc(k)}" aria-pressed="${state.year === k}">${esc(label)}<span class="chip__count">${n}</span></button>`).join("");
   }
 
   function filtered() {
     return D.projects.filter((p) =>
       (state.org === "all" || p.org === state.org) &&
-      (state.cat === "all" || p.category.includes(state.cat)));
+      (state.cat === "all" || p.category.includes(state.cat)) &&
+      (state.year === "all" || projectYears.get(p.id).has(Number(state.year))));
   }
 
   function renderGrid() {
@@ -147,6 +170,10 @@
     $("#catFilters").addEventListener("click", (e) => {
       const b = e.target.closest("[data-cat]"); if (!b) return;
       state.cat = b.dataset.cat; renderFilters(); renderGrid();
+    });
+    $("#yearFilters").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-year]"); if (!b) return;
+      state.year = b.dataset.year; renderFilters(); renderGrid();
     });
     $("#projectGrid").addEventListener("click", (e) => {
       const c = e.target.closest(".card"); if (!c) return;
@@ -252,7 +279,7 @@
     const m = location.hash.match(/^#project\/(.+)$/);
     if (m) {
       const id = decodeURIComponent(m[1]);
-      if (!visible.some((x) => x.id === id)) { state.org = "all"; state.cat = "all"; renderFilters(); renderGrid(); }
+      if (!visible.some((x) => x.id === id)) { state.org = "all"; state.cat = "all"; state.year = "all"; renderFilters(); renderGrid(); }
       openProject(id, false);
     } else {
       closeModal(false);
