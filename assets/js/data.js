@@ -119,7 +119,7 @@ window.PORTFOLIO = {
       id: "chatbot-console",
       org: "phi",
       title: "소아의료 챗봇 관리 도구 설계",
-      period: "2025.07 ~ 2026",
+      period: "2026.06 ~ 현재",
       category: ["Backend", "Frontend", "Infra"],
       summary:
         "소아의료 AI 챗봇의 시나리오·의도·응답을 관리하는 관리 도구의 아키텍처, DB, 모니터링 설계를 주도.",
