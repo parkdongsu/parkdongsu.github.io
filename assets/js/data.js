@@ -99,22 +99,30 @@ window.PORTFOLIO = {
     {
       id: "fhir-converter",
       org: "phi",
-      title: "룰 기반 EMR → FHIR 실시간 변환 시스템",
+      title: "EMR 데이터 FHIR 변환 통합 관리 시스템 설계 및 개발",
       period: "2024.06 ~ 현재",
-      category: ["Backend", "AI / LLM"],
+      category: ["Backend", "Frontend", "AI / LLM"],
       summary:
-        "EMR 서식지(XML)를 자체 DSL 기반 Rule로 HL7 FHIR 리소스에 매핑·변환하는 시스템. 룰 관리 UI, 변환 API, 변환 이력을 제공하며 변환 방식에 대해 특허를 출원.",
+        "의료기관 서식지(XML/JSON/CSV/Excel) 데이터를 HL7 FHIR Resource로 변환하기 위한 웹 기반 통합 워크벤치. Profile 정의부터 DSL 변환 Rule 작성·테스트, Terminology 관리, Implementation Guide 발행, FHIR Server 저장·조회까지 FHIR 변환 전 과정을 한 화면에서 관리하며, 변환 방식에 대해 특허를 출원.",
+      description:
+        "React 프론트엔드와 FastAPI 백엔드, MariaDB/MongoDB/Redis 저장소, IG 발행용 SUSHI·IG Publisher 컨테이너와 HAPI FHIR Server 컨테이너로 구성되어 docker compose로 배포됩니다. 기본 작업 흐름은 ① FHIR Resource 등록 및 Profile(Cardinality/DataType/Binding) 정의 → ② 자체 DSL 학습·연습 → ③ 변환 보조(치환) 데이터 구성 → ④ Rule Group(서식지)·Rule 정의 및 변환 테스트/Validation → ⑤ FHIR Server 저장 → ⑥ Implementation Guide 발행이며, 사용자/매니저/관리자 3단계 권한으로 화면과 기능을 분리합니다. 관리자·사용자 매뉴얼(v1.10.2 소스 기준)을 직접 작성했습니다.",
       role: [
-        "Rule Group / Rule 기반 XML → FHIR 변환 로직 및 연동 API(POST /convert/fhir/api) 개발",
-        "서식지 1:N Rule Group 매핑 허용(v1.2.0 → v1.3.0), 부분 실패 시 partial 상태 응답 등 하위 호환 설계",
-        "FHIR 변환 테스트 페이지, 원본 XML 샘플 저장·복원, 변환 로그 설명 저장 기능 추가",
-        "DB 마이그레이션 스크립트 및 API 기반 마이그레이션 적용 절차 정리",
-        "입원·경과·퇴원 매핑 정의서 기반 Task 변환 Rule 정리"
+        "전체 아키텍처 설계 및 백엔드(FastAPI)·프론트엔드(React) 개발, docker compose 기반 배포·운영 스크립트 정리",
+        "자체 변환 DSL 설계·구현: Python/SQL 유사 문법(IF, IN, DEFINE, FOR, Function)으로 FHIR Path별 값 구성, ConceptMap 참조(TRANSLATE) 및 반복 요소 분할 생성 지원",
+        "Rule Group / Rule 관리: Default Template 가져오기, 입력 형식(XML/JSON/CSV/Excel)·분할 설정, 배포 버전(Rule 버전 관리·스냅샷), 서식지 코드(src_code) 매핑, 동시 편집 충돌 안내",
+        "FHIR 변환 연동 API(POST /convert/fhir/api) 및 샘플 변환 테스트 화면: success/partial/failed 상태 응답, Profile 기준 Validation(Cardinality·Binding·DataType·Path) 결과 제공",
+        "Resource·Profile 관리(트리 편집, Must Support, Reference 대상, Binding Strength)와 Terminology 관리(CodeSystem/ValueSet/ConceptMap 3단 구조) 화면 개발",
+        "Implementation Guide 관리: 설계한 Profile·Terminology로 FSH 생성 → SUSHI 검증 → IG Publisher 발행 자동화, Draft→Review→Published→Deprecated 상태 전환 및 Validation 결과 역추적",
+        "FHIR Server 연동: 서버 접속 정보 UI 관리(비밀값은 환경변수 이름만 보관), 연결 테스트, Validation 통과 건 저장, 저장 대기열(재시도/실패 재처리) 및 Resource 조회",
+        "운영·관리 기능: Rule Group 매핑 이상 항목 자동 점검, 변환 이력 조회·상세 비교, 감사 로그 및 변경 전후 Diff, 변환 이력 보관 정책(원문 비움·자동 정리), DB 백업/초기화, 사용자·권한·공용 코드 관리",
+        "LLM 학습 데이터 관리: MongoDB 기반 학습/운영 데이터 탭, MariaDB 증분 적재(SSE 진행률), FHIR Merge, 프롬프트 키 제거 도구, 모델 호출 테스트·프롬프트 버전 관리, LLM 기반 Rule 생성 데이터 수집",
+        "계정·보안 정책 구현: 비밀번호 복잡도·만료(90일)·재사용 제한, 로그인 실패 잠금, Access/Refresh Token 세션 관리, 비상용 계정 관리 CLI"
       ],
-      tech: ["Python", "FastAPI", "HL7 FHIR", "PostgreSQL", "Docker", "XML"],
+      tech: ["Python", "FastAPI", "React", "HL7 FHIR", "HAPI FHIR", "SUSHI / IG Publisher", "MariaDB", "MongoDB", "Redis", "Docker Compose", "XML"],
       highlights: [
         "룰 기반 실시간 EMR → FHIR 변환 방식에 대한 특허 출원 (2025): 국내외 선행 특허(FHIR 매핑·컨버터 관련) 조사 및 차별점 정리, 명세 작성 참여",
-        "인재원 FHIR 교육 실습 도구로 활용 (KR Core 기반 Resource 정의, DSL 실습)"
+        "2025.06 운영 배포 후 v1.10.x까지 지속 고도화 (Terminology Binding 분리, IG 발행, FHIR Server 연동, 변환 이력 보관 등)",
+        "관리자/사용자 매뉴얼 작성 및 인재원 FHIR 교육 실습 도구로 활용 (KR Core 기반 Resource 정의, DSL 실습)"
       ]
     },
     {
