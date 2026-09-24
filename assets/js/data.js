@@ -340,7 +340,7 @@ window.PORTFOLIO = {
       period: "2019 ~ 2022",
       category: ["Data / ETL", "Cloud", "Infra"],
       summary:
-        "병원 On-Premise CDM을 AWS RDS로 이관하고 ATLAS·WebAPI를 Docker로 구축해 PLE·PLP 분석 환경을 제공. 온프레미스 ATLAS 운영과 설치 가이드 문서화까지 담당.",
+        "병원 On-Premise CDM을 AWS RDS로 이관하고 ATLAS·WebAPI를 Docker로 구축해 PLE·PLP 분석 환경을 제공. 강동성심병원, 심평원 등 외부 기관 ATLAS 설치 출장 지원과 설치 가이드 문서화까지 담당.",
       description:
         "OHDSI ATLAS v2.8.0과 WebAPI를 Docker 이미지로 빌드해 AWS EC2와 온프레미스 서버에 배포하고, 병원 내부 MSSQL의 CDM 데이터를 Embulk로 PostgreSQL(AWS RDS)에 이관한 뒤 Achilles 통계와 Results 스키마를 구성해 ATLAS에 연결했습니다. 50만·100만 환자 규모의 샘플 CDM으로 PLE·PLP 패키지를 실행하는 스트레스 테스트를 수행해 RDS·EC2 권장 사양을 도출했습니다.",
       role: [
@@ -348,10 +348,11 @@ window.PORTFOLIO = {
         "Embulk를 Docker로 구성해 MSSQL → PostgreSQL CDM 테이블 이관(테이블별 YAML 자동 생성), DDL 변경 및 인덱스 작업",
         "Achilles(R) 실행을 위한 RStudio Server 컨테이너 구성, WebAPI Results 스키마 생성 및 ATLAS Source 등록",
         "pg_dump / RDS 스냅샷 기반 샘플 CDM(50만·100만 환자) 구성 및 PLE·PLP 스트레스 테스트로 클라우드 사양 산정",
-        "튜토리얼용 VDI 분석 환경(R, RStudio, Java) 세팅 및 설치·운영 가이드 문서화"
+        "튜토리얼용 VDI 분석 환경(R, RStudio, Java) 세팅 및 설치·운영 가이드 문서화",
+        "강동성심병원, 건강보험심사평가원(심평원) 등 외부 기관 ATLAS 설치 출장 지원: 폐쇄망 환경에 ATLAS·WebAPI Docker 이미지를 반입·배포하고 기관 CDM(Oracle 등) 연결, Results 스키마 구성, 분석 컨테이너 이슈 대응"
       ],
       tech: ["OMOP CDM", "ATLAS", "WebAPI", "Docker", "Embulk", "MSSQL", "PostgreSQL", "AWS EC2 / RDS", "R", "Achilles", "LDAP"],
-      highlights: ["ATLAS 설치 가이드 및 CDM 이관 절차를 문서화해 이후 외부 기관 ATLAS 설치 지원에 재활용"]
+      highlights: ["ATLAS 설치 가이드 및 CDM 이관 절차를 문서화해 외부 기관 설치 지원 시 Docker 이미지 반입 방식으로 표준화"]
     },
     {
       id: "ohdsi-2019",
