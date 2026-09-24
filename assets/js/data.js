@@ -41,14 +41,14 @@ window.PORTFOLIO = {
       role: "System Engineer / Backend Developer",
       period: "2022.11 ~ 현재",
       summary:
-        "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT) 및 FHIR 변환 시스템(FHIRMate) 설계·개발, GPU 서버 및 클라우드 인프라 구축"
+        "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT) 및 FHIR 변환 시스템(FHIRMate) 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
     },
     {
       org: "아주대학교 의료원 의료정보학과",
       role: "System Engineer",
       period: "2018.07 ~ 2022.10",
       summary:
-        "서버실 인프라·DB·분석 환경 운영, 모니터링 시스템 구축, 국책 과제(연구 중심 병원, 산자부) 플랫폼 및 툴 개발"
+        "서버실 인프라·DB·분석 환경 운영, 모니터링 시스템 구축, OMOP CDM 이관 및 ATLAS 설치·운영, 국책 과제(연구 중심 병원, 산자부) 플랫폼 및 툴 개발"
     }
   ],
 
@@ -237,19 +237,24 @@ window.PORTFOLIO = {
     {
       id: "fhir-education",
       org: "phi",
-      title: "HL7 FHIR 교육 및 인재원 커리큘럼 설계",
+      track: "교육 · 세브란스 의무기록팀",
+      title: "세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육",
       period: "2026.03 ~ 현재",
-      category: ["AI / LLM", "Education"],
+      category: ["Education", "AI / LLM"],
       summary:
-        "비개발자 대상 FHIR 기초 교육 자료 제작과 인재원 실습 커리큘럼(FHIRMate 변환 실습, PromptIDE 평가 실습, 바이브 코딩 프로젝트) 설계.",
+        "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIRMate 실습까지 강의를 담당.",
+      description:
+        "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIRMate 변환·검증 실습으로 이어지는 총 13시간 과정을 구성했습니다.",
       role: [
-        "FHIR 교육 PPT 기획·제작 및 발표 자료 작성",
-        "SNOMED CT 매핑 → FHIR 리소스 생성 → AI 의무기록 생성 흐름의 실습 커리큘럼 정리",
-        "FHIRMate DSL 실습, PromptIDE 기반 평가 실습, 바이브 코딩 서비스 개발 프로젝트(45h) 구성",
-        "강의 세부 목차 정리 및 강의 자료 스크립트 검토"
+        "강의 1 · 비개발자를 위한 HL7 FHIR 기초 (3h): Resource, Profile, ValueSet, CodeSystem, ConceptMap 구조와 국제 → 국가(KR-Core) → 병원 표준 적용 흐름",
+        "강의 2 · SNOMED CT 결과를 FHIR로 연결하는 방법 (3h, 공동 강의): Condition, Observation, Procedure, MedicationRequest 적용과 외래 시나리오 모델링 실습",
+        "강의 3 · KR-CDI, KR-Core를 활용한 세브란스 Core Resource(YUHS-Core) 정의 (1h)",
+        "강의 4 · FHIRMate 소개 및 사용 방법 (1h)",
+        "강의 5 · 의무기록 질관리 및 데이터 품질 검증·관리 체계 구축 실습 (5h): FHIRMate Rule Group·DSL로 샘플 데이터 변환, SNOMED CT 적용, Structure·Terminology Validation",
+        "교육 회의 참여, 커리큘럼·강의 세부 목차 정리, 강의 자료 스크립트 검토, 실습용 FHIRMate 기능(Terminology 적용, 1:N 매핑) 보강"
       ],
-      tech: ["HL7 FHIR", "KR Core", "SNOMED CT", "FHIRMate", "LLM"],
-      highlights: []
+      tech: ["HL7 FHIR", "KR-Core", "KR-CDI", "SNOMED CT", "FHIRMate", "PromptIDE"],
+      highlights: ["PromptIDE 기반 의무기록 생성·평가 실습, 바이브 코딩 프로젝트(45h) 등 후속 과정 설계"]
     },
 
     /* ---------------- 아주대학교 의료원 ---------------- */
@@ -342,6 +347,27 @@ window.PORTFOLIO = {
       ],
       tech: ["Docker", "RStudio Server", "Jupyter", "LDAP", "Nginx", "MSSQL"],
       highlights: []
+    },
+    {
+      id: "cdm-atlas",
+      org: "ajou",
+      track: "서버 관리 업무 · OHDSI",
+      title: "OMOP CDM 이관 및 ATLAS 설치·운영",
+      period: "2019 ~ 2022",
+      category: ["Data / ETL", "Cloud", "Infra"],
+      summary:
+        "병원 On-Premise CDM을 AWS RDS로 이관하고 ATLAS·WebAPI를 Docker로 구축해 PLE·PLP 분석 환경을 제공. 온프레미스 ATLAS 운영과 설치 가이드 문서화까지 담당.",
+      description:
+        "OHDSI ATLAS v2.8.0과 WebAPI를 Docker 이미지로 빌드해 AWS EC2와 온프레미스 서버에 배포하고, 병원 내부 MSSQL의 CDM 데이터를 Embulk로 PostgreSQL(AWS RDS)에 이관한 뒤 Achilles 통계와 Results 스키마를 구성해 ATLAS에 연결했습니다. 50만·100만 환자 규모의 샘플 CDM으로 PLE·PLP 패키지를 실행하는 스트레스 테스트를 수행해 RDS·EC2 권장 사양을 도출했습니다.",
+      role: [
+        "ATLAS / WebAPI Docker 이미지 빌드 및 EC2·온프레미스 배포, DB·LDAP 로그인 연동 설정",
+        "Embulk를 Docker로 구성해 MSSQL → PostgreSQL CDM 테이블 이관(테이블별 YAML 자동 생성), DDL 변경 및 인덱스 작업",
+        "Achilles(R) 실행을 위한 RStudio Server 컨테이너 구성, WebAPI Results 스키마 생성 및 ATLAS Source 등록",
+        "pg_dump / RDS 스냅샷 기반 샘플 CDM(50만·100만 환자) 구성 및 PLE·PLP 스트레스 테스트로 클라우드 사양 산정",
+        "튜토리얼용 VDI 분석 환경(R, RStudio, Java) 세팅 및 설치·운영 가이드 문서화"
+      ],
+      tech: ["OMOP CDM", "ATLAS", "WebAPI", "Docker", "Embulk", "MSSQL", "PostgreSQL", "AWS EC2 / RDS", "R", "Achilles", "LDAP"],
+      highlights: ["ATLAS 설치 가이드 및 CDM 이관 절차를 문서화해 이후 외부 기관 ATLAS 설치 지원에 재활용"]
     },
     {
       id: "ohdsi-2019",
