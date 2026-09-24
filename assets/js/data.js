@@ -83,11 +83,9 @@ window.PORTFOLIO = {
       role: [
         "EMR → 게이트웨이 → 데이터 표준화 → 전처리 → LLM → 후처리로 이어지는 데이터 파이프라인 설계",
         "단일 컨테이너 구조에서 멀티 컨테이너(Nginx / K8s, Redis 세션 이원화, Message Queue) 구조로 확장 설계",
-        "스트레스 테스트(3차), 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
+        "스트레스 테스트, 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
         "2026년 고도화: Spring Boot 플랫폼 + Kafka + FastAPI 전처리 서비스 + vLLM 구조, Prometheus·Loki·Tempo·Grafana 관제 설계",
-        "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 단일 Agent + Tool 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. 전처리·메시지 브로커 단계의 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당",
-        "Agent 운영 점검: Usecase별 FHIR 그룹핑 로직 재배치, Elasticsearch 로그·Grafana 모니터링 기반 기능 점검 및 배포, 10건 케이스 대상 Agent 기반 PoC 수행",
-        "Tool Calling 미지원 의료 특화 모델 대응: Tool Calling용 모델과 서식 추론용 모델을 분리해 vLLM으로 서빙하고 OpenAI 호환 규격으로 정비"
+        "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 단일 Agent + Tool 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당"
       ],
       tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Kubernetes", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
       highlights: [
