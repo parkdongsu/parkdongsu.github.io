@@ -27,7 +27,7 @@ window.PORTFOLIO = {
     { group: "Container", items: ["Docker", "Docker Swarm", "Docker Compose", "Kubernetes"] },
     { group: "IaC", items: ["Ansible", "Terraform"] },
     { group: "Database", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"] },
-    { group: "Cloud", items: ["AWS (EC2, S3, RDS, Lambda, CloudFront, Cognito, SES, Route53, ACM)", "GCP"] },
+    { group: "Cloud", items: ["AWS"] },
     { group: "Web", items: ["React", "Next.js", "Node.js", "FastAPI", "Nginx"] },
     { group: "Tool", items: ["GitHub", "GitLab", "Embulk", "Airflow", "ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
     { group: "Language", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
