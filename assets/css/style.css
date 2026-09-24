@@ -266,7 +266,16 @@ ul, ol { margin: 0; padding: 0; }
 .detail__fact b { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: 0.06em; color: var(--text-3); margin-right: 8px; }
 .detail__desc {
   margin-top: 16px; padding: 14px 16px; border-left: 3px solid var(--accent); background: var(--surface-2);
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text); font-size: 15px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--text); font-size: 15px; line-height: 1.65;
+}
+.detail__desc p + p, .detail__desc ol + p, .detail__desc p + ol { margin-top: 10px; }
+.detail__desc p:has(+ ol) { font-weight: 700; }
+.detail__steps { list-style: none; display: grid; gap: 6px; counter-reset: step; }
+.detail__steps li { position: relative; padding-left: 30px; counter-increment: step; }
+.detail__steps li::before {
+  content: counter(step); position: absolute; left: 0; top: 2px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); color: #fff; font-family: var(--mono); font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
 }
 .detail__gallery { display: grid; gap: 14px; }
 .detail__figure { margin: 0; }
