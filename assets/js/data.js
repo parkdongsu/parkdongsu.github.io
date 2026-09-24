@@ -13,7 +13,7 @@ window.PORTFOLIO = {
     tagline:
       "병원·헬스케어 도메인에서 인프라, 데이터 파이프라인, 웹 서비스를 설계하고 운영해 왔습니다.",
     intro: [
-      "2018년 아주대학교 의료원 의료정보학과에서 서버·DB·분석 환경 운영과 국책 과제 개발로 커리어를 시작했고, 2022년 11월부터 파이 디지털 헬스케어에서 의료 데이터 플랫폼, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT), FHIR 변환 시스템(FHIRMate) 등의 설계·개발·운영을 맡고 있습니다.",
+      "2018년 아주대학교 의료원 의료정보학과에서 서버·DB·분석 환경 운영과 국책 과제 개발로 커리어를 시작했고, 2022년 11월부터 파이 디지털 헬스케어에서 의료 데이터 플랫폼, LLM 기반 의료 기록 자동 생성 서비스, FHIR 변환 시스템 등의 설계·개발·운영을 맡고 있습니다.",
       "온프레미스 서버실부터 AWS·GPU 서버까지 인프라를 직접 구축하고, Docker·Airflow·ELK·Grafana 같은 오픈소스를 조합해 실제 운영되는 시스템을 만드는 일을 좋아합니다."
     ],
     email: "dongsu2005@naver.com",
@@ -41,7 +41,7 @@ window.PORTFOLIO = {
       role: "인공지능사업부 과장 · Full-Stack Engineer",
       period: "2022.11 ~ 현재",
       summary:
-        "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT) 및 FHIR 변환 시스템(FHIRMate) 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
+        "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스 및 FHIR 변환 시스템 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
     },
     {
       org: "아주대학교 의료원 의료정보학과",
@@ -61,15 +61,15 @@ window.PORTFOLIO = {
   projects: [
     /* ---------------- 파이 디지털 헬스케어 ---------------- */
     {
-      id: "y-knot",
+      id: "llm-record-platform",
       org: "phi",
-      title: "Y-KNOT · 초거대 AI 기반 의료 기록지 자동 생성 플랫폼",
+      title: "초거대 AI 기반 의료 기록지 자동 생성 플랫폼",
       period: "2024.05 ~ 현재",
       category: ["AI / LLM", "Backend", "Infra"],
       summary:
         "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당.",
       role: [
-        "EMR → Operator → Data Processer → FHIRMate → LLM으로 이어지는 데이터 파이프라인 설계",
+        "EMR → Operator → Data Processer → FHIR 변환 → LLM으로 이어지는 데이터 파이프라인 설계",
         "기록지 XML을 FHIR로 변환하기 위한 분석용 테이블 구조 및 변환 규칙 설계",
         "단일 컨테이너 구조에서 멀티 컨테이너(Nginx / K8s, Redis 세션 이원화, Message Queue) 구조로 확장 설계",
         "스트레스 테스트(3차), 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
@@ -82,9 +82,9 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: "fhirmate",
+      id: "fhir-converter",
       org: "phi",
-      title: "FHIRMate · 룰 기반 EMR → FHIR 실시간 변환 시스템",
+      title: "룰 기반 EMR → FHIR 실시간 변환 시스템",
       period: "2024.06 ~ 현재",
       category: ["Backend", "AI / LLM"],
       summary:
@@ -120,9 +120,9 @@ window.PORTFOLIO = {
       highlights: []
     },
     {
-      id: "compass",
+      id: "chatbot-console",
       org: "phi",
-      title: "COMPASS · 소아의료 챗봇 관리 도구 설계",
+      title: "소아의료 챗봇 관리 도구 설계",
       period: "2025.07 ~ 2026",
       category: ["Backend", "Frontend", "Infra"],
       summary:
@@ -242,19 +242,19 @@ window.PORTFOLIO = {
       period: "2026.03 ~ 현재",
       category: ["Education", "AI / LLM"],
       summary:
-        "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIRMate 실습까지 강의를 담당.",
+        "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIR 변환 도구 실습까지 강의를 담당.",
       description:
-        "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIRMate 변환·검증 실습으로 이어지는 총 13시간 과정을 구성했습니다.",
+        "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIR 변환 도구 실습으로 이어지는 총 13시간 과정을 구성했습니다.",
       role: [
         "강의 1 · 비개발자를 위한 HL7 FHIR 기초 (3h): Resource, Profile, ValueSet, CodeSystem, ConceptMap 구조와 국제 → 국가(KR-Core) → 병원 표준 적용 흐름",
         "강의 2 · SNOMED CT 결과를 FHIR로 연결하는 방법 (3h, 공동 강의): Condition, Observation, Procedure, MedicationRequest 적용과 외래 시나리오 모델링 실습",
-        "강의 3 · KR-CDI, KR-Core를 활용한 세브란스 Core Resource(YUHS-Core) 정의 (1h)",
-        "강의 4 · FHIRMate 소개 및 사용 방법 (1h)",
-        "강의 5 · 의무기록 질관리 및 데이터 품질 검증·관리 체계 구축 실습 (5h): FHIRMate Rule Group·DSL로 샘플 데이터 변환, SNOMED CT 적용, Structure·Terminology Validation",
-        "교육 회의 참여, 커리큘럼·강의 세부 목차 정리, 강의 자료 스크립트 검토, 실습용 FHIRMate 기능(Terminology 적용, 1:N 매핑) 보강"
+        "강의 3 · KR-CDI, KR-Core를 활용한 세브란스 Core Resource 정의 (1h)",
+        "강의 4 · 자체 FHIR 변환 도구 소개 및 사용 방법 (1h)",
+        "강의 5 · 의무기록 질관리 및 데이터 품질 검증·관리 체계 구축 실습 (5h): FHIR 변환 도구의 Rule Group·DSL로 샘플 데이터 변환, SNOMED CT 적용, Structure·Terminology Validation",
+        "교육 회의 참여, 커리큘럼·강의 세부 목차 정리, 강의 자료 스크립트 검토, 실습용 FHIR 변환 도구 기능(Terminology 적용, 1:N 매핑) 보강"
       ],
-      tech: ["HL7 FHIR", "KR-Core", "KR-CDI", "SNOMED CT", "FHIRMate", "PromptIDE"],
-      highlights: ["PromptIDE 기반 의무기록 생성·평가 실습, 바이브 코딩 프로젝트(45h) 등 후속 과정 설계"]
+      tech: ["HL7 FHIR", "KR-Core", "KR-CDI", "SNOMED CT", "LLM"],
+      highlights: ["프롬프트 기반 의무기록 생성·평가 실습, 바이브 코딩 프로젝트(45h) 등 후속 과정 설계"]
     },
 
     /* ---------------- 아주대학교 의료원 ---------------- */
