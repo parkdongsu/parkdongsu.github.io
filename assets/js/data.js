@@ -322,9 +322,10 @@ window.PORTFOLIO = {
         "신규 서버 구매·입고·세팅 및 네트워크 구성",
         "Ansible, Terraform 등 IaC 도구를 활용한 서버 유지보수 자동화",
         "LDAP, DNS, NTP, Nginx 프록시 등 공통 서비스 운영",
+        "R Server, Shiny Server 설치·운영 및 패키지 관리로 연구원들의 데이터 분석·시각화 환경 지원",
         "관리자 인수인계용 운영 문서(장비 리스트, 서버 스펙, 트러블 슈팅) 체계화"
       ],
-      tech: ["Ubuntu", "Windows Server", "Ansible", "Terraform", "NAS / SAN / iSCSI", "Nginx", "LDAP"],
+      tech: ["Ubuntu", "Windows Server", "Ansible", "Terraform", "NAS / SAN / iSCSI", "Nginx", "LDAP", "R Server", "Shiny Server"],
       highlights: []
     },
     {
