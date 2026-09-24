@@ -75,13 +75,13 @@ window.PORTFOLIO = {
     {
       id: "llm-record-platform",
       org: "phi",
-      title: "초거대 AI 기반 의료 기록지 자동 생성 플랫폼",
+      title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
       period: "2024.05 ~ 현재",
       category: ["AI / LLM", "Backend", "Infra"],
       summary:
         "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
       role: [
-        "EMR → Operator → Data Processer → FHIR 변환 → LLM으로 이어지는 데이터 파이프라인 설계",
+        "EMR → 게이트웨이 → 데이터 표준화 → 전처리 → LLM → 후처리로 이어지는 데이터 파이프라인 설계",
         "기록지 XML을 FHIR로 변환하기 위한 분석용 테이블 구조 및 변환 규칙 설계",
         "단일 컨테이너 구조에서 멀티 컨테이너(Nginx / K8s, Redis 세션 이원화, Message Queue) 구조로 확장 설계",
         "스트레스 테스트(3차), 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
