@@ -24,7 +24,7 @@ window.PORTFOLIO = {
 
   // 노션 "박동수 이력" Skills 분류 체계를 따르고, 이후 업무에서 추가된 항목을 덧붙임
   skills: [
-    { group: "Container", items: ["Docker", "Docker Swarm", "Docker Compose", "Kubernetes"] },
+    { group: "Container", items: ["Docker", "Docker Swarm", "Docker Compose"] },
     { group: "IaC", items: ["Ansible", "Terraform"] },
     { group: "Database", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"] },
     { group: "Cloud", items: ["AWS"] },
@@ -32,7 +32,7 @@ window.PORTFOLIO = {
     { group: "Tool", items: ["GitHub", "GitLab", "Embulk", "Airflow", "ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
     { group: "Language", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
     { group: "CI/CD", items: ["GitHub Actions", "AWS CodeDeploy", "AWS CodePipeline", "GitLab CI"] },
-    { group: "Healthcare Standard", items: ["HL7 FHIR", "OMOP CDM / ATLAS", "SNOMED CT", "vLLM / Hugging Face"] }
+    { group: "Healthcare Standard", items: ["HL7 FHIR", "OMOP CDM / ATLAS", "vLLM / Hugging Face"] }
   ],
 
   careers: [
