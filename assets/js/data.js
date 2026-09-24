@@ -41,7 +41,7 @@ window.PORTFOLIO = {
       role: "인공지능사업부 과장 · Full-Stack Engineer",
       period: "2022.11 ~ 현재",
       summary:
-        "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스 및 FHIR 변환 시스템 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
+        "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스·AI Agent 및 FHIR 변환 시스템 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
     },
     {
       org: "아주대학교 의료원 의료정보학과",
@@ -67,15 +67,18 @@ window.PORTFOLIO = {
       period: "2024.05 ~ 현재",
       category: ["AI / LLM", "Backend", "Infra"],
       summary:
-        "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당.",
+        "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
       role: [
         "EMR → Operator → Data Processer → FHIR 변환 → LLM으로 이어지는 데이터 파이프라인 설계",
         "기록지 XML을 FHIR로 변환하기 위한 분석용 테이블 구조 및 변환 규칙 설계",
         "단일 컨테이너 구조에서 멀티 컨테이너(Nginx / K8s, Redis 세션 이원화, Message Queue) 구조로 확장 설계",
         "스트레스 테스트(3차), 보안 취약점 점검 대응, 운영 배포(2025.07) 수행",
-        "2026년 고도화: Spring Boot Platform + Kafka + FastAPI Processer + vLLM 구조, Prometheus·Loki·Tempo·Grafana 관제 설계"
+        "2026년 고도화: Spring Boot Platform + Kafka + FastAPI Processer + vLLM 구조, Prometheus·Loki·Tempo·Grafana 관제 설계",
+        "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 단일 Agent + Tool 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. Processer·Broker의 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당",
+        "Agent 운영 점검: Usecase별 FHIR 그룹핑 로직 재배치, Elasticsearch 로그·Grafana 모니터링 기반 기능 점검 및 배포, 10건 케이스 대상 Agent 기반 PoC 수행",
+        "Tool Calling 미지원 의료 특화 모델 대응: Tool Calling용 모델과 서식 추론용 모델을 분리해 vLLM으로 서빙하고 OpenAI 호환 규격으로 정비"
       ],
-      tech: ["Python", "FastAPI", "vLLM", "Kafka", "Redis", "Docker", "Kubernetes", "Nginx", "PostgreSQL", "MongoDB", "HL7 FHIR", "Grafana"],
+      tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Kubernetes", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
       highlights: [
         "산자부 과제 제안서(서식 10종 모델 개발) 중 데이터 수집·가공·표준화 파트 작성",
         "모델 인수인계 및 전처리 룰 v2 반영, 학습 데이터 저장 구조(MongoDB) 설계"
@@ -133,9 +136,10 @@ window.PORTFOLIO = {
         "Next.js + FastAPI + PostgreSQL + Redis + Nginx + Docker Compose 서비스 아키텍처 설계",
         "의도(Intent)·시나리오(Node/Edge)·응답·대화 이력·감사 로그 중심의 DB 모델링 및 DDL/ERD 작성",
         "Prometheus / Loki / Tempo / Grafana 기반 메트릭·로그·트레이스 통합 모니터링 설계",
-        "MySQL 대비 PostgreSQL 선정 근거(JSONB, FTS, 파티션+FK) 정리"
+        "MySQL 대비 PostgreSQL 선정 근거(JSONB, FTS, 파티션+FK) 정리",
+        "LangGraph 기반 멀티테넌트 AI Agent Core(RAG, NLU, 가드레일, 멀티모델 라우팅, Langfuse 관측) 인수인계 및 관리 도구 ↔ Agent 인터페이스·응답 스키마 연동"
       ],
-      tech: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "Redis", "Docker Compose", "Nginx", "GitLab CI", "Grafana", "Loki", "Tempo"],
+      tech: ["Next.js", "TypeScript", "FastAPI", "LangGraph", "PostgreSQL", "Redis", "Docker Compose", "Nginx", "GitLab CI", "Grafana", "Loki", "Tempo"],
       highlights: []
     },
     {
