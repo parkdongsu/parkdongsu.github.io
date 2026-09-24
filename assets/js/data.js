@@ -316,6 +316,9 @@ window.PORTFOLIO = {
       category: ["Infra"],
       summary:
         "약 20대의 Windows·Ubuntu 서버와 NAS·SAN·iSCSI 스토리지, 스위치 등 서버실 전 장비의 설치·환경 세팅·운영을 담당.",
+      images: [
+        { src: "assets/images/projects/notion-handover.jpg", alt: "노션에 작성한 학과 서버·인프라 인수인계 문서 목차", caption: "노션으로 작성한 인수인계 문서 — 장비 정보, 서버 점검, 소프트웨어별 운영 가이드, 국책과제, 트러블 슈팅 등 (페이지 구조 재현)" }
+      ],
       description:
         "약 20대의 Windows·Ubuntu 서버, NAS·SAN·iSCSI 스토리지, 스위치 등 서버실 내 모든 장비의 설치, 환경 세팅, 관리를 담당했습니다. 서버와 서비스를 관리하기 위해 Docker Swarm을 활용한 모니터링 환경을 구성했고, IaC 도구인 Ansible, Terraform을 활용해 서버 유지보수를 진행했습니다.",
       role: [
