@@ -128,8 +128,7 @@ window.PORTFOLIO = {
         "Next.js + FastAPI + PostgreSQL + Redis + Nginx + Docker Compose 서비스 아키텍처 설계",
         "의도(Intent)·시나리오(Node/Edge)·응답·대화 이력·감사 로그 중심의 DB 모델링 및 DDL/ERD 작성",
         "Prometheus / Loki / Tempo / Grafana 기반 메트릭·로그·트레이스 통합 모니터링 설계",
-        "MySQL 대비 PostgreSQL 선정 근거(JSONB, FTS, 파티션+FK) 정리",
-        "LangGraph 기반 멀티테넌트 AI Agent Core(RAG, NLU, 가드레일, 멀티모델 라우팅, Langfuse 관측) 인수인계 및 관리 도구 ↔ Agent 인터페이스·응답 스키마 연동"
+        "LangGraph 기반 멀티테넌트 AI Agent에 의도·시나리오·응답 등 지식을 배포하고, 운영자가 GUI에서 챗봇 시나리오를 직접 설계·시뮬레이션할 수 있는 관리 도구 개발"
       ],
       tech: ["Next.js", "TypeScript", "FastAPI", "LangGraph", "PostgreSQL", "Redis", "Docker Compose", "Nginx", "GitLab CI", "Grafana", "Loki", "Tempo"],
       highlights: []
