@@ -162,7 +162,7 @@ window.PORTFOLIO = {
         "폐쇄망 환경에서 Embulk + Airflow 기반 ETL 반자동화 시스템과 ELK + Grafana 모니터링 서비스를 구축하고 이후 유지보수 사업을 수행.",
       role: [
         "Embulk + Airflow 조합의 데이터 이관 시스템 구축 (DDL 생성 → Embulk 쿼리 생성 → 적용 → 실행 자동화)",
-        "EKG / CDM / SCRAP / YCDL 등 대상별 증분 적재 설계 및 SSIS 대비 이관 속도 비교",
+        "EKG / CDM / 주요 CDW / 암 종 데이터 등 대상별 증분 적재 설계 및 SSIS 대비 이관 속도 비교",
         "ELK Stack, Beats, Grafana 기반 서버·DB·로그 모니터링 구축, 보안성 검토 대응",
         "기존 CDM 이관(Achilles, ATLAS Results) 지원, 서버 구성 문제점 및 개선 제언 정리",
         "유지보수: Elasticsearch 인덱스 삭제 배치, 대시보드 추가·수정, 생체신호 데이터 운영 방안, 과업지시서 산출물 점검"
