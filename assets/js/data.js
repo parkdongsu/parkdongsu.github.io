@@ -329,23 +329,23 @@ window.PORTFOLIO = {
       highlights: []
     },
     {
-      id: "analysis-env",
+      id: "datathon-env",
       org: "ajou",
-      track: "서버 관리 업무",
-      title: "연구자용 분석 환경 구성 및 데이터톤 운영",
-      period: "2018 ~ 2022",
-      category: ["Infra"],
+      track: "서버 관리 업무 · OHDSI",
+      title: "2019 OHDSI Korea 국제 심포지엄 & 자체 데이터톤 환경 구축·운영",
+      period: "2019 ~ 2022",
+      category: ["Cloud", "Infra"],
       summary:
-        "학생 개발자·외부 연구원을 위한 RStudio Server, Jupyter Notebook 분석 환경을 구축·운영하고 매년 30~40명 규모 데이터톤 환경을 제공.",
+        "OHDSI Korea 국제 심포지엄 튜토리얼과 매년 30~40명 규모의 자체 데이터톤을 위해 AWS 또는 온프레미스 환경에 ATLAS·RStudio 분석 환경을 구축하고 행사 기간 운영.",
       description:
-        "학과에 근무하며 학생 개발자들의 RStudio Server, Jupyter Notebook 개발 환경을 세팅·유지보수했고, LDAP, DNS, 프록시(Nginx) 서비스를 활용해 분석 환경 접근 최적화와 관리 편의성을 확보했습니다. 외부 연구원들을 위해 Docker 컨테이너 기반 분석 환경을 제공했으며, 매년 30~40명 규모의 데이터톤을 위해 분석 컨테이너와 DB 사용 환경을 제공하고 리소스 모니터링을 담당했습니다.",
+        "OHDSI(Observational Health Data Sciences and Informatics) 협력 기관으로 참여하며 2019년 한국에서 열린 국제 심포지엄의 튜토리얼 환경을 AWS Cloud 위에 구축하고 참가자용 VDI 환경을 제공했습니다. 이후 학과에서 매년 개최한 데이터톤에서도 행사 규모에 따라 AWS 또는 온프레미스 서버에 ATLAS와 RStudio Server를 세팅하고, 참가 팀별 분석 컨테이너와 DB 환경을 제공하며 행사 기간 리소스 모니터링을 담당했습니다.",
       role: [
-        "RStudio Server, Jupyter Notebook 개발 환경 세팅 및 유지보수",
-        "LDAP, DNS, Nginx 프록시를 활용한 접근 최적화 및 관리 편의성 확보",
-        "Docker 컨테이너 기반 외부 연구원 분석 환경 제공",
-        "데이터톤용 분석 컨테이너·DB 환경 제공 및 리소스 모니터링"
+        "OHDSI Korea 국제 심포지엄(2019) 튜토리얼용 AWS 분석 환경 및 참가자 VDI 환경 구축·운영 지원",
+        "데이터톤용 ATLAS·RStudio Server 세팅 (AWS 또는 온프레미스 환경 선택)",
+        "참가 팀별 Docker 기반 분석 컨테이너 및 샘플 CDM DB 환경 제공",
+        "행사 기간 서버 리소스 모니터링 및 참가자 기술 지원"
       ],
-      tech: ["Docker", "RStudio Server", "Jupyter", "LDAP", "Nginx", "MSSQL"],
+      tech: ["AWS", "Docker", "OMOP CDM", "ATLAS", "RStudio Server", "R", "MSSQL"],
       highlights: []
     },
     {
@@ -369,24 +369,6 @@ window.PORTFOLIO = {
       ],
       tech: ["OMOP CDM", "ATLAS", "WebAPI", "Docker", "Embulk", "MSSQL", "PostgreSQL", "AWS EC2 / RDS", "R", "Achilles", "LDAP"],
       highlights: ["ATLAS 설치 가이드 및 CDM 이관 절차를 문서화해 외부 기관 설치 지원 시 Docker 이미지 반입 방식으로 표준화"]
-    },
-    {
-      id: "ohdsi-2019",
-      org: "ajou",
-      track: "서버 관리 업무",
-      title: "OHDSI Korea International Symposium 2019 튜토리얼 환경 구축",
-      period: "2019",
-      category: ["Cloud", "Infra"],
-      summary:
-        "OHDSI 국제 심포지엄 튜토리얼을 위해 AWS Cloud 위에 분석 환경과 참가자용 VDI 환경을 구축.",
-      description:
-        "OHDSI(Observational Health Data Sciences and Informatics)라는 Health Data 관련 협력 기관에 참여하며, 2019년 한국에서 열린 국제 심포지엄의 튜토리얼 환경을 위해 AWS Cloud 위에 분석 환경을 구축하고 튜토리얼 사용자를 위한 VDI 환경을 구축했습니다.",
-      role: [
-        "AWS 기반 OMOP CDM 분석 환경 구축",
-        "튜토리얼 참가자용 VDI 환경 구성 및 운영 지원"
-      ],
-      tech: ["AWS", "OMOP CDM", "ATLAS", "R"],
-      highlights: []
     },
     {
       id: "db-admin",
