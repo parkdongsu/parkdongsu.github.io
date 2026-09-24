@@ -164,10 +164,12 @@ window.PORTFOLIO = {
         "Embulk + Airflow 조합의 데이터 이관 시스템 구축 (DDL 생성 → Embulk 쿼리 생성 → 적용 → 실행 자동화)",
         "EKG / CDM / 주요 CDW / 암 종 데이터 등 대상별 증분 적재 설계 및 SSIS 대비 이관 속도 비교",
         "ELK Stack, Beats, Grafana 기반 서버·DB·로그 모니터링 구축, 보안성 검토 대응",
+        "이관 현황 대시보드 구축: 대상별 이관 건수·마지막 적재 일시·소요 시간을 Grafana에서 한눈에 확인할 수 있도록 구성",
+        "카카오톡 알림톡 연동: 이관 실패·지연, 서버 이상 등 알림을 담당자에게 실시간 전송",
         "기존 CDM 이관(Achilles, ATLAS Results) 지원, 서버 구성 문제점 및 개선 제언 정리",
         "유지보수: Elasticsearch 인덱스 삭제 배치, 대시보드 추가·수정, 생체신호 데이터 운영 방안, 과업지시서 산출물 점검"
       ],
-      tech: ["Embulk", "Airflow", "Docker", "MSSQL", "Elasticsearch", "Kibana", "Beats", "Grafana", "Python"],
+      tech: ["Embulk", "Airflow", "Docker", "MSSQL", "Elasticsearch", "Kibana", "Beats", "Grafana", "Python", "카카오 알림톡 API"],
       highlights: ["단기 개선 사업 완료 보고서 작성 및 발표"]
     },
     {
