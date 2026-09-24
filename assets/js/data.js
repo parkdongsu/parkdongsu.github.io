@@ -285,6 +285,27 @@ window.PORTFOLIO = {
       highlights: []
     },
     {
+      id: "rehosp-plp",
+      org: "ajou",
+      track: "연구 지원 · OHDSI PLP",
+      title: "임상 노트 기반 응급실 경유 재입원 예측 PLP 패키지 개발",
+      period: "2018.07 ~ 2019.01",
+      category: ["AI / LLM", "Data / ETL"],
+      summary:
+        "OMOP CDM 위에서 OHDSI PatientLevelPrediction(PLP) 프레임워크로 입원 환자의 30일 내 응급실 경유 재입원을 예측하는 커스텀 연구 패키지를 개발. 임상 노트를 토픽 모델링으로 공변량화해 예측에 활용.",
+      description:
+        "OHDSI PLP 스켈레톤을 기반으로 ATLAS에서 정의한 코호트(타깃: 입원·응급 방문, 아웃컴: 응급실 방문)를 가져와 위험 기간 1~30일의 재입원 예측 연구를 패키지화했습니다. 구조화 데이터뿐 아니라 CDM NOTE 테이블의 한·영 임상 노트에서 100개 토픽의 LDA 토픽 모델 공변량을 추출하는 별도 R 패키지를 만들어 연계했고, Lasso 로지스틱 회귀와 Gradient Boosting Machine 모델로 학습·평가한 뒤 결과 패키징과 외부 검증용 패키지 생성까지 지원하도록 구성했습니다.",
+      role: [
+        "OHDSI PLP 스켈레톤 기반 연구 패키지 구조 설계 및 R 패키지 개발 (코호트 생성, 분석 실행, 결과 패키징, 검증 패키지 생성)",
+        "ATLAS 코호트 정의(입원·응급 방문 / 응급실 방문)를 패키지에 내장하고 SQL Server용 코호트 SQL 관리",
+        "임상 노트 공변량 추출 R 패키지 개발: 한·영 노트 토큰화, text2vec 기반 LDA 토픽 모델링(100 토픽)으로 PLP 공변량 생성",
+        "Lasso 로지스틱 회귀·GBM 모델 설정, 위험 기간(1~30일)·관찰 기간 등 예측 설정 정의 및 병원 CDM(MSSQL)에서 실행"
+      ],
+      tech: ["R", "OHDSI PatientLevelPrediction", "FeatureExtraction", "OMOP CDM", "ATLAS", "MSSQL", "text2vec", "Topic Modeling (LDA)"],
+      links: [{ label: "GitHub · RehospitalizationPredictionWithNote", url: "https://github.com/parkdongsu/RehospitalizationPredictionWithNote" }],
+      highlights: []
+    },
+    {
       id: "monitoring",
       org: "ajou",
       track: "서버 관리 업무",
