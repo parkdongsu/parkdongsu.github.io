@@ -223,14 +223,22 @@ window.PORTFOLIO = {
       org: "phi",
       title: "SDP 교육용 AWS 아키텍처 설계",
       period: "2023.06 ~ 2023.09",
-      category: ["Cloud"],
+      category: ["Cloud", "Backend"],
       summary:
-        "학생·실습용 SDP(Secure Data Platform) 환경을 위한 AWS 실습·행사용 아키텍처를 설계하고 서비스 구성을 정리.",
-      role: [
-        "AWS 실습·행사용 아키텍처 설계",
-        "교육용 SDP 관련 아키텍처 서비스 정리 및 계약 협의 지원"
+        "의대생·행사 참가자용 SDP(Secure Data Platform) 실습 환경을 위해, 교육용 포털이 AWS SDK API로 학생별 EC2 분석 인스턴스를 자동 생성·삭제하고 접속 정보를 배포하는 AWS 아키텍처를 설계.",
+      description:
+        "학생 계정 관리, 데이터 접근 권한 관리, 과제 제출·샘플 데이터 배포라는 요구사항을 바탕으로 AWS 실습·행사용 아키텍처를 설계했습니다. 교육용 Portal EC2가 AWS SDK API로 R·Python·딥러닝 환경이 준비된 AMI 기반 EC2를 학생 수만큼 한 번에 생성·삭제(Auto Scaling)하고, 생성된 인스턴스의 원격 접속 정보 파일을 포털에서 학생별로 내려받아 접속하는 구조입니다. 학생 데이터는 S3 버킷(과제 제출용 업로드 전용 / 데이터 배포용)과 버킷 정책으로 권한을 분리하고, VPC Endpoint·VPN·CloudTrail로 접근 경로와 감사 로그를 구성했습니다.",
+      images: [
+        { src: "assets/images/projects/sdp-architecture.jpg", alt: "SDP 교육용 AWS 아키텍처 구성도", caption: "SDP 교육용 AWS 아키텍처 구성도 — 교육용 Portal EC2가 AWS SDK API로 학생별 EC2를 조정" }
       ],
-      tech: ["AWS", "Docker"],
+      role: [
+        "요구사항 정의: 학생(AD) 계정·행사용 임시 계정 관리, 학생별 인스턴스 접속 권한 분리, S3 업로드·다운로드 권한 설계",
+        "AWS SDK API 기반 EC2 자동 생성·삭제 및 Auto Scaling 구조와 접속 정보 파일 배포 흐름 설계, IAM Policy 정의",
+        "학생용 AMI(R, Python, Deep Learning) 기반 일괄 생성·삭제 방식과 RDP / Docker 컨테이너 / GPU 인스턴스 할당 방식 검토",
+        "공유 스토리지 대안(S3, EFS, FSx, 웹 업로드) 비교와 버킷 정책 설계, VPC Endpoint·VPN·CloudTrail 모니터링 구성",
+        "SDP 포털 연계 방안 및 용역 과제 일정·계약 협의 지원"
+      ],
+      tech: ["AWS EC2", "AWS SDK", "Auto Scaling", "AMI", "S3", "IAM", "VPC Endpoint", "CloudTrail", "EFS / FSx"],
       highlights: []
     },
     {
