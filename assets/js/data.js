@@ -126,8 +126,7 @@ window.PORTFOLIO = {
       ],
       tech: ["Python", "FastAPI", "React", "HL7 FHIR", "HAPI FHIR", "SUSHI / IG Publisher", "MariaDB", "MongoDB", "Redis", "Docker Compose", "XML"],
       highlights: [
-        "룰 기반 실시간 EMR → FHIR 변환 방식에 대한 특허 출원 및 등록 (2025 출원): 국내외 선행 특허(FHIR 매핑·컨버터 관련) 조사 및 차별점 정리, 명세 작성 참여",
-        "2025.06 운영 배포 후 지속 고도화 (Terminology Binding 분리, IG 발행, FHIR Server 연동, 변환 이력 보관 등)"
+        "룰 기반 실시간 EMR → FHIR 변환 방식에 대한 특허 출원 및 등록 (2025 출원): 국내외 선행 특허(FHIR 매핑·컨버터 관련) 조사 및 차별점 정리, 명세 작성 참여"
       ]
     },
     {
