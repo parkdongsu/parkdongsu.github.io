@@ -38,7 +38,7 @@ window.PORTFOLIO = {
   careers: [
     {
       org: "파이 디지털 헬스케어",
-      role: "인공지능사업부 과장 · System Engineer / Backend Developer",
+      role: "인공지능사업부 과장 · Full-Stack Engineer",
       period: "2022.11 ~ 현재",
       summary:
         "의료 데이터 플랫폼 구축·운영, LLM 기반 의료 기록 자동 생성 서비스(Y-KNOT) 및 FHIR 변환 시스템(FHIRMate) 설계·개발, GPU 서버 및 클라우드 인프라 구축, 세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육"
