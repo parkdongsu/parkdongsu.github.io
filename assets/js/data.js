@@ -116,24 +116,6 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: "gpu-infra",
-      org: "phi",
-      title: "LLM 연구용 GPU 서버 인프라 구축",
-      period: "2024.11 ~ 2025.11",
-      category: ["Infra"],
-      summary:
-        "ML 서버 세팅부터 H200 8EA GPU 서버 입고·설치·모델 세팅까지 LLM 연구/서빙 인프라 전반을 구축.",
-      role: [
-        "H200 × 8 GPU 서버 입고, 서버실 사전 답사, 전원(UPS 이중화)·랙 설치, 네트워크 세팅",
-        "Ubuntu 24.04 설치, RAID 1 디스크 구성, Docker·NVIDIA Driver·CUDA 환경 구성",
-        "Hugging Face 기반 오픈 모델(MedGemma, Qwen3, Llama, DeepSeek, EXAONE 등) 다운로드·세팅",
-        "GCP A100 인스턴스 CUDA 세팅, 의료원 연구망 서버 입고 절차 진행, ML 서버 백업 계획 수립",
-        "ML 서버 트러블 슈팅 및 운영 문서화"
-      ],
-      tech: ["Ubuntu", "NVIDIA Driver / CUDA", "Docker", "Hugging Face", "vLLM", "GCP"],
-      highlights: []
-    },
-    {
       id: "chatbot-console",
       org: "phi",
       title: "소아의료 챗봇 관리 도구 설계",
