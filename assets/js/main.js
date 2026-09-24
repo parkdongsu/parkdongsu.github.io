@@ -202,6 +202,18 @@
       p.track ? `<span class="detail__fact"><b>구분</b>${esc(p.track)}</span>` : "",
       p.team ? `<span class="detail__fact"><b>참여 인원</b>${esc(p.team)}</span>` : ""
     ].filter(Boolean).join("");
+    const desc = (d) => {
+      if (!d) return "";
+      const blocks = Array.isArray(d) ? d : [d];
+      const html = blocks
+        .map((b) =>
+          Array.isArray(b)
+            ? `<ol class="detail__steps">${b.map((x) => `<li>${esc(x)}</li>`).join("")}</ol>`
+            : `<p>${esc(b)}</p>`
+        )
+        .join("");
+      return `<div class="detail__desc">${html}</div>`;
+    };
     return `
       <div class="detail__meta">
         <span class="detail__org">${esc(D.orgs[p.org] || p.org)}</span>
@@ -211,7 +223,7 @@
       <h2 class="detail__title" id="modalTitle">${esc(p.title)}</h2>
       <p class="detail__summary">${esc(p.summary)}</p>
       ${facts ? `<div class="detail__facts">${facts}</div>` : ""}
-      ${p.description ? `<p class="detail__desc">${esc(p.description)}</p>` : ""}
+      ${desc(p.description)}
       ${section("화면 · 구성도", gallery(p.images))}
       ${section("역할 · 수행 내용", list(p.role))}
       ${section("주요 성과 · 포인트", list(p.highlights))}
