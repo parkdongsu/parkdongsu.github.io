@@ -88,7 +88,7 @@ window.PORTFOLIO = {
       period: "2024.06 ~ 현재",
       category: ["Backend", "AI / LLM"],
       summary:
-        "EMR 서식지(XML)를 자체 DSL 기반 Rule로 HL7 FHIR 리소스에 매핑·변환하는 시스템. 룰 관리 UI, 변환 API, 변환 이력을 제공.",
+        "EMR 서식지(XML)를 자체 DSL 기반 Rule로 HL7 FHIR 리소스에 매핑·변환하는 시스템. 룰 관리 UI, 변환 API, 변환 이력을 제공하며 변환 방식에 대해 특허를 출원.",
       role: [
         "Rule Group / Rule 기반 XML → FHIR 변환 로직 및 연동 API(POST /convert/fhir/api) 개발",
         "서식지 1:N Rule Group 매핑 허용(v1.2.0 → v1.3.0), 부분 실패 시 partial 상태 응답 등 하위 호환 설계",
@@ -98,6 +98,7 @@ window.PORTFOLIO = {
       ],
       tech: ["Python", "FastAPI", "HL7 FHIR", "PostgreSQL", "Docker", "XML"],
       highlights: [
+        "룰 기반 실시간 EMR → FHIR 변환 방식에 대한 특허 출원 (2025): 국내외 선행 특허(FHIR 매핑·컨버터 관련) 조사 및 차별점 정리, 명세 작성 참여",
         "인재원 FHIR 교육 실습 도구로 활용 (KR Core 기반 Resource 정의, DSL 실습)"
       ]
     },
