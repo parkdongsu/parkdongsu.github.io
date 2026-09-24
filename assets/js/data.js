@@ -359,12 +359,12 @@ window.PORTFOLIO = {
       period: "2019 ~ 2022",
       category: ["Data / ETL", "Cloud", "Infra"],
       summary:
-        "병원 On-Premise CDM을 AWS RDS로 이관하고 ATLAS·WebAPI를 Docker로 구축해 PLE·PLP 분석 환경을 제공. 강동성심병원, 심평원 등 외부 기관 ATLAS 설치 출장 지원과 설치 가이드 문서화까지 담당.",
+        "튜토리얼·테스트용 샘플 CDM을 AWS RDS로 이관하고 ATLAS·WebAPI를 Docker로 구축해 PLE·PLP 분석 환경을 제공. 강동성심병원, 심평원 등 외부 기관 ATLAS 설치 출장 지원과 설치 가이드 문서화까지 담당.",
       description:
-        "OHDSI ATLAS v2.8.0과 WebAPI를 Docker 이미지로 빌드해 AWS EC2와 온프레미스 서버에 배포하고, 병원 내부 MSSQL의 CDM 데이터를 Embulk로 PostgreSQL(AWS RDS)에 이관한 뒤 Achilles 통계와 Results 스키마를 구성해 ATLAS에 연결했습니다. 50만·100만 환자 규모의 샘플 CDM으로 PLE·PLP 패키지를 실행하는 스트레스 테스트를 수행해 RDS·EC2 권장 사양을 도출했습니다.",
+        "OHDSI ATLAS v2.8.0과 WebAPI를 Docker 이미지로 빌드해 AWS EC2와 온프레미스 서버에 배포하고, 튜토리얼·스트레스 테스트용 샘플 CDM을 Embulk로 MSSQL → PostgreSQL(AWS RDS)에 이관한 뒤 Achilles 통계와 Results 스키마를 구성해 ATLAS에 연결했습니다. 온프레미스 ATLAS는 병원 내부 CDM에 직접 연결해 운영했습니다. 50만·100만 환자 규모의 샘플 CDM으로 PLE·PLP 패키지를 실행하는 스트레스 테스트를 수행해 RDS·EC2 권장 사양을 도출했습니다.",
       role: [
         "ATLAS / WebAPI Docker 이미지 빌드 및 EC2·온프레미스 배포, DB·LDAP 로그인 연동 설정",
-        "Embulk를 Docker로 구성해 MSSQL → PostgreSQL CDM 테이블 이관(테이블별 YAML 자동 생성), DDL 변경 및 인덱스 작업",
+        "Embulk를 Docker로 구성해 샘플 CDM 테이블을 MSSQL → PostgreSQL(AWS RDS)로 이관(테이블별 YAML 자동 생성), DDL 변경 및 인덱스 작업",
         "Achilles(R) 실행을 위한 RStudio Server 컨테이너 구성, WebAPI Results 스키마 생성 및 ATLAS Source 등록",
         "pg_dump / RDS 스냅샷 기반 샘플 CDM(50만·100만 환자) 구성 및 PLE·PLP 스트레스 테스트로 클라우드 사양 산정",
         "튜토리얼용 VDI 분석 환경(R, RStudio, Java) 세팅 및 설치·운영 가이드 문서화",
