@@ -204,22 +204,6 @@ window.PORTFOLIO = {
       highlights: []
     },
     {
-      id: "dtx-ai-center",
-      org: "phi",
-      title: "DTx 플랫폼 · AI 실증센터 배포 환경 및 Frontend 지원",
-      period: "2022.10 ~ 2023.10",
-      category: ["Cloud", "Frontend"],
-      summary:
-        "디지털 치료제(DTx) 플랫폼의 외부망(AWS) 배포 환경 구성과 AI 실증센터 Frontend 개발·코드 개선을 지원.",
-      role: [
-        "DTx 운영 페이지 외부망 배포 환경 구성(AWS)",
-        "React 프로젝트 인수·인계 및 CI/CD 방법 공유",
-        "AI 실증센터 Frontend 개발 회의 참여 및 코드 개선 사항 정리"
-      ],
-      tech: ["AWS", "React", "CI/CD"],
-      highlights: []
-    },
-    {
       id: "sdp-education",
       org: "phi",
       title: "SDP 교육용 AWS 아키텍처 설계",
