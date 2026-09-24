@@ -105,7 +105,7 @@ window.PORTFOLIO = {
       summary:
         "의료기관 서식지(XML/JSON/CSV/Excel) 데이터를 HL7 FHIR Resource로 변환하기 위한 웹 기반 통합 워크벤치. Profile 정의부터 DSL 변환 Rule 작성·테스트, Terminology 관리, Implementation Guide 발행, FHIR Server 저장·조회까지 FHIR 변환 전 과정을 한 화면에서 관리하며, 변환 방식에 대해 특허 출원 및 등록 완료.",
       description:
-        "React 프론트엔드와 FastAPI 백엔드, MariaDB/MongoDB/Redis 저장소, IG 발행용 SUSHI·IG Publisher 컨테이너와 HAPI FHIR Server 컨테이너로 구성되어 docker compose로 배포됩니다. 기본 작업 흐름은 ① FHIR Resource 등록 및 Profile(Cardinality/DataType/Binding) 정의 → ② 자체 DSL 학습·연습 → ③ 변환 보조(치환) 데이터 구성 → ④ Rule Group(서식지)·Rule 정의 및 변환 테스트/Validation → ⑤ FHIR Server 저장 → ⑥ Implementation Guide 발행이며, 사용자/매니저/관리자 3단계 권한으로 화면과 기능을 분리합니다. 관리자·사용자 매뉴얼(v1.10.2 소스 기준)을 직접 작성했습니다.",
+        "React 프론트엔드와 FastAPI 백엔드, MariaDB/MongoDB/Redis 저장소, IG 발행용 SUSHI·IG Publisher 컨테이너와 HAPI FHIR Server 컨테이너로 구성되어 docker compose로 배포됩니다. 기본 작업 흐름은 ① FHIR Resource 등록 및 Profile(Cardinality/DataType/Binding) 정의 → ② 자체 DSL 학습·연습 → ③ 변환 보조(치환) 데이터 구성 → ④ Rule Group(서식지)·Rule 정의 및 변환 테스트/Validation → ⑤ FHIR Server 저장 → ⑥ Implementation Guide 발행이며, 사용자/매니저/관리자 3단계 권한으로 화면과 기능을 분리합니다.",
       role: [
         "전체 아키텍처 설계 및 백엔드(FastAPI)·프론트엔드(React) 개발, docker compose 기반 배포·운영 스크립트 정리",
         "자체 변환 DSL 설계·구현: Python/SQL 유사 문법(IF, IN, DEFINE, FOR, Function)으로 FHIR Path별 값 구성, ConceptMap 참조(TRANSLATE) 및 반복 요소 분할 생성 지원",
@@ -121,8 +121,7 @@ window.PORTFOLIO = {
       tech: ["Python", "FastAPI", "React", "HL7 FHIR", "HAPI FHIR", "SUSHI / IG Publisher", "MariaDB", "MongoDB", "Redis", "Docker Compose", "XML"],
       highlights: [
         "룰 기반 실시간 EMR → FHIR 변환 방식에 대한 특허 출원 및 등록 (2025 출원): 국내외 선행 특허(FHIR 매핑·컨버터 관련) 조사 및 차별점 정리, 명세 작성 참여",
-        "2025.06 운영 배포 후 v1.10.x까지 지속 고도화 (Terminology Binding 분리, IG 발행, FHIR Server 연동, 변환 이력 보관 등)",
-        "관리자/사용자 매뉴얼 작성 및 인재원 FHIR 교육 실습 도구로 활용 (KR Core 기반 Resource 정의, DSL 실습)"
+        "2025.06 운영 배포 후 지속 고도화 (Terminology Binding 분리, IG 발행, FHIR Server 연동, 변환 이력 보관 등)"
       ]
     },
     {
