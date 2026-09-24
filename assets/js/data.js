@@ -88,9 +88,7 @@ window.PORTFOLIO = {
       ],
       tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
       highlights: [
-        "세브란스 3개 병원에 5종 서식, 1개 병원에 1종 서식 적용 (운영 배포)",
-        "산자부 과제 제안서(서식 10종 모델 개발) 중 데이터 수집·가공·표준화 파트 작성",
-        "모델 인수인계 및 전처리 룰 v2 반영, 학습 데이터 저장 구조(MongoDB) 설계"
+        "세브란스 3개 병원에 5종 서식, 1개 병원에 1종 서식 적용 (운영 배포)"
       ]
     },
     {
