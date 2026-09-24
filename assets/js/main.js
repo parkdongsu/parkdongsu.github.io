@@ -80,7 +80,9 @@
         <div class="timeline__period">${esc(c.period)}</div>
         <div class="timeline__org">${esc(c.org)}</div>
         <div class="timeline__role">${esc(c.role)}</div>
-        <p class="timeline__summary">${esc(c.summary)}</p>
+        ${c.items && c.items.length
+          ? `<ul class="timeline__items">${c.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
+          : `<p class="timeline__summary">${esc(c.summary || "")}</p>`}
       </li>`).join("");
 
     $("#contactLinks").innerHTML = `
