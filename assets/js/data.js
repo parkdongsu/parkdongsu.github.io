@@ -32,7 +32,8 @@ window.PORTFOLIO = {
     { group: "Tool", items: ["GitHub", "GitLab", "Embulk", "Airflow", "ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
     { group: "Language", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
     { group: "CI/CD", items: ["GitHub Actions", "AWS CodeDeploy", "AWS CodePipeline", "GitLab CI"] },
-    { group: "Healthcare Standard", items: ["HL7 FHIR", "OMOP CDM / ATLAS", "vLLM / Hugging Face"] }
+    { group: "Healthcare Standard", items: ["HL7 FHIR", "OMOP CDM / ATLAS"] },
+    { group: "LLM", items: ["ChatGPT", "Claude", "vLLM / Hugging Face"] }
   ],
 
   careers: [
