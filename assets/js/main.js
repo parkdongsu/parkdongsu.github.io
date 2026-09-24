@@ -85,10 +85,7 @@
       </li>`).join("");
 
     $("#contactLinks").innerHTML = `
-      <a class="contact__link" href="mailto:${esc(p.email)}"><span>✉</span><span>${esc(p.email)}</span></a>
-      <a class="contact__link" href="${esc(p.github)}" target="_blank" rel="noopener">
-        <img src="assets/images/github.png" alt="" /><span>GitHub <small>${esc(p.github.replace(/^https?:\/\//, ""))}</small></span>
-      </a>`;
+      <a class="contact__link" href="mailto:${esc(p.email)}"><span>✉</span><span>${esc(p.email)}</span></a>`;
     $("#year").textContent = new Date().getFullYear();
   }
 
