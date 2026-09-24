@@ -235,17 +235,17 @@ window.PORTFOLIO = {
       summary:
         "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIR 변환 도구 실습까지 강의를 담당.",
       description:
-        "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIR 변환 도구 실습으로 이어지는 총 13시간 과정을 구성했습니다.",
+        "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIR 변환 도구 소개로 이어지는 총 8시간의 강의 과정을 구성했고, 이어서 실습과 바이브 코딩 프로젝트로 구성된 60시간 과정을 설계해 강의를 진행하고 있습니다.",
       role: [
         "강의 1 · 비개발자를 위한 HL7 FHIR 기초 (3h): Resource, Profile, ValueSet, CodeSystem, ConceptMap 구조와 국제 → 국가(KR-Core) → 병원 표준 적용 흐름",
         "강의 2 · SNOMED CT 결과를 FHIR로 연결하는 방법 (3h, 공동 강의): Condition, Observation, Procedure, MedicationRequest 적용과 외래 시나리오 모델링 실습",
         "강의 3 · KR-CDI, KR-Core를 활용한 세브란스 Core Resource 정의 (1h)",
         "강의 4 · 자체 FHIR 변환 도구 소개 및 사용 방법 (1h)",
-        "강의 5 · 의무기록 질관리 및 데이터 품질 검증·관리 체계 구축 실습 (5h): FHIR 변환 도구의 Rule Group·DSL로 샘플 데이터 변환, SNOMED CT 적용, Structure·Terminology Validation",
+        "실습 및 바이브 코딩 과정 (60h) 설계 및 강의 진행: FHIR 변환 도구의 Rule Group·DSL로 샘플 데이터를 변환·검증하는 실습과, 변환·평가 도구 API를 활용해 의무기록 질 향상 서비스를 직접 만들어 보는 바이브 코딩 프로젝트",
         "교육 회의 참여, 커리큘럼·강의 세부 목차 정리, 강의 자료 스크립트 검토, 실습용 FHIR 변환 도구 기능(Terminology 적용, 1:N 매핑) 보강"
       ],
       tech: ["HL7 FHIR", "KR-Core", "KR-CDI", "SNOMED CT", "LLM"],
-      highlights: ["프롬프트 기반 의무기록 생성·평가 실습, 바이브 코딩 프로젝트(45h) 등 후속 과정 설계"]
+      highlights: []
     },
 
     /* ---------------- 아주대학교 의료원 ---------------- */
