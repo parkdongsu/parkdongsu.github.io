@@ -229,8 +229,8 @@ window.PORTFOLIO = {
       id: "fhir-education",
       org: "phi",
       track: "교육 · 세브란스 의무기록팀",
-      title: "세브란스 의무기록팀 대상 인재원 HL7 FHIR 교육",
-      period: "2026.03 ~ 현재",
+      title: "세브란스 대상 HL7 FHIR 교육",
+      period: "2026.05 ~ 현재",
       category: ["Education", "AI / LLM"],
       summary:
         "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIR 변환 도구 실습까지 강의를 담당.",
