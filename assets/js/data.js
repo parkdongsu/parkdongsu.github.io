@@ -25,12 +25,49 @@ window.PORTFOLIO = {
 
   // 노션 "박동수 이력" Skills 분류 체계를 따르고, 이후 업무에서 추가된 항목을 덧붙임
   skills: [
-    { group: "언어 · 웹 · 백엔드", items: ["Python", "R", "JavaScript / TypeScript", "SQL", "React", "Next.js", "Node.js", "FastAPI", "Nginx"] },
-    { group: "인프라 · 클라우드", items: ["Docker", "Docker Swarm", "Docker Compose", "Ansible", "Terraform", "AWS"] },
-    { group: "데이터베이스 · 파이프라인", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch", "Embulk", "Airflow"] },
-    { group: "모니터링", items: ["ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
-    { group: "형상 관리 · CI / CD", items: ["GitHub", "GitLab", "GitHub Actions", "GitLab CI", "AWS CodeDeploy", "AWS CodePipeline"] },
-    { group: "의료 데이터 표준 · LLM", items: ["HL7 FHIR", "OMOP CDM / ATLAS", "ChatGPT", "Claude", "vLLM / Hugging Face"] }
+    {
+      group: "언어 · 웹 · 백엔드",
+      sub: [
+        { label: "언어", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
+        { label: "웹 · 백엔드", items: ["React", "Next.js", "Node.js", "FastAPI", "Nginx"] }
+      ]
+    },
+    {
+      group: "인프라 · 클라우드",
+      sub: [
+        { label: "컨테이너", items: ["Docker", "Docker Swarm", "Docker Compose"] },
+        { label: "인프라 자동화", items: ["Ansible", "Terraform"] },
+        { label: "클라우드", items: ["AWS"] }
+      ]
+    },
+    {
+      group: "데이터베이스 · 파이프라인",
+      sub: [
+        { label: "데이터베이스", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"] },
+        { label: "데이터 파이프라인", items: ["Embulk", "Airflow"] }
+      ]
+    },
+    {
+      group: "모니터링",
+      sub: [
+        { label: "로그 · 대시보드", items: ["ELK Stack", "Beats", "Grafana"] },
+        { label: "메트릭 · 트레이싱", items: ["Prometheus", "Loki", "Tempo"] }
+      ]
+    },
+    {
+      group: "형상 관리 · CI / CD",
+      sub: [
+        { label: "형상 관리", items: ["GitHub", "GitLab"] },
+        { label: "CI / CD", items: ["GitHub Actions", "GitLab CI", "AWS CodeDeploy", "AWS CodePipeline"] }
+      ]
+    },
+    {
+      group: "의료 데이터 표준 · LLM",
+      sub: [
+        { label: "의료 데이터 표준", items: ["HL7 FHIR", "OMOP CDM / ATLAS"] },
+        { label: "LLM", items: ["ChatGPT", "Claude", "vLLM / Hugging Face"] }
+      ]
+    }
   ],
 
   careers: [
