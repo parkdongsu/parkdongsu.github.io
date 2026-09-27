@@ -109,8 +109,6 @@
           : `<p class="timeline__summary">${esc(c.summary || "")}</p>`}
       </li>`).join("");
 
-    $("#contactLinks").innerHTML = `
-      <a class="contact__link" href="mailto:${esc(p.email)}"><span>✉</span><span>${esc(p.email)}</span></a>`;
     $("#year").textContent = new Date().getFullYear();
   }
 
@@ -159,46 +157,26 @@
       n += 1;
       visible.push(...ps);
       const orgs = Array.from(new Set(ps.map((p) => D.orgs[p.org] || p.org)));
-      const single = ps.length === 1;
       const p1 = ps[0];
+      const thumb = ps.find((p) => p.images && p.images.length);
       html.push(`
-      <article class="story${single ? " story--single" : ""}" id="story-${esc(g.id)}">
+      <article class="story" id="story-${esc(g.id)}">
         <header class="story__head">
           <div class="story__index">${String(n).padStart(2, "0")}</div>
           <div class="story__headbody">
             <div class="story__meta">
               ${orgs.map((o) => `<span class="story__org">${esc(o)}</span>`).join("")}
               <span class="story__period">${esc(periodRange(ps))}</span>
-              ${single ? "" : `<span class="story__count">${ps.length}개 과업</span>`}
+              ${ps.length > 1 ? `<span class="story__count">${ps.length}개 과업 · ${ps.length}페이지</span>` : ""}
             </div>
             <h3 class="story__title">${esc(g.title)}</h3>
             ${g.plain ? `<p class="story__plain"><b>요약</b>${esc(g.plain)}</p>` : ""}
-            ${single ? `
             <div class="story__foot">
-              ${p1.images && p1.images.length ? `<img class="story__thumb" src="${esc(p1.images[0].src)}" alt="" loading="lazy" />` : ""}
-              <button type="button" class="story__more" data-id="${esc(p1.id)}" aria-haspopup="dialog">자세히 →</button>
-            </div>` : ""}
+              ${thumb ? `<img class="story__thumb" src="${esc(thumb.images[0].src)}" alt="" loading="lazy" />` : ""}
+              <button type="button" class="story__more" data-id="${esc(p1.id)}" aria-haspopup="dialog">자세히 →${ps.length > 1 ? `<span class="story__pages">1 / ${ps.length}</span>` : ""}</button>
+            </div>
           </div>
         </header>
-        ${single ? "" : `
-        <ol class="story__steps">
-          ${ps.map((p, i) => `
-          <li class="story__step">
-            <button type="button" class="step" data-id="${esc(p.id)}" aria-haspopup="dialog">
-              <span class="step__no">${i + 1}</span>
-              <span class="step__body">
-                <span class="step__meta">
-                  <span class="step__period">${esc(p.period)}</span>
-                  ${orgs.length > 1 ? `<span class="step__org">${esc(D.orgs[p.org] || p.org)}</span>` : ""}
-                </span>
-                <span class="step__title">${esc(p.title)}</span>
-                ${p.oneLiner ? `<span class="step__line">${esc(p.oneLiner)}</span>` : ""}
-              </span>
-              ${p.images && p.images.length ? `<img class="step__thumb" src="${esc(p.images[0].src)}" alt="" loading="lazy" />` : ""}
-              <span class="step__more">자세히 →</span>
-            </button>
-          </li>`).join("")}
-        </ol>`}
       </article>`);
     });
     $("#projectGroups").innerHTML = html.length ? html.join("") : `<div class="projects__empty">조건에 맞는 과업이 없습니다.</div>`;
@@ -210,7 +188,7 @@
       state.org = b.dataset.org; renderFilters(); renderGroups();
     });
     $("#projectGroups").addEventListener("click", (e) => {
-      const c = e.target.closest(".step, .story__more"); if (!c) return;
+      const c = e.target.closest(".story__more"); if (!c) return;
       openProject(c.dataset.id, true);
     });
   }
@@ -279,10 +257,14 @@
     $("#modalBody").innerHTML = detailHTML(p);
     $("#modalBody").scrollTop = 0;
 
-    const idx = visible.findIndex((x) => x.id === id);
-    const prev = idx > 0 ? visible[idx - 1] : null;
-    const next = idx >= 0 && idx < visible.length - 1 ? visible[idx + 1] : null;
+    const g = groupOf.get(id);
+    const gps = g ? groupProjects(g) : [p];
+    const idx = gps.findIndex((x) => x.id === id);
+    const prev = idx > 0 ? gps[idx - 1] : null;
+    const next = idx >= 0 && idx < gps.length - 1 ? gps[idx + 1] : null;
     const short = (t) => t.length > 22 ? t.slice(0, 22) + "…" : t;
+    $(".modal__nav", modal).hidden = gps.length <= 1;
+    $("#modalPos").textContent = `${idx + 1} / ${gps.length}`;
     $("#modalPrev").disabled = !prev;
     $("#modalNext").disabled = !next;
     $("#modalPrev").innerHTML = prev ? `← <span class="modal__navtext">${esc(short(prev.title))}</span>` : "← 이전";
@@ -309,8 +291,10 @@
   }
 
   function step(delta) {
-    const idx = visible.findIndex((x) => x.id === currentId);
-    const next = visible[idx + delta];
+    const g = groupOf.get(currentId);
+    const gps = g ? groupProjects(g) : [];
+    const idx = gps.findIndex((x) => x.id === currentId);
+    const next = idx >= 0 ? gps[idx + delta] : null;
     if (next) openProject(next.id, true);
   }
 
