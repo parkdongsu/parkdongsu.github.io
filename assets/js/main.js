@@ -56,17 +56,37 @@
   }
 
   /* ---------- Static sections ---------- */
+  /* ---------- Career duration helpers ---------- */
+  function ym(str) {
+    const m = /(\d{4})\.(\d{1,2})/.exec(str || "");
+    if (!m) return null;
+    return { y: +m[1], m: +m[2] };
+  }
+  function monthsBetween(period) {
+    const [a, b] = String(period).split("~").map((t) => t.trim());
+    const s = ym(a);
+    if (!s) return 0;
+    const now = new Date();
+    const e = ym(b) || { y: now.getFullYear(), m: now.getMonth() + 1 };
+    return Math.max(0, (e.y - s.y) * 12 + (e.m - s.m) + 1);
+  }
+  function fmtMonths(n) {
+    const y = Math.floor(n / 12), m = n % 12;
+    return [y ? `${y}년` : "", m ? `${m}개월` : ""].filter(Boolean).join(" ") || "0개월";
+  }
+
   function renderProfile() {
     const p = D.profile;
     $("#heroName").textContent = p.name;
     $("#heroNameEn").textContent = p.nameEn;
     $("#heroTagline").textContent = p.tagline;
     $("#aboutIntro").innerHTML = p.intro.map((t) => `<p>${esc(t)}</p>`).join("");
+    const totalMonths = D.careers.reduce((n, c) => n + monthsBetween(c.period), 0);
     $("#aboutFacts").innerHTML = [
       ["Name", `${esc(p.name)} (${esc(p.nameEn)})`],
       ["Email", `<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`],
       ["Location", esc(p.location)],
-      ["Career", `${esc(p.careerStart)} ~ 현재`]
+      ["Career", `${esc(p.careerStart)} ~ 현재 (${fmtMonths(totalMonths)})`]
     ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
 
     $("#skills").innerHTML = D.skills.map((g) => `
@@ -75,11 +95,13 @@
         <div class="skill__items">${g.items.map((i) => `<span class="tag">${esc(i)}</span>`).join("")}</div>
       </div>`).join("");
 
+    $("#careerTotal").textContent = `총 경력 ${fmtMonths(totalMonths)}`;
     $("#careerList").innerHTML = D.careers.map((c) => `
       <li class="timeline__item">
-        <div class="timeline__period">${esc(c.period)}</div>
+        <div class="timeline__period">${esc(c.period)} <span class="timeline__duration">(${fmtMonths(monthsBetween(c.period))})</span></div>
         <div class="timeline__org">${esc(c.org)}</div>
         <div class="timeline__role">${esc(c.role)}</div>
+        ${c.note ? `<div class="timeline__note">${esc(c.note)}</div>` : ""}
         ${c.items && c.items.length
           ? `<ul class="timeline__items">${c.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
           : `<p class="timeline__summary">${esc(c.summary || "")}</p>`}
