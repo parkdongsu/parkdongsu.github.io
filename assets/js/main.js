@@ -321,19 +321,13 @@
     }
   }
 
-  /* ---------- Scroll spy + to-top ---------- */
+  /* ---------- To-top ---------- */
   function initScroll() {
-    const links = $$(".nav__menu a");
-    const sections = links.map((a) => $(a.getAttribute("href"))).filter(Boolean);
     const toTop = $("#toTop");
     toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
     function onScroll() {
       toTop.classList.toggle("is-visible", window.scrollY > 500);
-      const y = window.scrollY + 120;
-      let active = null;
-      sections.forEach((s) => { if (s.offsetTop <= y) active = s.id; });
-      links.forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === `#${active}`));
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
