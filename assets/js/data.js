@@ -25,17 +25,17 @@ window.PORTFOLIO = {
 
   // 노션 "박동수 이력" Skills 분류 체계를 따르고, 이후 업무에서 추가된 항목을 덧붙임
   skills: [
-    { group: "Container", items: ["Docker", "Docker Swarm", "Docker Compose"] },
-    { group: "IaC", items: ["Ansible", "Terraform"] },
-    { group: "Database", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"] },
-    { group: "Cloud", items: ["AWS"] },
-    { group: "Web", items: ["React", "Next.js", "Node.js", "FastAPI", "Nginx"] },
-    { group: "Version Control", items: ["GitHub", "GitLab"] },
-    { group: "Data Pipeline", items: ["Embulk", "Airflow"] },
-    { group: "Monitoring", items: ["ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
-    { group: "Language", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
-    { group: "CI/CD", items: ["GitHub Actions", "AWS CodeDeploy", "AWS CodePipeline", "GitLab CI"] },
-    { group: "Healthcare Standard", items: ["HL7 FHIR", "OMOP CDM / ATLAS"] },
+    { group: "컨테이너", items: ["Docker", "Docker Swarm", "Docker Compose"] },
+    { group: "인프라 자동화 (IaC)", items: ["Ansible", "Terraform"] },
+    { group: "데이터베이스", items: ["MSSQL", "PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"] },
+    { group: "클라우드", items: ["AWS"] },
+    { group: "웹 · 백엔드", items: ["React", "Next.js", "Node.js", "FastAPI", "Nginx"] },
+    { group: "형상 관리", items: ["GitHub", "GitLab"] },
+    { group: "데이터 파이프라인", items: ["Embulk", "Airflow"] },
+    { group: "모니터링", items: ["ELK Stack", "Beats", "Grafana", "Prometheus", "Loki", "Tempo"] },
+    { group: "언어", items: ["Python", "R", "JavaScript / TypeScript", "SQL"] },
+    { group: "CI / CD", items: ["GitHub Actions", "AWS CodeDeploy", "AWS CodePipeline", "GitLab CI"] },
+    { group: "의료 데이터 표준", items: ["HL7 FHIR", "OMOP CDM / ATLAS"] },
     { group: "LLM", items: ["ChatGPT", "Claude", "vLLM / Hugging Face"] }
   ],
 
