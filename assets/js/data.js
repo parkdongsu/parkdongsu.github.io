@@ -155,6 +155,9 @@ window.PORTFOLIO = {
       category: ["AI / LLM", "Backend", "Infra"],
       summary:
         "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
+      images: [
+        { src: "assets/images/projects/llm-record-process-1.jpg", alt: "의무기록 자동 생성 프로세스 구성도", caption: "의무기록 자동 생성 프로세스 — EMR의 'AI 생성' 버튼 하나로 기존 문서 작성 흐름 안에서 AI가 동작" }
+      ],
       role: [
         "EMR → 게이트웨이 → 데이터 표준화 → 전처리 → LLM → 후처리로 이어지는 데이터 파이프라인 설계",
         "서비스별 단일 컨테이너 구조에서 멀티 컨테이너(Nginx, MSA 기반 Scaling) 구조로 확장 설계",
@@ -189,6 +192,9 @@ window.PORTFOLIO = {
         ],
         "사용자 / 매니저 / 관리자 3단계 권한으로 화면과 기능을 분리합니다."
       ],
+      images: [
+        { src: "assets/images/projects/fhir-workbench-1.jpg", alt: "FHIR 변환 통합 워크벤치 사용 가이드 화면", caption: "사용 가이드 화면 — 빠른 시작 6단계(리소스 등록 → 변환 규칙 학습 → 보조 데이터 구성 → 변환 룰 정의 → FHIR Server 저장 → IG 발행)" }
+      ],
       role: [
         "전체 아키텍처 설계 및 백엔드(FastAPI)·프론트엔드(React) 개발, docker compose 기반 배포·운영",
         "자체 변환 DSL 설계·구현: Python/SQL 유사 문법(IF, IN, DEFINE, FOR, Function)으로 FHIR Path별 값 구성, ConceptMap 참조 및 반복 요소 분할 생성 지원",
@@ -214,6 +220,9 @@ window.PORTFOLIO = {
       category: ["Backend", "Frontend", "Infra"],
       summary:
         "소아의료 AI 챗봇의 시나리오·의도·응답을 관리하는 관리 도구의 아키텍처, DB, 모니터링 설계를 주도.",
+      images: [
+        { src: "assets/images/projects/chatbot-scenario-1.jpg", alt: "챗봇 시나리오 플로우 편집 화면", caption: "시나리오 플로우 편집 화면 — 노드 단위로 대화 흐름을 설계하고 LLM·RAG 사용 여부를 지정" }
+      ],
       role: [
         "오픈소스(Botpress) 활용 vs 신규 개발 비교 후 신규 개발 방향 제안",
         "Next.js + FastAPI + PostgreSQL + Redis + Nginx + Docker Compose 서비스 아키텍처 설계",
@@ -233,6 +242,9 @@ window.PORTFOLIO = {
       category: ["Data / ETL", "Infra", "Monitoring"],
       summary:
         "폐쇄망 환경에서 Embulk + Airflow 기반 ETL 반자동화 시스템과 ELK + Grafana 모니터링 서비스를 구축하고 이후 유지보수 사업을 수행.",
+      images: [
+        { src: "assets/images/projects/datalake-etl-1.jpg", alt: "ETL · Monitoring 시스템 서비스 구성도", caption: "ETL · Monitoring 시스템 구성도 — Airflow가 일정에 따라 Embulk를 실행해 데이터를 옮기고, ELK·Grafana 대시보드와 알림톡으로 상태를 전달" }
+      ],
       role: [
         "Embulk + Airflow 조합의 데이터 이관 시스템 구축 (DDL 생성 → Embulk 쿼리 생성 → 적용 → 실행 → 인덱스·제약조건 등 후처리 적용 자동화)",
         "대용량 테이블을 기간·키 기준으로 분할 이관해 실패 시 재실행 범위와 부담을 줄이고, 일부 컬럼은 증분 CRUD(추가·수정·삭제 반영)가 가능하도록 이관 로직 구성",
