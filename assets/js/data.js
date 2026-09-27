@@ -185,7 +185,7 @@ window.PORTFOLIO = {
       period: "2024.05 ~ 현재",
       category: ["AI / LLM", "Backend", "Infra"],
       summary:
-        "산업통상자원부 과제. EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
+        "EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
       images: [
         { src: "assets/images/projects/llm-record-process-1.jpg", alt: "의무기록 자동 생성 프로세스 구성도", caption: "의무기록 자동 생성 프로세스 — EMR의 'AI 생성' 버튼 하나로 기존 문서 작성 흐름 안에서 AI가 동작" }
       ],
