@@ -159,21 +159,29 @@
       n += 1;
       visible.push(...ps);
       const orgs = Array.from(new Set(ps.map((p) => D.orgs[p.org] || p.org)));
+      const single = ps.length === 1;
+      const p1 = ps[0];
       html.push(`
-      <article class="story" id="story-${esc(g.id)}">
+      <article class="story${single ? " story--single" : ""}" id="story-${esc(g.id)}">
         <header class="story__head">
           <div class="story__index">${String(n).padStart(2, "0")}</div>
           <div class="story__headbody">
             <div class="story__meta">
               ${orgs.map((o) => `<span class="story__org">${esc(o)}</span>`).join("")}
               <span class="story__period">${esc(periodRange(ps))}</span>
-              <span class="story__count">${ps.length}개 과업</span>
+              ${single ? "" : `<span class="story__count">${ps.length}개 과업</span>`}
             </div>
             <h3 class="story__title">${esc(g.title)}</h3>
             ${g.plain ? `<p class="story__plain"><b>요약</b>${esc(g.plain)}</p>` : ""}
+            ${single ? `
+            <div class="story__foot">
+              ${p1.images && p1.images.length ? `<img class="story__thumb" src="${esc(p1.images[0].src)}" alt="" loading="lazy" />` : ""}
+              <button type="button" class="story__more" data-id="${esc(p1.id)}" aria-haspopup="dialog">자세히 →</button>
+            </div>` : ""}
           </div>
         </header>
-        <ol class="story__steps${ps.length === 1 ? " story__steps--single" : ""}">
+        ${single ? "" : `
+        <ol class="story__steps">
           ${ps.map((p, i) => `
           <li class="story__step">
             <button type="button" class="step" data-id="${esc(p.id)}" aria-haspopup="dialog">
@@ -183,14 +191,14 @@
                   <span class="step__period">${esc(p.period)}</span>
                   ${orgs.length > 1 ? `<span class="step__org">${esc(D.orgs[p.org] || p.org)}</span>` : ""}
                 </span>
-                ${ps.length === 1 && p.title === g.title ? "" : `<span class="step__title">${esc(p.title)}</span>`}
+                <span class="step__title">${esc(p.title)}</span>
                 ${p.oneLiner ? `<span class="step__line">${esc(p.oneLiner)}</span>` : ""}
               </span>
               ${p.images && p.images.length ? `<img class="step__thumb" src="${esc(p.images[0].src)}" alt="" loading="lazy" />` : ""}
               <span class="step__more">자세히 →</span>
             </button>
           </li>`).join("")}
-        </ol>
+        </ol>`}
       </article>`);
     });
     $("#projectGroups").innerHTML = html.length ? html.join("") : `<div class="projects__empty">조건에 맞는 과업이 없습니다.</div>`;
@@ -202,7 +210,7 @@
       state.org = b.dataset.org; renderFilters(); renderGroups();
     });
     $("#projectGroups").addEventListener("click", (e) => {
-      const c = e.target.closest(".step"); if (!c) return;
+      const c = e.target.closest(".step, .story__more"); if (!c) return;
       openProject(c.dataset.id, true);
     });
   }
