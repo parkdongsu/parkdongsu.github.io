@@ -82,12 +82,6 @@
     $("#heroTagline").textContent = p.tagline;
     $("#aboutIntro").innerHTML = p.intro.map((t) => `<p>${esc(t)}</p>`).join("");
     const totalMonths = D.careers.reduce((n, c) => n + monthsBetween(c.period), 0);
-    $("#aboutFacts").innerHTML = [
-      ["Name", `${esc(p.name)} (${esc(p.nameEn)})`],
-      ["Email", `<a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`],
-      ["Location", esc(p.location)],
-      ["Career", `${esc(p.careerStart)} ~ 현재 (${fmtMonths(totalMonths)})`]
-    ].map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
 
     $("#skills").innerHTML = D.skills.map((g) => `
       <div class="skill">
