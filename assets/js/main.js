@@ -272,8 +272,8 @@
     $("#modalPos").textContent = `${idx + 1} / ${gps.length}`;
     $("#modalPrev").disabled = !prev;
     $("#modalNext").disabled = !next;
-    $("#modalPrev").innerHTML = prev ? `← <span class="modal__navtext">${esc(short(prev.title))}</span>` : "← 이전";
-    $("#modalNext").innerHTML = next ? `<span class="modal__navtext">${esc(short(next.title))}</span> →` : "다음 →";
+    $("#modalPrev").innerHTML = prev ? `← <span class="modal__navtext">${esc(short(prev.title))}</span><span class="modal__navshort">이전</span>` : "← 이전";
+    $("#modalNext").innerHTML = next ? `<span class="modal__navtext">${esc(short(next.title))}</span><span class="modal__navshort">다음</span> →` : "다음 →";
     $("#modalPrev").title = prev ? prev.title : "";
     $("#modalNext").title = next ? next.title : "";
 
