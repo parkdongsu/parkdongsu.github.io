@@ -102,9 +102,16 @@
         <div class="timeline__org">${esc(c.org)}</div>
         <div class="timeline__role">${esc(c.role)}</div>
         ${c.note ? `<div class="timeline__note">${esc(c.note)}</div>` : ""}
-        ${c.intro ? `<div class="timeline__intro">${[].concat(c.intro).map((t) => `<p>${esc(t)}</p>`).join("")}</div>` : ""}
+        ${c.intro ? `
+          <div class="timeline__block">
+            <div class="timeline__label">Comment</div>
+            <div class="timeline__intro">${[].concat(c.intro).map((t) => `<p>${esc(t)}</p>`).join("")}</div>
+          </div>` : ""}
         ${c.items && c.items.length
-          ? `<ul class="timeline__items">${c.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
+          ? `<div class="timeline__block">
+              <div class="timeline__label">주요 업무</div>
+              <ul class="timeline__items">${c.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+            </div>`
           : `<p class="timeline__summary">${esc(c.summary || "")}</p>`}
       </li>`).join("");
 
