@@ -102,7 +102,7 @@
         <div class="timeline__org">${esc(c.org)}</div>
         <div class="timeline__role">${esc(c.role)}</div>
         ${c.note ? `<div class="timeline__note">${esc(c.note)}</div>` : ""}
-        ${c.intro ? `<p class="timeline__intro">${esc(c.intro)}</p>` : ""}
+        ${c.intro ? `<div class="timeline__intro">${[].concat(c.intro).map((t) => `<p>${esc(t)}</p>`).join("")}</div>` : ""}
         ${c.items && c.items.length
           ? `<ul class="timeline__items">${c.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`
           : `<p class="timeline__summary">${esc(c.summary || "")}</p>`}
