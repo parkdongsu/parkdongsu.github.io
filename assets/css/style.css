@@ -118,8 +118,7 @@ ul, ol { margin: 0; padding: 0; }
 .hero__name { margin-top: 26px; font-size: clamp(20px, 3vw, 28px); }
 .hero__name strong { font-weight: 800; }
 .hero__name span { color: rgba(255, 255, 255, 0.7); font-weight: 400; margin-left: 8px; }
-.hero__tagline { margin-top: 12px; max-width: 640px; font-size: 17px; color: rgba(255, 255, 255, 0.85); }
-.hero__actions { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
+.hero__tagline { margin-top: 14px; max-width: 720px; font-size: 17px; line-height: 1.7; color: rgba(255, 255, 255, 0.85); }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
