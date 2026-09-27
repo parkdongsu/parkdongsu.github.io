@@ -170,7 +170,7 @@
               <span class="story__count">${ps.length}개 과업</span>
             </div>
             <h3 class="story__title">${esc(g.title)}</h3>
-            ${g.plain ? `<p class="story__plain"><b>쉽게 말하면</b>${esc(g.plain)}</p>` : ""}
+            ${g.plain ? `<p class="story__plain"><b>요약</b>${esc(g.plain)}</p>` : ""}
           </div>
         </header>
         <ol class="story__steps${ps.length === 1 ? " story__steps--single" : ""}">
@@ -186,6 +186,7 @@
                 ${ps.length === 1 && p.title === g.title ? "" : `<span class="step__title">${esc(p.title)}</span>`}
                 ${p.oneLiner ? `<span class="step__line">${esc(p.oneLiner)}</span>` : ""}
               </span>
+              ${p.images && p.images.length ? `<img class="step__thumb" src="${esc(p.images[0].src)}" alt="" loading="lazy" />` : ""}
               <span class="step__more">자세히 →</span>
             </button>
           </li>`).join("")}
@@ -252,7 +253,7 @@
         ${p.category.map((c) => `<span class="tag tag--accent">${esc(c)}</span>`).join("")}
       </div>
       <h2 class="detail__title" id="modalTitle">${esc(p.title)}</h2>
-      ${p.oneLiner ? `<p class="detail__easy"><b>쉽게 말하면</b>${esc(p.oneLiner)}</p>` : ""}
+      ${p.oneLiner ? `<p class="detail__easy"><b>요약</b>${esc(p.oneLiner)}</p>` : ""}
       <p class="detail__summary">${esc(p.summary)}</p>
       ${facts ? `<div class="detail__facts">${facts}</div>` : ""}
       ${desc(p.description)}
