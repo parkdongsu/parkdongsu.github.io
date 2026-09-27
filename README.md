@@ -16,7 +16,7 @@ assets/images/            # 로고, 배경 이미지, 아이콘
 
 ## 과업(프로젝트) 추가·수정
 
-`assets/js/data.js` 의 `projects` 배열에 객체를 추가하면 카드와 상세 모달이 자동으로 생성됩니다.
+`assets/js/data.js` 의 `projects` 배열에 객체를 추가한 뒤, `groups` 배열의 원하는 스토리(큰 프로젝트)의 `projects` 목록에 id 를 넣으면 단계와 상세 모달이 자동으로 생성됩니다. `groups` 의 순서와 각 `projects` 배열의 순서가 화면에 표시되는 순서입니다.
 
 ```js
 {
@@ -26,6 +26,7 @@ assets/images/            # 로고, 배경 이미지, 아이콘
   period: "2025.01 ~ 2025.06",
   category: ["Backend", "Infra"],  // 분류 필터에 사용
   summary: "한 줄 요약",
+  oneLiner: "비전공자도 이해할 수 있는 쉬운 한 줄 설명",
   role: ["역할 1", "역할 2"],
   tech: ["FastAPI", "PostgreSQL"],
   highlights: ["성과 1"],

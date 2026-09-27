@@ -67,25 +67,16 @@
     <section class="section" id="projects">
       <div class="container">
         <h2 class="section__title">Projects</h2>
-        <p class="section__lead">제가 주도적으로 설계·개발한 주요 과업을 조직·분류별로 정리했습니다. 카드를 클릭하면 역할, 연관 기술, 주요 내용을 볼 수 있습니다.</p>
+        <p class="section__lead">제가 주도적으로 설계·개발한 과업을 큰 프로젝트 단위로 묶어 이야기 순서대로 정리했습니다. 각 단계를 클릭하면 역할, 연관 기술, 주요 내용을 볼 수 있습니다.</p>
 
         <div class="filters" role="group" aria-label="프로젝트 필터">
           <div class="filters__row">
             <span class="filters__label">조직</span>
             <div class="chips" id="orgFilters"></div>
           </div>
-          <div class="filters__row">
-            <span class="filters__label">분류</span>
-            <div class="chips" id="catFilters"></div>
-          </div>
-          <div class="filters__row">
-            <span class="filters__label">연도</span>
-            <div class="chips" id="yearFilters"></div>
-          </div>
         </div>
 
-        <p class="projects__count" id="projectCount" aria-live="polite"></p>
-        <div class="projects" id="projectGrid"></div>
+        <div class="stories" id="projectGroups"></div>
       </div>
     </section>
 
@@ -113,8 +104,8 @@
       <button class="modal__close" type="button" aria-label="닫기" data-close>×</button>
       <div class="modal__body" id="modalBody"></div>
       <div class="modal__nav">
-        <button class="btn btn--ghost btn--sm" type="button" id="modalPrev">← 이전</button>
-        <button class="btn btn--ghost btn--sm" type="button" id="modalNext">다음 →</button>
+        <button class="btn btn--ghost btn--sm modal__navbtn" type="button" id="modalPrev">← 이전</button>
+        <button class="btn btn--ghost btn--sm modal__navbtn" type="button" id="modalNext">다음 →</button>
       </div>
     </div>
   </div>

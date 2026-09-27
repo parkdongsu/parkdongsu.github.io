@@ -86,10 +86,69 @@ window.PORTFOLIO = {
     ajou: "아주대학교 의료원"
   },
 
+  groups: [
+    {
+      id: "llm",
+      title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
+      plain:
+        "병원에서 의사 선생님이 매번 손으로 쓰던 기록지를, 환자 정보를 읽은 AI가 먼저 초안으로 써 주는 서비스예요. 사람은 확인하고 고치기만 하면 되니 시간이 훨씬 줄어듭니다. 저는 이 서비스가 돌아가는 서버와 데이터 흐름 전체를 설계하고 만들었어요.",
+      projects: ["llm-record-platform"]
+    },
+    {
+      id: "fhir",
+      title: "EMR 데이터 FHIR 변환 통합 관리 시스템 설계 및 개발",
+      plain:
+        "병원마다 다른 모양으로 저장된 진료 기록을, 전 세계가 함께 쓰는 표준 규격(FHIR)으로 바꿔 주는 '번역기'예요. 변환 규칙을 화면에서 만들고 바로 시험해 볼 수 있어서 개발자가 아니어도 다룰 수 있습니다. 이 방식으로 특허도 받았어요.",
+      projects: ["fhir-converter"]
+    },
+    {
+      id: "edu",
+      title: "세브란스 대상 HL7 FHIR 교육",
+      plain:
+        "의료 데이터 표준(FHIR)이 무엇인지, 어떻게 쓰는지를 병원 직원분들께 가르치는 수업이에요. 이론 수업과 함께 제가 만든 변환 도구로 직접 실습해 보도록 커리큘럼을 짰습니다.",
+      projects: ["fhir-education"]
+    },
+    {
+      id: "sev-platform",
+      title: "세브란스 데이터 플랫폼 구축·컨설팅",
+      plain:
+        "큰 병원에 쌓인 데이터를 연구에 안전하게 쓰려면 저장하고, 옮기고, 지켜보는 여러 장치가 필요해요. 병원에 어떤 방식이 맞는지 조언하고, 데이터를 자동으로 옮기는 시스템과 문제를 알려 주는 감시 화면을 만들었습니다.",
+      projects: ["safe-center", "dbp-consulting", "cdm-support", "datalake"]
+    },
+    {
+      id: "server",
+      title: "학과 서버실 인프라 구축·운영 & 서버 모니터링 시스템 구축",
+      plain:
+        "연구실의 컴퓨터(서버) 20여 대와 저장 장치가 놓인 서버실을 처음부터 꾸미고 4년 넘게 관리했어요. 서버가 아프면 바로 알 수 있도록 상태를 한눈에 보는 화면과 알림도 만들었습니다.",
+      projects: ["server-ops", "monitoring"]
+    },
+    {
+      id: "cdm",
+      title: "OMOP CDM 이관 및 ATLAS 설치·운영 & 심포지엄·데이터톤 환경 구축",
+      plain:
+        "병원 데이터를 연구용 공통 형식(OMOP CDM)으로 옮기고, 그 데이터를 클릭만으로 분석할 수 있는 도구(ATLAS)를 설치해 연구자들에게 제공했어요. 국제 심포지엄과 매년 열리는 데이터 분석 대회(데이터톤)의 실습 환경도 직접 준비했습니다.",
+      projects: ["db-admin", "cdm-atlas", "datathon-env"]
+    },
+    {
+      id: "rtrod",
+      title: "RTROD · 개방형 임상 중개 연구 플랫폼 개발",
+      plain:
+        "병원 밖 연구자가 병원 데이터를 직접 가져가지 않고도 분석할 수 있게 하는 플랫폼이에요. 연구자가 만든 분석 프로그램을 병원 안 서버에서 대신 실행하고 결과만 돌려주니 개인정보가 밖으로 나가지 않습니다.",
+      projects: ["rtrod"]
+    },
+    {
+      id: "etc",
+      title: "기타",
+      plain:
+        "위의 큰 줄기에 속하지 않지만 의미 있었던 과업들이에요. 연구 도구 개발, 교육용 클라우드 설계, 챗봇 관리 도구 설계 등을 시간 순으로 모았습니다.",
+      projects: ["etl-explorer", "rehosp-plp", "crawling-tool", "sdp-education", "chatbot-console"]
+    }
+  ],
   projects: [
     /* ---------------- 파이 디지털 헬스케어 ---------------- */
     {
       id: "llm-record-platform",
+      oneLiner: "환자 기록을 읽은 AI가 의료 서식 초안을 대신 써 주는 서비스의 뼈대(서버와 데이터 흐름)를 설계하고 만들었어요.",
       org: "phi",
       title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
       period: "2024.05 ~ 현재",
@@ -110,6 +169,7 @@ window.PORTFOLIO = {
     },
     {
       id: "fhir-converter",
+      oneLiner: "병원마다 다른 진료 기록을 세계 표준 형식으로 바꿔 주는 변환 도구를 만들었고, 이 방식으로 특허를 받았어요.",
       org: "phi",
       title: "EMR 데이터 FHIR 변환 통합 관리 시스템 설계 및 개발",
       period: "2024.06 ~ 현재",
@@ -147,6 +207,7 @@ window.PORTFOLIO = {
     },
     {
       id: "chatbot-console",
+      oneLiner: "어린이 병원 AI 챗봇이 어떤 질문에 어떻게 답할지 관리하는 도구의 설계도를 그렸어요.",
       org: "phi",
       title: "소아의료 챗봇 관리 도구 설계",
       period: "2026.06 ~ 현재",
@@ -165,6 +226,7 @@ window.PORTFOLIO = {
     },
     {
       id: "datalake",
+      oneLiner: "병원 데이터를 매일 자동으로 옮기고, 문제가 생기면 바로 알려 주는 시스템을 만들고 운영하고 있어요.",
       org: "phi",
       title: "연세 세브란스 데이터레이크 ETL·모니터링 구축 및 운영",
       period: "2023.12 ~ 2024.03 (구축) · 2025.08 ~ 현재 (운영·유지보수)",
@@ -186,6 +248,7 @@ window.PORTFOLIO = {
     },
     {
       id: "cdm-support",
+      oneLiner: "병원 연구 데이터 도구(ATLAS)가 커져도 잘 돌아가도록 구조를 제안하고 문제를 해결해 줬어요.",
       org: "phi",
       title: "연세 세브란스 CDM 기술지원",
       period: "2023.07 ~ 2023.10",
@@ -201,6 +264,7 @@ window.PORTFOLIO = {
     },
     {
       id: "dbp-consulting",
+      oneLiner: "병원이 데이터를 어디에 어떻게 저장할지, 서버를 어떻게 나눠 쓸지 조언했어요.",
       org: "phi",
       title: "의료 빅데이터 플랫폼(데중병) 1.5단계 컨설팅",
       period: "2023.03 ~ 2023.04",
@@ -216,6 +280,7 @@ window.PORTFOLIO = {
     },
     {
       id: "safe-center",
+      oneLiner: "연구자가 병원 데이터를 안전하게 신청하고 쓰는 웹 화면을 만들었어요.",
       org: "phi",
       title: "원주세브란스 안심활용센터 플랫폼 Frontend 개발",
       period: "2023.01 ~ 2023.04",
@@ -232,6 +297,7 @@ window.PORTFOLIO = {
     },
     {
       id: "sdp-education",
+      oneLiner: "의대생 실습을 위해 버튼 하나로 학생마다 클라우드 컴퓨터가 자동으로 만들어지는 구조를 설계했어요.",
       org: "phi",
       title: "SDP 교육용 AWS 아키텍처 설계",
       period: "2023.06 ~ 2023.09",
@@ -255,6 +321,7 @@ window.PORTFOLIO = {
     },
     {
       id: "fhir-education",
+      oneLiner: "병원 직원분들께 의료 데이터 표준(FHIR)을 이론과 실습으로 가르치는 수업을 만들고 진행하고 있어요.",
       org: "phi",
       track: "교육 · 세브란스 의무기록팀",
       title: "세브란스 대상 HL7 FHIR 교육",
@@ -279,6 +346,7 @@ window.PORTFOLIO = {
     /* ---------------- 아주대학교 의료원 ---------------- */
     {
       id: "rtrod",
+      oneLiner: "연구자의 분석 프로그램을 병원 안에서 대신 실행하고 결과만 돌려주는 안전한 연구 플랫폼을 만들었어요.",
       org: "ajou",
       track: "국책 과제 수행 · 연구 중심 병원",
       title: "RTROD · 개방형 임상 중개 연구 플랫폼 개발",
@@ -306,6 +374,7 @@ window.PORTFOLIO = {
     },
     {
       id: "rehosp-plp",
+      oneLiner: "입원했던 환자가 한 달 안에 응급실로 다시 올지 미리 예측하는 연구 프로그램을 만들었어요.",
       org: "ajou",
       track: "연구 지원 · OHDSI PLP",
       title: "임상 노트 기반 응급실 경유 재입원 예측 PLP 패키지 개발",
@@ -327,6 +396,7 @@ window.PORTFOLIO = {
     },
     {
       id: "monitoring",
+      oneLiner: "서버 20여 대의 건강 상태를 한 화면에서 보고, 문제가 생기면 메신저로 알려 주는 시스템을 만들었어요.",
       org: "ajou",
       track: "서버 관리 업무",
       title: "Docker Swarm 기반 서버 모니터링 시스템 구축",
@@ -350,6 +420,7 @@ window.PORTFOLIO = {
     },
     {
       id: "server-ops",
+      oneLiner: "연구실 서버실을 처음부터 꾸미고 4년 넘게 관리했으며, 떠날 때는 약 350쪽 분량의 안내서를 남겼어요.",
       org: "ajou",
       track: "서버 관리 업무",
       title: "학과 서버실 인프라 구축·운영",
@@ -374,6 +445,7 @@ window.PORTFOLIO = {
     },
     {
       id: "datathon-env",
+      oneLiner: "국제 행사와 매년 열리는 데이터 분석 대회를 위해 30~40명이 동시에 쓸 분석 환경을 준비했어요.",
       org: "ajou",
       track: "서버 관리 업무 · OHDSI",
       title: "2019 OHDSI Korea 국제 심포지엄 & 자체 데이터톤 환경 구축·운영",
@@ -394,6 +466,7 @@ window.PORTFOLIO = {
     },
     {
       id: "cdm-atlas",
+      oneLiner: "병원 데이터를 연구용 공통 형식으로 옮기고, 클릭으로 분석하는 도구(ATLAS)를 여러 기관에 설치했어요.",
       org: "ajou",
       track: "서버 관리 업무 · OHDSI",
       title: "OMOP CDM 이관 및 ATLAS 설치·운영",
@@ -416,6 +489,7 @@ window.PORTFOLIO = {
     },
     {
       id: "db-admin",
+      oneLiner: "병원 데이터베이스를 관리하고, 서로 다른 형식의 데이터를 공통 형식으로 옮기는 작업을 했어요.",
       org: "ajou",
       track: "서버 관리 업무",
       title: "데이터베이스 관리 및 CDM 마이그레이션",
@@ -436,6 +510,7 @@ window.PORTFOLIO = {
     },
     {
       id: "crawling-tool",
+      oneLiner: "새로 생긴 의료 용어를 자동으로 모아 담당자에게 메일로 보내 주는 작은 프로그램을 만들었어요.",
       org: "ajou",
       track: "국책 과제 수행 · 산자부",
       title: "의료 데이터 통합을 위한 Crawling 툴 개발",
@@ -452,6 +527,7 @@ window.PORTFOLIO = {
     },
     {
       id: "etl-explorer",
+      oneLiner: "병원 데이터베이스에서 필요한 표와 항목을 빠르게 찾아 주는 검색 도구를 만들었어요.",
       org: "ajou",
       track: "국책 과제 수행 · 산자부",
       title: "비정형 문서 ETL 대상 탐색 툴 개발",

@@ -114,29 +114,31 @@
     $("#year").textContent = new Date().getFullYear();
   }
 
-  /* ---------- Projects: filters + grid ---------- */
-  const state = { org: "all", cat: "all", year: "all" };
-  const THIS_YEAR = new Date().getFullYear();
+  /* ---------- Projects: org filter + story groups ---------- */
+  const state = { org: "all" };
+  const byId = new Map(D.projects.map((p) => [p.id, p]));
+  const groupOf = new Map();
+  D.groups.forEach((g) => g.projects.forEach((id) => groupOf.set(id, g)));
+  let visible = []; // 현재 화면에 보이는 과업(스토리 순서) — 모달 이전/다음 이동에 사용
 
-  // "2019 ~ 2022", "2024.05 ~ 현재", "2023.12 ~ 2024.03 (구축) · 2025.08 ~ 현재" 등에서 해당 연도 집합 추출
-  function yearsOf(period) {
-    const out = new Set();
-    String(period).split("·").forEach((seg) => {
-      const ys = (seg.match(/\b(19|20)\d{2}\b/g) || []).map(Number);
-      if (/현재/.test(seg)) ys.push(THIS_YEAR);
-      if (!ys.length) return;
-      const lo = Math.min.apply(null, ys), hi = Math.max.apply(null, ys);
-      for (let y = lo; y <= hi; y++) out.add(y);
-    });
-    return out;
+  function groupProjects(g) {
+    return g.projects.map((id) => byId.get(id)).filter(Boolean)
+      .filter((p) => state.org === "all" || p.org === state.org);
   }
-  const projectYears = new Map(D.projects.map((p) => [p.id, yearsOf(p.period)]));
-  let visible = []; // currently visible projects (for modal prev/next)
 
-  function categories() {
-    const set = new Map();
-    D.projects.forEach((p) => p.category.forEach((c) => set.set(c, (set.get(c) || 0) + 1)));
-    return Array.from(set.entries()).sort((a, b) => b[1] - a[1]);
+  // 여러 과업의 기간 문자열에서 전체 범위("2018.07 ~ 2022.10", "2023.01 ~ 현재")를 구함
+  function periodRange(ps) {
+    const toks = [];
+    let ongoing = false;
+    ps.forEach((p) => {
+      (String(p.period).match(/\b(19|20)\d{2}(\.\d{2})?/g) || []).forEach((t) => toks.push(t));
+      if (/현재/.test(p.period)) ongoing = true;
+    });
+    if (!toks.length) return "";
+    const key = (t) => t.length === 4 ? t + ".00" : t;
+    toks.sort((a, b) => key(a).localeCompare(key(b)));
+    const first = toks[0], last = toks[toks.length - 1];
+    return `${first} ~ ${ongoing ? "현재" : last}`;
   }
 
   function renderFilters() {
@@ -145,63 +147,61 @@
     const orgs = [["all", "전체", D.projects.length]].concat(Object.keys(D.orgs).map((k) => [k, D.orgs[k], orgCounts[k] || 0]));
     $("#orgFilters").innerHTML = orgs.map(([k, label, n]) =>
       `<button type="button" class="chip${state.org === k ? " is-active" : ""}" data-org="${esc(k)}" aria-pressed="${state.org === k}">${esc(label)}<span class="chip__count">${n}</span></button>`).join("");
-
-    const cats = [["all", "전체"]].concat(categories().map(([c]) => [c, c]));
-    $("#catFilters").innerHTML = cats.map(([k, label]) =>
-      `<button type="button" class="chip${state.cat === k ? " is-active" : ""}" data-cat="${esc(k)}" aria-pressed="${state.cat === k}">${esc(label)}</button>`).join("");
-
-    const yearCounts = new Map();
-    projectYears.forEach((ys) => ys.forEach((y) => yearCounts.set(y, (yearCounts.get(y) || 0) + 1)));
-    const years = [["all", "전체", D.projects.length]].concat(
-      Array.from(yearCounts.entries()).sort((a, b) => b[0] - a[0]).map(([y, n]) => [String(y), String(y), n]));
-    $("#yearFilters").innerHTML = years.map(([k, label, n]) =>
-      `<button type="button" class="chip${state.year === k ? " is-active" : ""}" data-year="${esc(k)}" aria-pressed="${state.year === k}">${esc(label)}<span class="chip__count">${n}</span></button>`).join("");
   }
 
-  function filtered() {
-    return D.projects.filter((p) =>
-      (state.org === "all" || p.org === state.org) &&
-      (state.cat === "all" || p.category.includes(state.cat)) &&
-      (state.year === "all" || projectYears.get(p.id).has(Number(state.year))));
-  }
-
-  function renderGrid() {
-    visible = filtered();
-    const grid = $("#projectGrid");
-    $("#projectCount").textContent = `${visible.length}개의 과업`;
-    if (!visible.length) {
-      grid.innerHTML = `<div class="projects__empty">조건에 맞는 과업이 없습니다.</div>`;
-      return;
-    }
-    grid.innerHTML = visible.map((p, i) => `
-      <button type="button" class="card${p.images && p.images.length ? " card--has-thumb" : ""}" data-id="${esc(p.id)}" style="animation-delay:${Math.min(i, 12) * 30}ms" aria-haspopup="dialog">
-        ${p.images && p.images.length ? `<img class="card__thumb" src="${esc(p.images[0].src)}" alt="" loading="lazy" />` : ""}
-        <div class="card__meta">
-          <span class="card__org">${esc(D.orgs[p.org] || p.org)}</span>
-          <span class="card__period">${esc(p.period.split(" (")[0].split(" ·")[0])}</span>
-        </div>
-        <h3 class="card__title">${esc(p.title)}</h3>
-        <p class="card__summary">${esc(p.summary)}</p>
-        <div class="card__tags">${p.category.map((c) => `<span class="tag tag--accent">${esc(c)}</span>`).join("")}</div>
-        <span class="card__more">자세히 보기 →</span>
-      </button>`).join("");
+  function renderGroups() {
+    visible = [];
+    const html = [];
+    let n = 0;
+    D.groups.forEach((g) => {
+      const ps = groupProjects(g);
+      if (!ps.length) return;
+      n += 1;
+      visible.push(...ps);
+      const orgs = Array.from(new Set(ps.map((p) => D.orgs[p.org] || p.org)));
+      html.push(`
+      <article class="story" id="story-${esc(g.id)}">
+        <header class="story__head">
+          <div class="story__index">${String(n).padStart(2, "0")}</div>
+          <div class="story__headbody">
+            <div class="story__meta">
+              ${orgs.map((o) => `<span class="story__org">${esc(o)}</span>`).join("")}
+              <span class="story__period">${esc(periodRange(ps))}</span>
+              <span class="story__count">${ps.length}개 과업</span>
+            </div>
+            <h3 class="story__title">${esc(g.title)}</h3>
+            ${g.plain ? `<p class="story__plain"><b>쉽게 말하면</b>${esc(g.plain)}</p>` : ""}
+          </div>
+        </header>
+        <ol class="story__steps${ps.length === 1 ? " story__steps--single" : ""}">
+          ${ps.map((p, i) => `
+          <li class="story__step">
+            <button type="button" class="step" data-id="${esc(p.id)}" aria-haspopup="dialog">
+              <span class="step__no">${i + 1}</span>
+              <span class="step__body">
+                <span class="step__meta">
+                  <span class="step__period">${esc(p.period)}</span>
+                  ${orgs.length > 1 ? `<span class="step__org">${esc(D.orgs[p.org] || p.org)}</span>` : ""}
+                </span>
+                ${ps.length === 1 && p.title === g.title ? "" : `<span class="step__title">${esc(p.title)}</span>`}
+                ${p.oneLiner ? `<span class="step__line">${esc(p.oneLiner)}</span>` : ""}
+              </span>
+              <span class="step__more">자세히 →</span>
+            </button>
+          </li>`).join("")}
+        </ol>
+      </article>`);
+    });
+    $("#projectGroups").innerHTML = html.length ? html.join("") : `<div class="projects__empty">조건에 맞는 과업이 없습니다.</div>`;
   }
 
   function initFilters() {
     $("#orgFilters").addEventListener("click", (e) => {
       const b = e.target.closest("[data-org]"); if (!b) return;
-      state.org = b.dataset.org; renderFilters(); renderGrid();
+      state.org = b.dataset.org; renderFilters(); renderGroups();
     });
-    $("#catFilters").addEventListener("click", (e) => {
-      const b = e.target.closest("[data-cat]"); if (!b) return;
-      state.cat = b.dataset.cat; renderFilters(); renderGrid();
-    });
-    $("#yearFilters").addEventListener("click", (e) => {
-      const b = e.target.closest("[data-year]"); if (!b) return;
-      state.year = b.dataset.year; renderFilters(); renderGrid();
-    });
-    $("#projectGrid").addEventListener("click", (e) => {
-      const c = e.target.closest(".card"); if (!c) return;
+    $("#projectGroups").addEventListener("click", (e) => {
+      const c = e.target.closest(".step"); if (!c) return;
       openProject(c.dataset.id, true);
     });
   }
@@ -238,13 +238,21 @@
         .join("");
       return `<div class="detail__desc">${html}</div>`;
     };
+    const g = groupOf.get(p.id);
+    const gps = g ? groupProjects(g) : [];
+    const gi = gps.findIndex((x) => x.id === p.id);
+    const story = g && gps.length
+      ? `<div class="detail__story"><span class="detail__storylabel">Story</span>${esc(g.title)}<span class="detail__storypos">${gi + 1} / ${gps.length}</span></div>`
+      : "";
     return `
+      ${story}
       <div class="detail__meta">
         <span class="detail__org">${esc(D.orgs[p.org] || p.org)}</span>
         <span class="detail__period">${esc(p.period)}</span>
         ${p.category.map((c) => `<span class="tag tag--accent">${esc(c)}</span>`).join("")}
       </div>
       <h2 class="detail__title" id="modalTitle">${esc(p.title)}</h2>
+      ${p.oneLiner ? `<p class="detail__easy"><b>쉽게 말하면</b>${esc(p.oneLiner)}</p>` : ""}
       <p class="detail__summary">${esc(p.summary)}</p>
       ${facts ? `<div class="detail__facts">${facts}</div>` : ""}
       ${desc(p.description)}
@@ -263,8 +271,15 @@
     $("#modalBody").scrollTop = 0;
 
     const idx = visible.findIndex((x) => x.id === id);
-    $("#modalPrev").disabled = idx <= 0;
-    $("#modalNext").disabled = idx < 0 || idx >= visible.length - 1;
+    const prev = idx > 0 ? visible[idx - 1] : null;
+    const next = idx >= 0 && idx < visible.length - 1 ? visible[idx + 1] : null;
+    const short = (t) => t.length > 22 ? t.slice(0, 22) + "…" : t;
+    $("#modalPrev").disabled = !prev;
+    $("#modalNext").disabled = !next;
+    $("#modalPrev").innerHTML = prev ? `← <span class="modal__navtext">${esc(short(prev.title))}</span>` : "← 이전";
+    $("#modalNext").innerHTML = next ? `<span class="modal__navtext">${esc(short(next.title))}</span> →` : "다음 →";
+    $("#modalPrev").title = prev ? prev.title : "";
+    $("#modalNext").title = next ? next.title : "";
 
     if (modal.hidden) {
       lastFocus = document.activeElement;
@@ -316,7 +331,7 @@
     const m = location.hash.match(/^#project\/(.+)$/);
     if (m) {
       const id = decodeURIComponent(m[1]);
-      if (!visible.some((x) => x.id === id)) { state.org = "all"; state.cat = "all"; state.year = "all"; renderFilters(); renderGrid(); }
+      if (!visible.some((x) => x.id === id)) { state.org = "all"; renderFilters(); renderGroups(); }
       openProject(id, false);
     } else {
       closeModal(false);
@@ -340,7 +355,7 @@
     initTheme();
     renderProfile();
     renderFilters();
-    renderGrid();
+    renderGroups();
     initFilters();
     initModal();
     initTyping();
