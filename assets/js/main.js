@@ -83,10 +83,15 @@
     $("#aboutIntro").innerHTML = p.intro.map((t) => `<p>${esc(t)}</p>`).join("");
     const totalMonths = D.careers.reduce((n, c) => n + monthsBetween(c.period), 0);
 
+    const tagsOf = (items) => items.map((i) => `<span class="tag">${esc(i)}</span>`).join("");
     $("#skills").innerHTML = D.skills.map((g) => `
       <div class="skill">
         <div class="skill__group">${esc(g.group)}</div>
-        <div class="skill__items">${g.items.map((i) => `<span class="tag">${esc(i)}</span>`).join("")}</div>
+        <div class="skill__subs">${(g.sub || [{ items: g.items || [] }]).map((sg) => `
+          <div class="skill__sub">
+            ${sg.label ? `<span class="skill__sublabel">${esc(sg.label)}</span>` : ""}
+            <span class="skill__items">${tagsOf(sg.items)}</span>
+          </div>`).join("")}</div>
       </div>`).join("");
 
     $("#careerTotal").textContent = `총 경력 ${fmtMonths(totalMonths)}`;
