@@ -41,7 +41,7 @@ window.PORTFOLIO = {
       org: "파이 디지털 헬스케어",
       role: "인공지능사업부 과장 · Full-Stack Engineer",
       period: "2022.11 ~ 현재",
-      note: "이직 사유 · 아주대 학과 내 의대 교수님께 스카웃",
+      note: "이직 사유: 아주대 학과 내 의대 교수님께 스카웃",
       items: [
         "LLM 기반 의료 기록 자동 생성 서비스 플랫폼 개발",
         "HL7 FHIR 기반 의료데이터 변환 시스템 설계·개발",
