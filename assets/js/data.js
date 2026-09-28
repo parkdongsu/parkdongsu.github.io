@@ -144,7 +144,7 @@ window.PORTFOLIO = {
       title: "세브란스 데이터 플랫폼 구축·컨설팅",
       plain:
         "병원 데이터를 연구에 안전하고 효율적으로 활용할 수 있도록 병원의 데이터와 시스템 환경을 분석하고, 기관의 요구사항에 맞는 데이터 활용 방안과 시스템 구축 방향을 제안했습니다. 필요에 따라 적합한 외부 연계 업체를 소개하거나 직접 시스템을 설계·개발하여 제공하는 등, 데이터 활용을 위한 컨설팅부터 실제 구축까지 수행했습니다.",
-      projects: ["safe-center", "dbp-consulting", "cdm-support", "datalake"]
+      projects: ["safe-center", "dbp-consulting", "cdm-support", "datalake", "isp-pmo"]
     },
     {
       id: "server",
@@ -158,7 +158,7 @@ window.PORTFOLIO = {
       title: "OMOP CDM 이관 및 ATLAS 설치·운영 & 심포지엄·데이터톤 환경 구축",
       plain:
         "병원 데이터를 연구용 공통 형식(OMOP CDM)으로 옮기고, 그 데이터를 클릭만으로 분석할 수 있는 도구(ATLAS)를 설치해 연구자들에게 제공했습니다. 국제 심포지엄과 매년 열리는 데이터 분석 대회(데이터톤)의 실습 환경도 직접 준비했습니다.",
-      projects: ["db-admin", "cdm-atlas", "datathon-env"]
+      projects: ["db-admin", "cdm-atlas", "datathon-env", "hira-cdm"]
     },
     {
       id: "rtrod",
@@ -172,7 +172,7 @@ window.PORTFOLIO = {
       title: "기타",
       plain:
         "위의 큰 줄기에 속하지 않지만 의미 있었던 과업들입니다. 연구 도구 개발, 교육용 클라우드 설계, 챗봇 관리 도구 설계 등을 시간 순으로 모았습니다.",
-      projects: ["etl-explorer", "rehosp-plp", "crawling-tool", "sdp-education", "chatbot-console"]
+      projects: ["etl-explorer", "rehosp-plp", "crawling-tool", "sdp-education", "server-hw-ops", "chatbot-console"]
     }
   ],
   projects: [
@@ -290,6 +290,23 @@ window.PORTFOLIO = {
       highlights: ["단기 개선 사업 완료 보고서 작성 및 발표"]
     },
     {
+      id: "isp-pmo",
+      org: "phi",
+      title: "의료원 ISP 후속 PMO 및 CMP 도입 기술 지원",
+      period: "2025 ~ 현재",
+      category: ["Infra", "Cloud"],
+      track: "컨설팅 · PMO",
+      oneLiner: "병원의 정보화 전략 계획(ISP) 이후 실제 도입이 잘 진행되도록 병원과 컨설팅 업체 사이에서 일정과 기술 요건을 챙기는 역할을 맡고 있습니다.",
+      summary:
+        "ISP 컨설팅 사업의 후속 과업으로, 외부 컨설팅 업체와 의료원 사이에서 PMO 역할을 담당. CMP(클라우드 관리 플랫폼) 업체 선정 회의에서 기술 요건을 파악하고 ISP 계약에 따른 후속 과제를 팔로업 중.",
+      role: [
+        "ISP 컨설팅 후속 과업의 PMO 역할 수행 (외부 컨설팅 업체 · 의료원 간 일정·이슈 조율)",
+        "CMP 업체 선정 회의 참여 및 기술 요건 파악·정리",
+        "ISP 계약에 따른 후속 과제 팔로업 진행 중"
+      ],
+      tech: ["ISP", "PMO", "CMP", "Cloud"]
+    },
+    {
       id: "cdm-support",
       oneLiner: "병원 연구 데이터 도구(ATLAS)가 커져도 잘 돌아가도록 구조를 제안하고 문제 해결을 지원했습니다.",
       org: "phi",
@@ -337,6 +354,22 @@ window.PORTFOLIO = {
       ],
       tech: ["React", "CRA", "Material-UI", "JavaScript"],
       highlights: []
+    },
+    {
+      id: "server-hw-ops",
+      org: "phi",
+      title: "GPU 서버 · NAS 등 하드웨어 및 서버 소프트웨어 관리",
+      period: "2025 ~ 현재",
+      category: ["Infra"],
+      track: "서버 관리 업무",
+      oneLiner: "회사와 의료원의 GPU 서버, 저장 장치, 신규 입고 서버를 설치하고, 그 안의 소프트웨어와 설치 매뉴얼을 관리하고 있습니다.",
+      summary:
+        "GPU 서버, NAS, 의료원 입고 서버 등 하드웨어와 서버 내 소프트웨어의 설치·관리 및 매뉴얼 관리를 담당.",
+      role: [
+        "GPU 서버, NAS, 의료원 입고 서버 등 하드웨어 설치 및 관리",
+        "서버 내 소프트웨어 설치·구성 및 설치 매뉴얼 작성·관리"
+      ],
+      tech: ["Linux", "GPU 서버", "NAS", "Docker"]
     },
     {
       id: "sdp-education",
@@ -485,6 +518,22 @@ window.PORTFOLIO = {
       ],
       tech: ["Ubuntu", "Windows Server", "Ansible", "Terraform", "NAS / SAN / iSCSI", "Nginx", "LDAP", "R Server", "Shiny Server"],
       highlights: []
+    },
+    {
+      id: "hira-cdm",
+      org: "ajou",
+      title: "심평원 CDM · ATLAS 환경 업데이트 지원",
+      period: "2022",
+      category: ["Data / ETL", "Infra"],
+      track: "기술 지원 · OHDSI",
+      oneLiner: "건강보험심사평가원의 연구용 데이터 분석 환경(ATLAS, RStudio)을 최신 버전으로 올리고 용어 사전을 갱신하는 작업을 지원했습니다.",
+      summary:
+        "심평원 CDM 환경의 ATLAS 최신 버전 설치와 Vocabulary 업데이트, RStudio Server 컨테이너 버전 업데이트를 지원.",
+      role: [
+        "ATLAS 최신 버전 설치 및 Vocabulary 업데이트 지원",
+        "RStudio Server 컨테이너 버전 업데이트 지원"
+      ],
+      tech: ["OMOP CDM", "ATLAS", "RStudio Server", "Docker"]
     },
     {
       id: "datathon-env",
