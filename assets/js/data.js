@@ -140,7 +140,7 @@ window.PORTFOLIO = {
       id: "cdm",
       title: "OMOP CDM 이관 및 ATLAS 설치·운영 & 심포지엄·데이터톤 환경 구축",
       plain:
-        "병원 데이터를 연구용 공통 형식(OMOP CDM)으로 옮기고, 그 데이터를 클릭만으로 분석할 수 있는 도구(ATLAS)를 설치해 연구자들에게 제공했습니다. 국제 심포지엄과 매년 열리는 데이터 분석 대회(데이터톤)의 실습 환경도 직접 준비했습니다.",
+        "OMOP CDM 데이터를 관리하고, 그 데이터를 클릭만으로 분석할 수 있는 도구(ATLAS)를 설치해 연구자들에게 제공했습니다. OHDSI 국제 심포지엄과 매년 열리는 CDM 데이터 분석 대회(데이터톤)의 실습 환경도 직접 준비했습니다.",
       projects: ["db-admin", "cdm-atlas", "datathon-env", "hira-cdm"]
     },
     {
