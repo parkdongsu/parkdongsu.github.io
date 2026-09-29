@@ -49,7 +49,7 @@ node scripts/build-pdf.js
 
 ## PPTX 포트폴리오
 
-같은 데이터로 발표용 슬라이드(`assets/Dongsu_Park_Portfolio.pptx`)도 만들 수 있습니다. 표지 · About · Skills · Career(기관별 1장) 다음에 프로젝트 그룹 표지(과업 2개 이상인 그룹)와 과업당 1장이 이어집니다.
+같은 데이터로 발표용 슬라이드(`assets/Dongsu_Park_Portfolio.pptx`)도 만들며, 상단 메뉴의 **PPTX 다운로드** 버튼으로 내려받습니다. 표지 · About · Career(기관별 1장) 다음에 프로젝트 그룹 표지(과업 2개 이상인 그룹)와 과업당 1장이 이어집니다.
 
 ```bash
 npm install pptxgenjs      # 최초 1회
