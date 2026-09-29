@@ -290,7 +290,7 @@ window.PORTFOLIO = {
     {
       id: "isp-pmo",
       org: "phi",
-      title: "의료원 ISP 후속 PMO 및 CMP 도입 기술 지원",
+      title: "의료원 인프라·가상화 환경 컨설팅을 통한 CMP 도입 지원",
       period: "2025 ~ 현재",
       category: ["Infra", "Cloud"],
       track: "컨설팅 · PMO",
