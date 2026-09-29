@@ -221,7 +221,8 @@ window.PORTFOLIO = {
       summary:
         "병원마다 다른 의료데이터를 국제 표준인 HL7 FHIR 형식으로 변환하고 관리하는 웹 기반 통합 시스템. 변환 방식에 대한 특허 출원 및 등록 완료.",
       description: [
-        "병원마다 다른 의료데이터를 국제 표준인 HL7 FHIR 형식으로 변환하고 관리할 수 있는 웹 기반 통합 시스템을 설계·개발했습니다. 기존에는 FHIR 변환 과정에 필요한 여러 도구를 개별적으로 활용해야 했는데, 이를 하나의 시스템으로 통합했습니다.",
+        "병원마다 다른 의료데이터를 국제 표준인 HL7 FHIR 형식으로 변환하고 관리할 수 있는 웹 기반 통합 시스템을 설계·개발했습니다.",
+        "기존에는 FHIR 변환 과정에 필요한 여러 도구를 개별적으로 활용해야 했는데, 이를 하나의 시스템으로 통합했습니다.",
         "의료기관의 데이터 구조와 변환 요구사항을 고려해 확장성 있게 시스템을 설계했으며, 변환 방식에 대한 특허를 출원하고 등록까지 완료했습니다."
       ],
       images: [
@@ -404,6 +405,10 @@ window.PORTFOLIO = {
         "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIR 변환 도구 실습까지 강의를 담당.",
       description:
         "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIR 변환 도구 소개로 이어지는 총 8시간의 강의 과정을 구성했고, 이어서 실습과 바이브 코딩 프로젝트로 구성된 60시간 과정을 설계해 강의를 진행하고 있습니다.",
+      images: [
+        { src: "assets/images/projects/fhir-edu-1.jpg", alt: "HL7 FHIR 교육 강의 목차 — FHIR 소개, Resource·Profile·Terminology 이해", caption: "강의 목차 (이론) — FHIR 소개부터 Resource · Profile · Terminology, 구성요소 간 관계까지" },
+        { src: "assets/images/projects/fhir-edu-2.jpg", alt: "HL7 FHIR 교육 강의 목차 — Profiling 개념부터 진료 사례 연결까지", caption: "강의 목차 (Profiling) — 실제 병원 서식으로 핵심 Profile 8종을 정의하고 하나의 진료 사례로 연결 (기관명 마스킹)" }
+      ],
       role: [
         "강의 1 · 비개발자를 위한 HL7 FHIR 기초 (3h): Resource, Profile, ValueSet, CodeSystem, ConceptMap 구조와 국제 → 국가(KR-Core) → 병원 표준 적용 흐름",
         "강의 2 · SNOMED CT 결과를 FHIR로 연결하는 방법 (3h, 공동 강의): Condition, Observation, Procedure, MedicationRequest 적용과 외래 시나리오 모델링 실습",
