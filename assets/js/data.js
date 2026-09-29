@@ -604,26 +604,26 @@ window.PORTFOLIO = {
     },
     {
       id: "cdm-atlas",
-      oneLiner: "병원 데이터를 연구용 공통 형식으로 옮기고, 클릭으로 분석하는 도구(ATLAS)를 여러 기관에 설치했습니다.",
+      oneLiner: "아주대병원 OMOP CDM을 관리하고 OHDSI ATLAS를 구축해 연구자가 데이터를 분석할 수 있는 환경을 제공했습니다.",
       org: "ajou",
       track: "서버 관리 업무 · OHDSI",
-      title: "OMOP CDM 이관 및 ATLAS 설치·운영",
+      title: "OMOP CDM 관리 및 ATLAS 설치·운영",
       period: "2019 ~ 2022",
       category: ["Data / ETL", "Cloud", "Infra"],
       summary:
-        "튜토리얼·테스트용 샘플 CDM을 AWS RDS로 이관하고 ATLAS·WebAPI를 Docker로 구축해 PLE·PLP 분석 환경을 제공. 강동성심병원, 심평원 등 외부 기관 ATLAS 설치 출장 지원과 설치 가이드 문서화까지 담당.",
-      description:
-        "OHDSI ATLAS v2.8.0과 WebAPI를 Docker 이미지로 빌드해 AWS EC2와 온프레미스 서버에 배포하고, 튜토리얼·스트레스 테스트용 샘플 CDM을 Embulk로 MSSQL → PostgreSQL(AWS RDS)에 이관한 뒤 Achilles 통계와 Results 스키마를 구성해 ATLAS에 연결했습니다. 온프레미스 ATLAS는 병원 내부 CDM에 직접 연결해 운영했습니다. 50만·100만 환자 규모의 샘플 CDM으로 PLE·PLP 패키지를 실행하는 스트레스 테스트를 수행해 RDS·EC2 권장 사양을 도출했습니다.",
+        "AWS 및 온프레미스 환경에 ATLAS를 구축·관리하고 강동성심병원·건강보험심사평가원 등 외부 기관의 ATLAS 설치 및 운영을 지원.",
       role: [
-        "ATLAS / WebAPI Docker 이미지 빌드 및 EC2·온프레미스 배포, DB·LDAP 로그인 연동 설정",
-        "Embulk를 Docker로 구성해 샘플 CDM 테이블을 MSSQL → PostgreSQL(AWS RDS)로 이관(테이블별 YAML 자동 생성), DDL 변경 및 인덱스 작업",
-        "Achilles(R) 실행을 위한 RStudio Server 컨테이너 구성, WebAPI Results 스키마 생성 및 ATLAS Source 등록",
-        "pg_dump / RDS 스냅샷 기반 샘플 CDM(50만·100만 환자) 구성 및 PLE·PLP 스트레스 테스트로 클라우드 사양 산정",
-        "튜토리얼용 VDI 분석 환경(R, RStudio, Java) 세팅 및 설치·운영 가이드 문서화",
-        "강동성심병원, 건강보험심사평가원(심평원) 등 외부 기관 ATLAS 설치 출장 지원: 폐쇄망 환경에 ATLAS·WebAPI Docker 이미지를 반입·배포하고 기관 CDM(Oracle 등) 연결, Results 스키마 구성, 분석 컨테이너 이슈 대응"
+        "OMOP CDM 관리 및 AWS RDS 기반 분석 환경 구축",
+        "ATLAS 설치 및 운영",
+        "PLE·PLP 분석 환경 구성 및 성능 테스트",
+        "외부 기관 ATLAS 설치·CDM 연계 및 폐쇄망 환경 지원",
+        "설치 및 운영 절차 문서화"
       ],
       tech: ["OMOP CDM", "ATLAS", "WebAPI", "Docker", "Embulk", "MSSQL", "PostgreSQL", "AWS EC2 / RDS", "R", "Achilles", "LDAP"],
-      highlights: ["ATLAS 설치 가이드 및 CDM 이관 절차를 문서화해 외부 기관 설치 지원 시 Docker 이미지 반입 방식으로 표준화"]
+      highlights: [
+        "ATLAS 설치 및 CDM 이관 절차를 표준화하고 가이드로 문서화",
+        "클라우드·온프레미스 환경에서 OMOP CDM 분석 환경 구축 및 운영 경험 확보"
+      ]
     },
     {
       id: "db-admin",
