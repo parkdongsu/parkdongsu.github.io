@@ -111,7 +111,7 @@
               <div class="timeline__label">주요 업무</div>
               <ul class="timeline__items">${c.items.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
             </div>`
-          : `<p class="timeline__summary">${esc(c.summary || "")}</p>`}
+          : c.summary ? `<p class="timeline__summary">${esc(c.summary)}</p>` : ""}
       </li>`).join("");
 
     $("#year").textContent = new Date().getFullYear();
