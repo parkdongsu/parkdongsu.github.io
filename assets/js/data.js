@@ -145,7 +145,7 @@ window.PORTFOLIO = {
     },
     {
       id: "rtrod",
-      title: "RTROD · 개방형 임상 중개 연구 플랫폼 개발",
+      title: "개방형 임상 중개 연구 플랫폼 개발",
       plain:
         "병원 밖 연구자가 병원 데이터 접근 없이 분석할 수 있게 하는 플랫폼을 개발했습니다. 연구자가 만든 분석 프로그램을 병원 안 서버에서 대신 실행하고 결과만 돌려줘 개인정보가 밖으로 나가지 않도록 구성했습니다.",
       projects: ["rtrod"]
@@ -468,7 +468,7 @@ window.PORTFOLIO = {
       oneLiner: "연구자의 분석 프로그램을 병원 안에서 대신 실행하고 결과만 돌려주는 안전한 연구 플랫폼을 개발했습니다.",
       org: "ajou",
       track: "국책 과제 수행 · 연구 중심 병원",
-      title: "RTROD · 개방형 임상 중개 연구 플랫폼 개발",
+      title: "개방형 임상 중개 연구 플랫폼 개발",
       period: "2021.01 ~ 2022.06",
       team: "2명",
       category: ["Backend", "Cloud", "Infra"],
@@ -477,8 +477,8 @@ window.PORTFOLIO = {
       description:
         "AWS Cloud 환경의 서버에 구축된 Web 환경의 시스템으로, 사용자의 R 기반 분석 패키지를 HTTPS 프로토콜로 병원 내부 서버로 보내면 분석 패키지를 Docker로 감싸 실행한 후 분석 결과만 반출해 병원 데이터 접근을 제한하며 분석 결과를 공유하는 플랫폼을 개발했습니다.",
       images: [
-        { src: "assets/images/projects/rtrod-1.jpg", alt: "RTROD AWS 아키텍처 구성도", caption: "AWS 아키텍처 및 CI/CD 구성도" },
-        { src: "assets/images/projects/rtrod-2.jpg", alt: "RTROD 프로젝트 관리 화면", caption: "RT-ROD 프로젝트 관리 화면" }
+        { src: "assets/images/projects/rtrod-1.jpg", alt: "개방형 임상 중개 연구 플랫폼 AWS 아키텍처 구성도", caption: "AWS 아키텍처 및 CI/CD 구성도" },
+        { src: "assets/images/projects/rtrod-2.jpg", alt: "연구 플랫폼 프로젝트 관리 화면", caption: "프로젝트 관리 화면" }
       ],
       role: [
         "Node.js 기반 분석·Batch Backend 서버 개발",
