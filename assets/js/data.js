@@ -102,18 +102,18 @@ window.PORTFOLIO = {
 
   groups: [
     {
-      id: "llm",
-      title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
-      plain:
-        "의사가 직접 작성하던 의료기록을 AI가 초안으로 생성해 작성 시간을 줄이는 서비스입니다. 데이터 전·후처리와 LLM 활용 구조를 설계하고 개발했습니다.",
-      projects: ["llm-record-platform", "llm-record-agent"]
-    },
-    {
       id: "fhir",
       title: "EMR 데이터 FHIR 변환 통합 관리 시스템 설계 및 개발",
       plain:
         "병원마다 다른 모양으로 저장된 진료 기록을, 전 세계가 함께 쓰는 표준 규격(FHIR)으로 바꿔 주는 서비스를 개발했습니다. 개발자가 아니어도 병원 데이터를 표준으로 쉽게 변환할 수 있도록 서비스를 구성했습니다. 이 방식으로 특허도 받았습니다.",
       projects: ["fhir-converter"]
+    },
+    {
+      id: "llm",
+      title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
+      plain:
+        "의사가 직접 작성하던 의료기록을 AI가 초안으로 생성해 작성 시간을 줄이는 서비스입니다. 데이터 전·후처리와 LLM 활용 구조를 설계하고 개발했습니다.",
+      projects: ["llm-record-platform", "llm-record-agent"]
     },
     {
       id: "edu",
