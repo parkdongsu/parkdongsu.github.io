@@ -403,22 +403,25 @@ window.PORTFOLIO = {
       category: ["Education", "AI / LLM"],
       summary:
         "세브란스 의무기록팀(보건의료정보관리사)을 대상으로 한 인재원 교육 과정의 커리큘럼을 설계하고 HL7 FHIR 기초부터 FHIR 변환 도구 실습까지 강의를 담당.",
-      description:
-        "비개발자인 의무기록팀 구성원이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록, FHIR 기본 구조 → 주요 임상 Resource 적용 → 병원 Core Profile 정의 → FHIR 변환 도구 소개로 이어지는 총 8시간의 강의 과정을 구성했고, 이어서 실습과 바이브 코딩 프로젝트로 구성된 60시간 과정을 설계해 강의를 진행하고 있습니다.",
+      description: [
+        "비개발자인 의무기록팀이 병원 데이터를 FHIR 표준으로 이해하고 직접 변환·검증할 수 있도록 교육 과정을 설계하고 진행했습니다.",
+        "FHIR 기본 구조부터 주요 임상 Resource, 병원 Core Profile 정의, FHIR 변환 도구 활용까지 이어지는 8시간의 이론 과정을 구성했으며, 이후 실습과 바이브 코딩 프로젝트로 구성된 60시간의 심화 과정을 설계해 교육을 진행했습니다."
+      ],
       images: [
         { src: "assets/images/projects/fhir-edu-1.jpg", alt: "HL7 FHIR 교육 강의 목차 — FHIR 소개, Resource·Profile·Terminology 이해", caption: "강의 목차 (이론) — FHIR 소개부터 Resource · Profile · Terminology, 구성요소 간 관계까지" },
         { src: "assets/images/projects/fhir-edu-2.jpg", alt: "HL7 FHIR 교육 강의 목차 — Profiling 개념부터 진료 사례 연결까지", caption: "강의 목차 (Profiling) — 실제 병원 서식으로 핵심 Profile 8종을 정의하고 하나의 진료 사례로 연결 (기관명 마스킹)" }
       ],
       role: [
-        "강의 1 · 비개발자를 위한 HL7 FHIR 기초 (3h): Resource, Profile, ValueSet, CodeSystem, ConceptMap 구조와 국제 → 국가(KR-Core) → 병원 표준 적용 흐름",
-        "강의 2 · SNOMED CT 결과를 FHIR로 연결하는 방법 (3h, 공동 강의): Condition, Observation, Procedure, MedicationRequest 적용과 외래 시나리오 모델링 실습",
-        "강의 3 · KR-CDI, KR-Core를 활용한 세브란스 Core Resource 정의 (1h)",
-        "강의 4 · 자체 FHIR 변환 도구 소개 및 사용 방법 (1h)",
-        "실습 및 바이브 코딩 과정 (60h) 설계 및 강의 진행: FHIR 변환 도구의 Rule Group·DSL로 샘플 데이터를 변환·검증하는 실습과, 변환·평가 도구 API를 활용해 의무기록 질 향상 서비스를 직접 만들어 보는 바이브 코딩 프로젝트",
-        "교육 회의 참여, 커리큘럼·강의 세부 목차 정리, 강의 자료 스크립트 검토, 실습용 FHIR 변환 도구 기능(Terminology 적용, 1:N 매핑) 보강"
+        "HL7 FHIR 기초 교육 (3h): 비개발자를 대상으로 Resource, Profile, ValueSet, CodeSystem, ConceptMap의 구조와 국제 표준 → KR-Core → 병원 표준으로 이어지는 적용 흐름 교육",
+        "FHIR 임상 활용 교육 (3h, 공동 강의): SNOMED CT 결과를 FHIR로 연결하는 방법과 Condition, Observation, Procedure, MedicationRequest를 활용한 외래 시나리오 모델링 실습",
+        "세브란스 Core Resource 정의 (1h): KR-CDI·KR-Core를 기반으로 병원 Core Resource 정의 및 적용 방법 교육",
+        "FHIR 변환 도구 활용 교육 (1h): 자체 개발한 FHIR 변환 도구의 주요 기능과 데이터 변환·검증 과정 소개 및 실습",
+        "실습 및 바이브 코딩 과정 (60h): FHIR 변환 도구를 활용한 데이터 변환 실습, LLM API를 활용한 의무기록 질 향상 서비스 개발 프로젝트 진행"
       ],
       tech: ["HL7 FHIR", "KR-Core", "KR-CDI", "SNOMED CT", "LLM"],
-      highlights: []
+      highlights: [
+        "전체 교육 과정 설계부터 실습 환경 구성, 교육 콘텐츠 개발 및 강의까지 FHIR 교육 전반을 직접 수행"
+      ]
     },
 
     /* ---------------- 아주대학교 의료원 ---------------- */
