@@ -590,6 +590,9 @@ window.PORTFOLIO = {
         "OHDSI Korea 국제 심포지엄 튜토리얼과 매년 30~40명 규모의 자체 데이터톤을 위해 AWS 또는 온프레미스 환경에 ATLAS·RStudio 분석 환경을 구축하고 행사 기간 운영.",
       description:
         "OHDSI(Observational Health Data Sciences and Informatics) 협력 기관으로 참여하며 2019년 한국에서 열린 국제 심포지엄의 튜토리얼 환경을 AWS Cloud 위에 구축하고 참가자용 VDI 환경을 제공했습니다. 이후 학과에서 매년 개최한 데이터톤에서도 행사 규모에 따라 AWS 또는 온프레미스 서버에 ATLAS와 RStudio Server를 세팅하고, 참가 팀별 분석 컨테이너와 DB 환경을 제공하며 행사 기간 리소스 모니터링을 담당했습니다.",
+      images: [
+        { src: "assets/images/projects/ohdsi-profile-1.jpg", alt: "OHDSI 공식 사이트에 등록된 프로필 페이지", caption: "OHDSI 공식 사이트 프로필 — 2019년 OHDSI Korea 튜토리얼 환경 구축 등 OHDSI 커뮤니티 활동 이력이 등록되어 있음" }
+      ],
       role: [
         "OHDSI Korea 국제 심포지엄(2019) 튜토리얼용 AWS 분석 환경 및 참가자 VDI 환경 구축·운영 지원",
         "데이터톤용 ATLAS·RStudio Server 세팅 (AWS 또는 온프레미스 환경 선택)",
