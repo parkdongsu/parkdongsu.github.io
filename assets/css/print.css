@@ -1,0 +1,79 @@
+/* Print / PDF layout for the portfolio (A4) */
+@page { size: A4; margin: 16mm 14mm 18mm; }
+:root {
+  --ink: #111318; --ink-2: #3d4350; --ink-3: #7a8190; --line: #e3e6eb; --accent: #1f6fe0; --accent-2: #e8f0fd; --surface-2: #f4f6f9;
+  --font: "Pretendard Variable", Pretendard, "Noto Sans KR", NanumGothic, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, "NanumGothicCoding", monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fff; color: var(--ink); font-family: var(--font); font-size: 10.5pt; line-height: 1.6; word-break: keep-all; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+main { max-width: 182mm; margin: 0 auto; }
+@media screen { body { padding: 24px; background: #eceef2; } main { background: #fff; padding: 16mm 14mm; box-shadow: 0 6px 30px rgba(0,0,0,0.12); } }
+
+h1, h2, h3, h4 { line-height: 1.3; letter-spacing: -0.01em; }
+.section__title { break-after: avoid; }
+.section--career { margin-top: 18px; }
+.section__title { font-size: 20pt; font-weight: 800; padding-bottom: 6px; border-bottom: 2px solid var(--ink); margin-bottom: 14px; }
+.lead { color: var(--ink-2); margin-bottom: 12px; }
+
+/* Cover */
+.cover { padding-top: 4mm; }
+.cover__eyebrow { font-family: var(--mono); font-size: 9pt; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.cover__name { font-size: 30pt; font-weight: 800; letter-spacing: -0.03em; }
+.cover__name span { font-size: 16pt; font-weight: 400; color: var(--ink-3); margin-left: 10px; }
+.cover__roles { margin-top: 6px; font-size: 12pt; font-weight: 600; color: var(--ink-2); }
+.cover__tagline { margin-top: 14px; font-size: 12pt; color: var(--ink); max-width: 150mm; }
+.cover__meta { margin-top: 18px; display: flex; gap: 22px; font-size: 9.5pt; color: var(--ink-3); font-family: var(--mono); }
+.cover .section__title { margin-top: 26px; }
+.about p { color: var(--ink-2); margin-bottom: 8px; }
+
+/* Skills */
+.skills { border-top: 1px solid var(--line); }
+.skill { display: grid; grid-template-columns: 46mm 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px solid var(--line); align-items: start; break-inside: avoid; }
+.skill__group { font-weight: 700; font-size: 10pt; }
+.skill__sub { display: block; }
+.skill__sublabel { color: var(--ink-3); font-size: 9pt; margin-right: 4px; }
+.tag { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 8.5pt; font-weight: 600; background: var(--surface-2); color: var(--ink-2); border: 1px solid var(--line); margin: 1px 2px 1px 0; }
+.tag--accent { background: var(--accent-2); color: var(--accent); border-color: transparent; }
+
+/* Career */
+.career__total { font-family: var(--mono); font-size: 10pt; font-weight: 600; color: var(--accent); margin-bottom: 12px; }
+.job { margin-bottom: 16px; break-inside: avoid; }
+.job__period { font-family: var(--mono); font-size: 10pt; font-weight: 600; color: var(--ink-2); }
+.job__period b { color: var(--accent); font-family: var(--font); }
+.job__org { font-size: 14pt; font-weight: 800; margin-top: 2px; }
+.job__role { color: var(--accent); font-weight: 600; }
+.job__note { font-size: 9.5pt; color: var(--ink-3); margin-top: 2px; }
+.job__intro { margin-top: 8px; padding: 10px 12px; border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 6px; }
+.job__intro p + p { margin-top: 6px; }
+
+/* Projects */
+.group { break-before: page; }
+.group__head { display: flex; gap: 12px; align-items: flex-start; padding-bottom: 10px; border-bottom: 2px solid var(--ink); margin-bottom: 12px; }
+.group__index { font-family: var(--mono); font-size: 22pt; font-weight: 800; color: var(--accent); line-height: 1; padding-top: 2px; }
+.group__meta { font-size: 9pt; color: var(--ink-3); display: flex; gap: 12px; flex-wrap: wrap; }
+.group__meta b { color: var(--accent); font-weight: 700; }
+.group__title { font-size: 17pt; font-weight: 800; margin-top: 2px; }
+.group__plain { margin-top: 6px; color: var(--ink-2); font-size: 10pt; }
+.badge { display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 4px; font-size: 8.5pt; font-weight: 700; background: var(--accent-2); color: var(--accent); vertical-align: 1px; }
+
+.project { margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); }
+.project:first-of-type { border-top: 0; padding-top: 0; }
+.project__head { break-inside: avoid; }
+.project__meta { font-size: 9pt; color: var(--ink-3); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.project__meta b { color: var(--accent); }
+.project__title { font-size: 13.5pt; font-weight: 800; margin-top: 2px; }
+.project__title small { font-family: var(--mono); font-weight: 600; color: var(--ink-3); font-size: 9pt; margin-right: 6px; }
+.project__easy { margin-top: 6px; }
+.project__summary { margin-top: 4px; color: var(--ink-2); }
+.project__desc { margin-top: 8px; padding: 9px 12px; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 6px 6px 0; }
+.project__desc p + p, .project__desc ol + p, .project__desc p + ol { margin-top: 5px; }
+.project__desc ol { padding-left: 18px; }
+.label { font-family: var(--mono); font-size: 8.5pt; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin: 10px 0 4px; }
+.list { list-style: none; }
+.list li { position: relative; padding-left: 12px; color: var(--ink); margin-bottom: 2px; }
+.list li::before { content: ""; position: absolute; left: 0; top: 0.62em; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.figure { margin: 8px 0 4px; break-inside: avoid; }
+.figure img { width: 100%; max-height: 95mm; object-fit: contain; object-position: left top; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.figure figcaption { font-size: 8.5pt; color: var(--ink-3); margin-top: 3px; }
+.tags { margin-top: 2px; }
