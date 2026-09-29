@@ -12,6 +12,7 @@ assets/js/data.js         # 프로필 · 스킬 · 경력 · 프로젝트 데이
 assets/js/main.js         # 렌더링, 필터, 프로젝트 상세 모달, 해시 라우팅
 print.html                # PDF 생성용 인쇄 레이아웃 (assets/css/print.css, assets/js/print.js)
 scripts/build-pdf.js      # print.html → assets/Dongsu_Park_Portfolio.pdf
+scripts/build-pptx.js     # data.js → assets/Dongsu_Park_Portfolio.pptx (pptxgenjs)
 assets/images/            # 로고, 배경 이미지, 아이콘
 .nojekyll                 # GitHub Pages에서 Jekyll 처리 건너뛰기
 ```
@@ -44,6 +45,15 @@ assets/images/            # 로고, 배경 이미지, 아이콘
 ```bash
 node scripts/build-pdf.js
 # 환경에 따라: PLAYWRIGHT_MODULE=<playwright 경로> CHROMIUM_PATH=<chromium 실행 파일> node scripts/build-pdf.js
+```
+
+## PPTX 포트폴리오
+
+같은 데이터로 발표용 슬라이드(`assets/Dongsu_Park_Portfolio.pptx`)도 만들 수 있습니다. 표지 · About · Skills · Career(기관별 1장) 다음에 프로젝트 그룹 표지(과업 2개 이상인 그룹)와 과업당 1장이 이어집니다.
+
+```bash
+npm install pptxgenjs      # 최초 1회
+node scripts/build-pptx.js
 ```
 
 ## 로컬에서 보기
