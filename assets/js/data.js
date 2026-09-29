@@ -347,11 +347,14 @@ window.PORTFOLIO = {
         "기관 보유 데이터를 연구 목적으로 안전하게 활용하기 위한 안심활용센터 웹 서비스의 Frontend 전반을 개발.",
       role: [
         "React(CRA) + Material-UI 기반 화면 개발",
-        "동적 신청서 작성, 좌석 관리, 관리자 페이지 등 전체 기능 구현",
-        "클라우드 구축 회의 참여, 매뉴얼 작성 및 결과 보고서 보완"
+        "동적 신청서 작성, 좌석 관리 등 전체 화면 기능 구현",
+        "매뉴얼 작성 및 결과 보고서 보완"
       ],
       tech: ["React", "CRA", "Material-UI", "JavaScript"],
-      highlights: []
+      highlights: [
+        "사용자 업무 흐름을 고려한 Frontend 전반 구현",
+        "서비스 운영에 필요한 매뉴얼 및 결과 보고서를 작성·보완하여 운영 및 사용자 활용 지원"
+      ]
     },
     {
       id: "server-hw-ops",
