@@ -106,7 +106,7 @@ window.PORTFOLIO = {
       title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
       plain:
         "의사가 직접 작성하던 의료기록을 AI가 초안으로 생성해 작성 시간을 줄이는 서비스입니다. 데이터 전·후처리와 LLM 활용 구조를 설계하고 개발했습니다.",
-      projects: ["llm-record-platform"]
+      projects: ["llm-record-platform", "llm-record-agent"]
     },
     {
       id: "fhir",
@@ -164,24 +164,51 @@ window.PORTFOLIO = {
       id: "llm-record-platform",
       oneLiner: "환자 기록을 읽은 AI가 의료 서식 초안을 대신 써 주는 서비스의 뼈대(서버와 데이터 흐름)를 설계하고 개발했습니다.",
       org: "phi",
-      title: "LLM 기반 의료 기록지 자동 생성 플랫폼",
-      period: "2024.05 ~ 현재",
+      title: "LLM 기반 의료 기록지 자동 생성 플랫폼 구축 · 운영",
+      period: "2024.05 ~ 2026.05",
       category: ["AI / LLM", "Backend", "Infra"],
       summary:
-        "EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당. 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화 중.",
+        "EMR 데이터를 FHIR로 표준화하고 LLM으로 의료 기록 서식을 자동 생성하는 플랫폼의 아키텍처·인프라·백엔드를 담당.",
+      description: [
+        "의료 분야 LLM을 실제 EMR에 연동해 현장 업무에 활용한 국내 최초 사례입니다. 이미 효율적으로 돌아가던 진료 업무 사이에서 '서식 작성'이라는 지점을 잡아 업무 효율을 높이자는 제안으로 병원의 승인을 받았고, 4개월 만에 개발을 마쳐 적용했습니다.",
+        "폐쇄망 환경에서 모델 업체와 협업해 학습을 진행하고 오픈 모델도 함께 활용하면서, LLM 서빙과 운영 전반에 대한 경험을 쌓았습니다."
+      ],
       images: [
         { src: "assets/images/projects/llm-record-process-1.jpg", alt: "의무기록 자동 생성 프로세스 구성도", caption: "의무기록 자동 생성 프로세스 — EMR의 'AI 생성' 버튼 하나로 기존 문서 작성 흐름 안에서 AI가 동작" }
       ],
       role: [
         "EMR → 게이트웨이 → 데이터 표준화 → 전처리 → LLM → 후처리로 이어지는 데이터 파이프라인 설계",
         "서비스별 단일 컨테이너 구조에서 멀티 컨테이너(Nginx, MSA 기반 Scaling) 구조로 확장 설계",
-        "스트레스 테스트, 보안 취약점 점검 대응 및 로깅·모니터링 기반 vLLM 추론 성능·시스템 개선 수행",
-        "AI Agent 고도화 (2026.06~): 서식 생성 파이프라인을 Kafka + AI Agent 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발. 전/후처리(FHIR 변환 결과 병합, 프롬프트 동적 조립, 입력 정제, 추론 결과 출력) 담당 및 Prometheus·Loki·Tempo·Grafana 기반 모니터링 설계",
-        "확장 사업으로 OCR 시스템 연동 및 건강검진 데이터 자동 생성 프로젝트 병행 진행 중"
+        "스트레스 테스트, 보안 취약점 점검 대응 및 로깅·모니터링 기반 vLLM 추론 성능·시스템 개선 수행"
       ],
-      tech: ["Python", "FastAPI", "vLLM", "AI Agent / MCP", "Kafka", "Redis", "Docker", "Nginx", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
+      tech: ["Python", "FastAPI", "vLLM", "Docker", "Nginx", "Redis", "PostgreSQL", "MongoDB", "Elasticsearch", "HL7 FHIR", "Grafana"],
       highlights: [
-        "세브란스 3개 병원에 5종 서식, 1개 병원에 1종 서식 적용 (운영 배포)"
+        "세브란스 3개 병원에 5종 서식, 1개 병원에 1종 서식 적용 (운영 배포)",
+        "실제 병원 업무에 LLM을 적용하고 운영하며 AI 서비스의 개발·운영 경험을 축적"
+      ]
+    },
+    {
+      id: "llm-record-agent",
+      oneLiner: "서식 생성 파이프라인을 AI Agent 구조로 다시 설계해 확장하기 쉽게 만들고, 검진 데이터·OCR 연동 같은 새 사업으로 이어 가고 있습니다.",
+      org: "phi",
+      title: "서식 생성 파이프라인 AI Agent 고도화 및 확장 사업",
+      period: "2026.06 ~ 현재",
+      category: ["AI / LLM", "Backend", "Monitoring"],
+      summary:
+        "늘어나는 전·후처리 요구사항에 대응하기 위해 서식 생성 파이프라인을 Kafka + AI Agent 구조로 재설계하고, 검진 데이터·OCR 연동 등 확장 사업을 병행.",
+      description: [
+        "서식 작성에 대한 요구사항이 늘어나면서 전·후처리 항목이 계속 추가되었고 코드도 점점 복잡해졌습니다. 그래서 2026년부터 서식 생성 파이프라인을 AI Agent 구조로 고도화하기로 결정했습니다.",
+        "전·후처리 영역을 Tool 단위로 나누어 구분하고, 이후 일부 판단 영역은 Agent에게 맡길 수 있도록 구조를 잡았습니다. 이 과정에서 검진 데이터, OCR 연동 같은 확장 포인트를 찾아 세브란스와 신규 계약을 진행했습니다."
+      ],
+      role: [
+        "AI Agent 고도화: 서식 생성 파이프라인을 Kafka + AI Agent 구조로 재설계하고, 확장을 고려해 Tool을 MCP 규격에 맞춰 개발",
+        "AI Agent 설계 일부와 프로젝트 리드를 맡아 팀원과 함께 설계·개발 진행",
+        "Prometheus · Loki · Tempo · Grafana 기반 모니터링 설계",
+        "OCR 시스템 연동, 건강검진 데이터 자동 생성 프로젝트 병행 진행"
+      ],
+      tech: ["Python", "AI Agent / MCP", "Kafka", "vLLM", "Prometheus", "Loki", "Tempo", "Grafana", "Docker"],
+      highlights: [
+        "파이프라인을 확장 가능한 구조로 고도화하며 AI 기반 서비스의 아키텍처 설계 및 실무 경험을 축적"
       ]
     },
     {
