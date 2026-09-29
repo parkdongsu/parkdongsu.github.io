@@ -155,7 +155,7 @@ window.PORTFOLIO = {
       title: "기타",
       plain:
         "위의 큰 줄기에 속하지 않지만 의미 있었던 과업들입니다. 연구 도구 개발, 교육용 클라우드 설계, 챗봇 관리 도구 설계 등을 시간 순으로 모았습니다.",
-      projects: ["etl-explorer", "rehosp-plp", "crawling-tool", "safe-center", "sdp-education", "cdm-support", "server-hw-ops", "chatbot-console"]
+      projects: ["chatbot-console", "sdp-education", "safe-center", "server-hw-ops", "cdm-support", "rehosp-plp", "crawling-tool", "etl-explorer"]
     }
   ],
   projects: [
