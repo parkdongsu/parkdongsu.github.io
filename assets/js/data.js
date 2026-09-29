@@ -219,37 +219,24 @@ window.PORTFOLIO = {
       period: "2024.06 ~ 현재",
       category: ["Backend", "Frontend", "AI / LLM"],
       summary:
-        "의료기관 서식지(XML/JSON/CSV/Excel) 데이터를 HL7 FHIR Resource로 변환하기 위한 웹 기반 통합 워크벤치. Profile 정의부터 DSL 변환 Rule 작성·테스트, Terminology 관리, Implementation Guide 발행, FHIR Server 저장·조회까지 FHIR 변환 전 과정을 한 화면에서 관리하며, 변환 방식에 대해 특허 출원 및 등록 완료.",
+        "병원마다 다른 의료데이터를 국제 표준인 HL7 FHIR 형식으로 변환하고 관리하는 웹 기반 통합 시스템. 변환 방식에 대한 특허 출원 및 등록 완료.",
       description: [
-        "React 프론트엔드와 FastAPI 백엔드, MariaDB·MongoDB·Redis 저장소, IG 발행용 SUSHI·IG Publisher 컨테이너, HAPI FHIR Server 컨테이너로 구성되며 docker compose로 배포합니다.",
-        "기본 작업 흐름",
-        [
-          "FHIR Resource 등록 및 Profile(Cardinality / DataType / Binding) 정의",
-          "자체 DSL 학습·연습",
-          "변환 보조(치환) 데이터 구성",
-          "Rule Group(서식지)·Rule 정의, 변환 테스트 및 Validation",
-          "FHIR Server 저장",
-          "Implementation Guide 발행"
-        ],
-        "사용자 / 매니저 / 관리자 3단계 권한으로 화면과 기능을 분리합니다."
+        "병원마다 다른 의료데이터를 국제 표준인 HL7 FHIR 형식으로 변환하고 관리할 수 있는 웹 기반 통합 시스템을 설계·개발했습니다. 기존에는 FHIR 변환 과정에 필요한 여러 도구를 개별적으로 활용해야 했는데, 이를 하나의 시스템으로 통합했습니다.",
+        "의료기관의 데이터 구조와 변환 요구사항을 고려해 확장성 있게 시스템을 설계했으며, 변환 방식에 대한 특허를 출원하고 등록까지 완료했습니다."
       ],
       images: [
         { src: "assets/images/projects/fhir-workbench-1.jpg", alt: "FHIR 변환 통합 워크벤치 사용 가이드 화면", caption: "사용 가이드 화면 — 빠른 시작 6단계(리소스 등록 → 변환 규칙 학습 → 보조 데이터 구성 → 변환 룰 정의 → FHIR Server 저장 → IG 발행)" }
       ],
       role: [
-        "전체 아키텍처 설계 및 백엔드(FastAPI)·프론트엔드(React) 개발, docker compose 기반 배포·운영",
-        "자체 변환 DSL 설계·구현: Python/SQL 유사 문법(IF, IN, DEFINE, FOR, Function)으로 FHIR Path별 값 구성, ConceptMap 참조 및 반복 요소 분할 생성 지원",
-        "Rule Group / Rule 관리: Default Template, 입력 형식(XML/JSON/CSV/Excel)·분할 설정, Rule 배포 버전 관리, 서식지 코드 매핑",
-        "FHIR 변환 연동 API 및 변환 테스트 화면: success / partial / failed 상태 응답, Profile 기준 Validation(Cardinality·Binding·DataType·Path)",
-        "Resource·Profile 관리(트리 편집, Must Support, Binding Strength)와 Terminology(CodeSystem / ValueSet / ConceptMap) 관리 화면 개발",
-        "Implementation Guide 발행 자동화: FSH 생성 → SUSHI 검증 → IG Publisher 발행, 상태 전환(Draft → Published) 및 Validation 결과 역추적",
-        "FHIR Server 연동: 접속 정보 UI 관리(비밀값은 환경변수로 분리), 연결 테스트, Validation 통과 건 저장, 저장 대기열 재처리 및 Resource 조회",
-        "운영·관리 기능: 매핑 이상 항목 자동 점검, 변환 이력 조회·비교, 감사 로그, 변환 이력 보관 정책, 사용자·권한·코드 관리 및 계정 보안 정책",
-        "LLM 학습 데이터 관리(MongoDB), 모델 호출 테스트·프롬프트 버전 관리 등 실험 기능"
+        "전체 아키텍처 설계부터 React·FastAPI 기반 프론트엔드·백엔드 개발 및 배포·운영",
+        "자체 변환 Rule(DSL)을 설계하여 의료데이터의 FHIR 변환 및 매핑 기능 구현",
+        "Profile·Terminology 관리, 변환 결과 Validation, FHIR Server 연동, IG 발행 등 FHIR 변환 전 과정 통합",
+        "변환 이력·권한·감사 로그 등 운영 및 관리 기능 개발"
       ],
       tech: ["Python", "FastAPI", "React", "HL7 FHIR", "HAPI FHIR", "SUSHI / IG Publisher", "MariaDB", "MongoDB", "Redis", "Docker Compose", "XML"],
       highlights: [
-        "룰 기반 실시간 EMR → FHIR 변환 방식에 대한 특허 출원 및 등록 (2025 출원): 국내외 선행 특허(FHIR 매핑·컨버터 관련) 조사 및 차별점 정리, 명세 작성 참여"
+        "룰 기반 EMR → FHIR 변환 방식 특허 출원 및 등록",
+        "FHIR 변환·검증·발행 과정을 하나의 시스템으로 통합하여 업무 효율성과 재사용성 향상"
       ]
     },
     {
