@@ -2,7 +2,7 @@
 /* Builds assets/Dongsu_Park_Portfolio.pptx from assets/js/data.js with pptxgenjs.
  *   npm install pptxgenjs   (once)
  *   node scripts/build-pptx.js
- * Slides: cover · About · Skills · Career(기관별) · 프로젝트 그룹 표지(과업 2개 이상) · 과업당 1장
+ * Slides: cover · About · Career(기관별) · 프로젝트 그룹 표지(과업 2개 이상) · 과업당 1장
  */
 const pptxgen = require("pptxgenjs");
 const fs = require("fs");
@@ -90,14 +90,6 @@ function pageNum(slide, dark = false) {
     { x: M, y: 2.0, w: 11, h: 1.1, valign: "middle" });
   T(s, D.profile.roles.join("  ·  "), { x: M, y: 3.15, w: 11, h: 0.45, fontSize: 18, bold: true, color: C.iceOnDark });
   T(s, D.profile.tagline, { x: M, y: 3.85, w: 9.5, h: 0.9, fontSize: 16, color: C.white });
-  // stat tiles
-  const stats = [[fmtMonths(totalMonths), "총 경력"], [`${D.groups.length}`, "프로젝트 그룹"], [`${D.projects.length}`, "수행 과업"], ["1", "특허 등록"]];
-  stats.forEach(([v, l], i) => {
-    const x = M + i * 2.75;
-    s.addShape(pres.ShapeType.roundRect, { x, y: 5.15, w: 2.5, h: 1.15, rectRadius: 0.1, fill: { color: "1C2B52" }, line: { color: "2A3C68" } });
-    T(s, v, { x: x + 0.22, y: 5.25, w: 2.1, h: 0.55, fontSize: 24, bold: true, color: C.white });
-    T(s, l, { x: x + 0.22, y: 5.82, w: 2.1, h: 0.3, fontSize: 11, color: C.mutedOnDark });
-  });
   footer(s, true); pageNum(s, true);
 }
 
@@ -123,27 +115,7 @@ function pageNum(slide, dark = false) {
   footer(s); pageNum(s);
 }
 
-/* ================= 3. Skills ================= */
-{
-  const s = pres.addSlide(); s.background = { color: C.white };
-  T(s, "Skills", { x: M, y: 0.5, w: 8, h: 0.7, fontSize: 36, bold: true, color: C.ink });
-  const cols = 3, gap = 0.3, cw = (W - 2 * M - gap * (cols - 1)) / cols, ch = 2.35;
-  D.skills.forEach((g, i) => {
-    const x = M + (i % cols) * (cw + gap), y = 1.45 + Math.floor(i / cols) * (ch + gap);
-    s.addShape(pres.ShapeType.roundRect, { x, y, w: cw, h: ch, rectRadius: 0.1, fill: { color: C.soft }, line: { color: C.line } });
-    circleNo(s, i + 1, x + 0.25, y + 0.25, 0.4, { pt: 11 });
-    T(s, g.group, { x: x + 0.78, y: y + 0.22, w: cw - 1, h: 0.45, fontSize: 15, bold: true, color: C.ink, valign: "middle" });
-    const runs = [];
-    (g.sub || [{ items: g.items }]).forEach((sg, j, arr) => {
-      if (sg.label) runs.push({ text: `${sg.label}  `, options: { bold: true, color: C.accent } });
-      runs.push({ text: sg.items.join("  ·  "), options: { color: C.ink2, breakLine: j < arr.length - 1, paraSpaceAfter: 6 } });
-    });
-    T(s, runs, { x: x + 0.25, y: y + 0.85, w: cw - 0.5, h: ch - 1.05, fontSize: 11.5, lineSpacingMultiple: 1.3 });
-  });
-  footer(s); pageNum(s);
-}
-
-/* ================= 4-5. Career (one per org) ================= */
+/* ================= 3-4. Career (one per org) ================= */
 D.careers.forEach((c) => {
   const s = pres.addSlide(); s.background = { color: C.white };
   T(s, "Career", { x: M, y: 0.5, w: 8, h: 0.7, fontSize: 36, bold: true, color: C.ink });
