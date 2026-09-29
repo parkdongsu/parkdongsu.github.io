@@ -315,28 +315,23 @@ window.PORTFOLIO = {
       period: "2026.09 ~ 현재",
       category: ["Data / ETL", "Infra", "AI / LLM"],
       track: "제안 준비 · 내부 PoC",
-      oneLiner: "병원 데이터를 모으고, 표준으로 정리하고, 안전하게 관리해 AI까지 연결하는 차세대 데이터레이크를 제안하기 위해 실제로 돌아가는 시범 환경을 직접 구축했습니다.",
+      oneLiner: "의료원 데이터레이크 구축 방향을 제안하기 위해 데이터 수집부터 표준화·거버넌스·AI 활용까지 이어지는 시범 환경을 직접 구축했습니다.",
       summary:
-        "의료원 데이터레이크 제안에 앞서 수집 → Lakehouse 적재 → 표준화 → 거버넌스 → AI 활용으로 이어지는 오픈소스 기반 아키텍처를 내부 PoC로 구축하고, 콘솔 대시보드로 서비스 상태·데이터 흐름·적재 이력을 한눈에 확인할 수 있게 구성.",
-      description: [
-        "기존 ETL·모니터링 운영 경험을 바탕으로, 단순 데이터 이관을 넘어 표준화·거버넌스·AI 활용까지 포괄하는 데이터레이크 아키텍처를 제안하기 위해 내부 PoC를 수행했습니다.",
-        "수집(NiFi·Kafka·MinIO) → Lakehouse 적재(Iceberg·Nessie 브랜치 기반 bronze → silver → gold, 품질 게이트 통과 시 main 머지) → 표준화(FHIR 서버·용어 서버·DICOM·OMOP CDM) → 거버넌스(카탈로그·계보·RBAC·비식별화·감사) → AI 활용(벡터 검색·모델 레지스트리)의 전 구간을 컨테이너로 구성해 실제 동작을 검증했습니다.",
-        "관리자용 콘솔을 함께 개발해 서비스 상태, 데이터 흐름, 품질 검사 결과와 적재 이력을 대시보드에서 확인하고, 환자 통합 조회·케이스 검색 등 활용 관점 화면까지 시연할 수 있도록 준비했습니다."
-      ],
+        "기존 데이터 이관·모니터링 경험을 바탕으로 의료원 환경에 적용 가능한 On-Premise 기반의 데이터레이크 아키텍처를 설계하고, 오픈소스를 활용해 실제 동작하는 내부 PoC를 구축했습니다. 또한 데이터 흐름과 서비스 상태를 확인할 수 있는 관리 콘솔을 개발해 제안 시연 환경을 구성했습니다.",
       images: [
         { src: "assets/images/projects/datalake-poc-1.jpg", alt: "데이터레이크 PoC 콘솔 대시보드", caption: "PoC 콘솔 대시보드 — 16개 서비스 상태, Iceberg 테이블(bronze / silver / gold / deid), 품질 검사 결과, 수집 → Lakehouse → 표준화 → 거버넌스 → AI로 이어지는 데이터 흐름과 최근 적재 이력" }
       ],
       role: [
-        "수집·적재·표준화·거버넌스·AI 활용 계층으로 나눈 오픈소스 기반 데이터레이크 아키텍처 설계",
-        "NiFi·Kafka·Flink, MinIO·Iceberg·Nessie·Trino·Dremio, HAPI FHIR·Terminology·Orthanc, OpenMetadata·Keycloak·OpenSearch, Milvus·MLflow 등 16개 서비스 컨테이너 구성 및 연동",
-        "브랜치 기반 bronze → silver → gold 적재 파이프라인과 품질 게이트(DQ 검사) 통과 시 main 머지 흐름 구현",
-        "서비스 상태·데이터 흐름·적재 이력·품질 검사 결과를 보여 주는 콘솔 대시보드와 환자 통합 조회·케이스 검색 화면 개발",
-        "제안서에 담을 아키텍처·기대 효과 정리를 위한 시연 시나리오 준비"
+        "데이터 수집·적재·표준화·거버넌스·AI 활용을 고려한 데이터레이크 아키텍처 설계",
+        "오픈소스 기반 데이터 수집 및 Lakehouse 환경 구축",
+        "데이터 품질 관리와 표준화, 접근제어 등 데이터 거버넌스 구성",
+        "데이터 흐름·서비스 상태·적재 이력을 확인할 수 있는 관리 콘솔 개발",
+        "제안서 및 시연을 위한 PoC 환경과 시나리오 구성"
       ],
       tech: ["Apache Iceberg", "Nessie", "Trino", "Dremio", "Apache NiFi", "Kafka", "Flink", "MinIO", "HAPI FHIR", "Orthanc", "OMOP CDM", "OpenMetadata", "Keycloak", "OpenSearch", "Milvus", "MLflow", "Docker"],
       highlights: [
-        "데이터 수집부터 AI 활용까지 전 구간이 실제로 동작하는 시범 환경을 구축해 제안의 실현 가능성을 검증",
-        "브랜치·품질 게이트 기반 적재 구조로 데이터 품질과 계보 관리를 설계 단계부터 반영"
+        "데이터 수집부터 AI 활용까지 연결되는 데이터레이크 구축 방향을 가상 데이터 기반으로 검증",
+        "아키텍처 설계 및 PoC 구축을 직접 수행하며 제안 역량 확보"
       ]
     },
     {
