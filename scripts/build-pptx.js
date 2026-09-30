@@ -2,7 +2,7 @@
 /* Builds assets/Dongsu_Park_Portfolio.pptx from assets/js/data.js with pptxgenjs.
  *   npm install pptxgenjs   (once)
  *   node scripts/build-pptx.js
- * Slides: cover · About · Career(기관별) · 프로젝트 그룹 표지(과업 2개 이상) · 과업당 1장
+ * Slides: cover · About · Career(기관별) · 프로젝트 그룹 표지 · 과업당 1장
  */
 const pptxgen = require("pptxgenjs");
 const fs = require("fs");
@@ -142,14 +142,14 @@ D.groups.forEach((g, gi) => {
   const orgs = Array.from(new Set(ps.map((p) => D.orgs[p.org] || p.org)));
   const idx = String(gi + 1).padStart(2, "0");
 
-  if (ps.length > 1) {
+  {
     const s = pres.addSlide(); s.background = { color: C.navy };
     T(s, "PROJECT", { x: M, y: 1.3, w: 6, h: 0.35, fontSize: 12, bold: true, color: C.accent, charSpacing: 4 });
     T(s, idx, { x: M, y: 1.7, w: 3, h: 1.3, fontSize: 72, bold: true, color: C.white });
     const tpt = g.title.length > 26 ? 26 : 30;
     const th = lines(g.title, tpt, 11.5) * lineH(tpt, 1.25) + 0.1;
     T(s, g.title, { x: M, y: 3.05, w: 11.5, h: th, fontSize: tpt, bold: true, color: C.white });
-    T(s, `${orgs.join(" · ")}   |   ${periodRange(ps)}   |   ${ps.length}개 과업`, { x: M, y: 3.15 + th, w: 11, h: 0.35, fontSize: 13, color: C.iceOnDark });
+    T(s, [orgs.join(" · "), periodRange(ps), ps.length > 1 ? `${ps.length}개 과업` : ""].filter(Boolean).join("   |   "), { x: M, y: 3.15 + th, w: 11, h: 0.35, fontSize: 13, color: C.iceOnDark });
     T(s, [{ text: "요약  ", options: { bold: true, color: C.accent } }, { text: g.plain, options: { color: C.white } }], { x: M, y: 3.75 + th, w: 11, h: 1.6, fontSize: 14, lineSpacingMultiple: 1.4 });
     // step list on the right? keep list of project titles
     footer(s, true); pageNum(s, true);
