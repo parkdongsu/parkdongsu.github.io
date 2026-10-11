@@ -223,15 +223,14 @@ ul, ol { margin: 0; padding: 0; }
 .chip__count { opacity: 0.6; font-weight: 500; margin-left: 4px; font-size: 12.5px; }
 
 /* ---------- Project stories ---------- */
-.stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.stories { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
 .story {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   box-shadow: var(--shadow); overflow: hidden; animation: rise 0.35s ease both;
 }
 @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-.story__head { display: flex; gap: 16px; padding: 22px 22px 18px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
-.story__head { border-bottom: 0; height: 100%; }
-.story__foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 14px; }
+.story__head { display: flex; gap: 16px; padding: 22px 22px 20px; background: var(--surface-2); height: 100%; box-sizing: border-box; }
+.story__foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 16px; }
 .story__thumb { width: 160px; aspect-ratio: 16 / 9; object-fit: cover; object-position: top left; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); }
 .story__pages { margin-left: 8px; padding-left: 8px; border-left: 1px solid rgba(255,255,255,0.4); font-family: var(--mono); font-weight: 600; font-size: 12px; }
 .modal__pos { font-family: var(--mono); font-size: 13px; color: var(--text-3); align-self: center; }
@@ -242,7 +241,7 @@ ul, ol { margin: 0; padding: 0; }
 }
 .story__more:hover, .story__more:focus-visible { filter: brightness(1.08); transform: translateY(-1px); outline: none; }
 .story__index { font-family: var(--mono); font-size: 26px; font-weight: 800; color: var(--accent); line-height: 1; padding-top: 4px; min-width: 44px; }
-.story__headbody { min-width: 0; flex: 1; }
+.story__headbody { min-width: 0; flex: 1; display: flex; flex-direction: column; }
 .story__meta { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-size: 13px; }
 .story__org { font-weight: 700; color: var(--accent-text); }
 .story__period { font-family: var(--mono); color: var(--text-3); }
